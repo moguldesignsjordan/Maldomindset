@@ -47,6 +47,21 @@ export default function Home({ navigateToView }) {
         </div>
       </section>
 
+      {/* Video Section */}
+      <section className="video-section">
+        <div className="video-container glass-card">
+          <div className="video-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/KwdXk5LH6po" 
+              title="Baldo Mindset 90-Day Challenge Blueprint" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
       {/* Portal Navigation Dashboard */}
       <section className="section home-portal-section">
         <div className="section-header">

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { 
-  Sparkles, 
   ArrowRight, 
   Zap, 
   BrainCircuit, 
@@ -21,10 +20,6 @@ export default function Home({ navigateToView }) {
       {/* Hero Section */}
       <section id="home" className="hero-section">
         <div className="hero-content">
-          <div className="badge-glow">
-            <Sparkles size={14} className="badge-icon" />
-            <span>Forge Unbreakable Psychology</span>
-          </div>
           <h1 className="hero-title">
             Master Your Mind.<br />
             <span className="gradient-text">Architect Your Legacy.</span>

@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { 
-  ArrowRight, 
-  Zap, 
-  BrainCircuit, 
-  Target, 
-  ChevronRight 
+import {
+  ArrowRight,
+  Zap,
+  BrainCircuit,
+  Target,
+  ChevronRight
 } from 'lucide-react';
 
 export default function Home({ navigateToView }) {
@@ -28,16 +28,16 @@ export default function Home({ navigateToView }) {
             MaldoMindset provides a systematic framework to break mental plateaus, build elite habits, and construct the discipline required for high-performance self-mastery.
           </p>
           <div className="hero-actions">
-            <button 
-              onClick={() => navigateToView('assessment')} 
+            <button
+              onClick={() => navigateToView('assessment')}
               className="primary-btn"
               id="hero-assessment-cta"
             >
               Take Free Assessment
               <ArrowRight size={16} />
             </button>
-            <button 
-              onClick={() => navigateToView('story')} 
+            <button
+              onClick={() => navigateToView('story')}
               className="secondary-btn"
               id="hero-story-cta"
             >
@@ -47,20 +47,6 @@ export default function Home({ navigateToView }) {
         </div>
       </section>
 
-      {/* Video Section */}
-      <section className="video-section">
-        <div className="video-container glass-card">
-          <div className="video-wrapper">
-            <iframe 
-              src="https://www.youtube.com/embed/KwdXk5LH6po" 
-              title="Baldo Mindset 90-Day Challenge Blueprint" 
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-      </section>
 
       {/* Portal Navigation Dashboard */}
       <section className="section home-portal-section">
@@ -71,7 +57,7 @@ export default function Home({ navigateToView }) {
             Select a protocol below to explore our core training areas, take the performance audit, or begin enrollment.
           </p>
         </div>
-        
+
         <div className="home-portal-grid">
           <div className="portal-card glass-card" onClick={() => navigateToView('academy')}>
             <div className="portal-card-badge">PROGRAM</div>
@@ -111,6 +97,21 @@ export default function Home({ navigateToView }) {
         </div>
       </section>
 
+      {/* Video Section */}
+      <section className="video-section">
+        <div className="video-container glass-card">
+          <div className="video-wrapper">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/KwdXk5LH6po"
+              title="Baldo Mindset 90-Day Challenge Blueprint"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
       {/* Academy CTA Section */}
       <section className="section academy-cta-section">
         <div className="cta-glass-box glass-card">
@@ -121,8 +122,8 @@ export default function Home({ navigateToView }) {
             <p className="cta-description">
               Eliminate vices, build military-grade discipline, reprogram your psychology, and construct a highly profitable personal brand from scratch.
             </p>
-            <button 
-              onClick={() => navigateToView('academy')} 
+            <button
+              onClick={() => navigateToView('academy')}
               className="primary-btn cta-btn-large"
               id="home-academy-cta-btn"
             >
@@ -168,8 +169,8 @@ export default function Home({ navigateToView }) {
           ].map((faq, index) => {
             const isOpen = activeFaqIndex === index;
             return (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`faq-item glass-card ${isOpen ? 'open' : ''}`}
                 onClick={() => toggleFaq(index)}
               >

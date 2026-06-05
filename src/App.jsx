@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BrainCircuit } from 'lucide-react';
 import './App.css';
+import mdaLogo from './assets/mdalogo.png';
 
 // Import Page Components
 import Home from './pages/Home';
@@ -76,6 +77,13 @@ function App() {
           </div>
           <div className="footer-bottom">
             <p>&copy; {new Date().getFullYear()} MaldoMindset Academy. All rights reserved.</p>
+            <div className="mogul-tag">
+              <span>Created with <span className="heart">❤️</span> by</span>
+              <a href="https://moguldesignagency.com/" target="_blank" rel="noopener noreferrer" className="mogul-badge">
+                <img src={mdaLogo} alt="Mogul Design Agency Logo" className="mogul-logo-img" />
+                <span className="mogul-text">MOGUL DESIGN AGENCY</span>
+              </a>
+            </div>
           </div>
         </div>
       </footer>

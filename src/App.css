@@ -1000,7 +1000,7 @@
 .footer {
   border-top: 1px solid var(--border-color);
   background: rgba(8, 9, 13, 0.9);
-  padding: 60px 24px 40px;
+  padding: 80px 24px 60px;
 }
 
 .footer-content {
@@ -1057,13 +1057,19 @@
 
 .footer-bottom {
   border-top: 1px solid var(--border-color);
-  padding-top: 24px;
+  padding-top: 28px;
+  margin-top: 40px;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer-bottom p {
   font-size: 12px;
   color: var(--text-muted);
+  margin: 0;
 }
 
 /* Keyframes & Animations */
@@ -2266,5 +2272,80 @@
     border-radius: 8px;
   }
 }
+
+/* Mogul Design Tag */
+.mogul-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+
+.mogul-tag .heart {
+  color: #ef4444;
+  margin: 0 2px;
+  display: inline-block;
+  animation: heartbeat 1.5s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.mogul-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 10, 25, 0.45); /* Translucent dark purple background */
+  border: 1px solid rgba(244, 114, 182, 0.18); /* Soft rose border */
+  padding: 7px 18px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.mogul-badge:hover {
+  background: rgba(244, 114, 182, 0.08);
+  border-color: rgba(244, 114, 182, 0.5);
+  box-shadow: 0 0 20px rgba(244, 114, 182, 0.2);
+  transform: translateY(-2px);
+}
+
+.mogul-logo-img {
+  height: 18px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.mogul-text {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #fda4af; /* Soft rose text */
+  transition: color var(--transition-fast);
+}
+
+.mogul-badge:hover .mogul-text {
+  color: #f472b6; /* Brighter pink on hover */
+}
+
+@media (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
 
 

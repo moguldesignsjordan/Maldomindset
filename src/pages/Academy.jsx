@@ -7,7 +7,9 @@ import {
   RefreshCw 
 } from 'lucide-react';
 
-export default function Academy({ navigateToView, setCheckoutForm }) {
+import { TRANSLATIONS } from '../constants/translations';
+
+export default function Academy({ navigateToView, setCheckoutForm, language = 'en' }) {
   // State for Contact / Application Form
   const [formData, setFormData] = useState({
     name: '',
@@ -59,49 +61,33 @@ export default function Academy({ navigateToView, setCheckoutForm }) {
     }
   };
 
+  const t = TRANSLATIONS[language];
+
   return (
     <div className="academy-page-wrapper">
       <section id="academy" className="section academy-page-section">
         <div className="section-header">
-          <span className="section-subtitle">The Academy</span>
-          <h2 className="section-title">90-Day Challenge</h2>
+          <span className="section-subtitle">{t.academySubtitle}</span>
+          <h2 className="section-title">{t.academyTitle}</h2>
           <p className="section-desc">
-            An elite, structured accelerator designed to help you break plateaus, reprogram your psychology, and build physical and financial leverage.
+            {t.academyDesc}
           </p>
         </div>
 
         <div className="academy-grid">
           {/* Left Panel - What you will learn */}
           <div className="academy-learn-card glass-card">
-            <h3>Create The Life You Desire</h3>
+            <h3>{t.learnHeader}</h3>
             <p className="academy-lead-text">
-              Are you tired of feeling like you have potential but aren't making the progress you want? Over these 90 days, you will learn to:
+              {t.learnLead}
             </p>
             <ul className="academy-benefits-list">
-              <li>
-                <CheckCircle size={18} className="benefit-icon" />
-                <span><strong>Eliminate vices & habits:</strong> Clear the distractions and bad habits that hold back your growth.</span>
-              </li>
-              <li>
-                <CheckCircle size={18} className="benefit-icon" />
-                <span><strong>Develop real discipline:</strong> Replace temporary motivation with consistent execution structures.</span>
-              </li>
-              <li>
-                <CheckCircle size={18} className="benefit-icon" />
-                <span><strong>Reprogram mindset:</strong> Replace self-doubt with psychological conditioning for success.</span>
-              </li>
-              <li>
-                <CheckCircle size={18} className="benefit-icon" />
-                <span><strong>Strengthen multi-dimensionally:</strong> Excel physically, mentally, and spiritually.</span>
-              </li>
-              <li>
-                <CheckCircle size={18} className="benefit-icon" />
-                <span><strong>Scale online business:</strong> Turn passiveness into passion and monetize assets online.</span>
-              </li>
-              <li>
-                <CheckCircle size={18} className="benefit-icon" />
-                <span><strong>Authentic personal branding:</strong> Build a profitable brand and become the person you admire.</span>
-              </li>
+              {t.benefits.map((benefit, index) => (
+                <li key={index}>
+                  <CheckCircle size={18} className="benefit-icon" />
+                  <span><strong>{benefit.bold}</strong> {benefit.normal}</span>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -109,28 +95,27 @@ export default function Academy({ navigateToView, setCheckoutForm }) {
           <div className="academy-pricing-card glass-card">
             <div className="limited-spots-badge">
               <Sparkles size={14} className="badge-sparkle" />
-              <span>⚠️ Spots are limited</span>
+              <span>⚠️ {t.spotsBadge}</span>
             </div>
             
             <div className="academy-includes">
-              <h4>What will you get?</h4>
+              <h4>{t.pricingHeader}</h4>
               <ul className="includes-list">
-                <li><span>🔥</span> Weekly LIVE MENTORSHIP with Baldo Mindset</li>
-                <li><span>🔥</span> Access to a private growth & support community</li>
-                <li><span>🔥</span> Exclusive step-by-step masterclasses</li>
-                <li><span>🔥</span> My complete blueprint to accelerate your results</li>
+                {t.pricingIncludes.map((inc, index) => (
+                  <li key={index}><span>🔥</span> {inc}</li>
+                ))}
               </ul>
             </div>
 
             <div className="pricing-divider"></div>
 
             <div className="pricing-container">
-              <span className="pricing-label">INVESTMENT</span>
+              <span className="pricing-label">{t.investmentLabel}</span>
               <div className="pricing-digits">
                 <span className="current-price">$250 <span className="currency">USD</span></span>
                 <span className="original-price">$1,000 USD</span>
               </div>
-              <p className="pricing-guarantee">Today you can get full access to the 90-day program. Limited spots.</p>
+              <p className="pricing-guarantee">{t.pricingGuarantee}</p>
             </div>
 
             <button 
@@ -138,7 +123,7 @@ export default function Academy({ navigateToView, setCheckoutForm }) {
               className="primary-btn academy-cta-btn"
               id="academy-enroll-cta"
             >
-              Apply For The Challenge
+              {t.applyCtaBtn}
               <ArrowRight size={16} />
             </button>
           </div>
@@ -149,24 +134,24 @@ export default function Academy({ navigateToView, setCheckoutForm }) {
       <section id="apply" className="section contact-section">
         <div className="contact-grid">
           <div className="contact-info">
-            <span className="section-subtitle">Direct Access</span>
-            <h2 className="section-title">Apply For A Free Mindset Strategy Session</h2>
+            <span className="section-subtitle">{t.formSubtitle}</span>
+            <h2 className="section-title">{t.formTitle}</h2>
             <p className="contact-desc">
-              We work selectively with driven individuals looking to build systems, streamline execution, and optimize performance.
+              {t.formDesc}
             </p>
             <div className="features-list">
               <div className="feature-item">
                 <CheckCircle size={18} className="feat-check" />
                 <div>
-                  <h6>1-on-1 Bottleneck Identification</h6>
-                  <p>Uncover the subconscious patterns slowing you down.</p>
+                  <h6>{t.formFeat1Title}</h6>
+                  <p>{t.formFeat1Desc}</p>
                 </div>
               </div>
               <div className="feature-item">
                 <CheckCircle size={18} className="feat-check" />
                 <div>
-                  <h6>Tailored Action Blueprints</h6>
-                  <p>Get a custom roadmap matching your scores and goals.</p>
+                  <h6>{t.formFeat2Title}</h6>
+                  <p>{t.formFeat2Desc}</p>
                 </div>
               </div>
             </div>
@@ -176,60 +161,59 @@ export default function Academy({ navigateToView, setCheckoutForm }) {
             {submitSuccess ? (
               <div className="form-success-card" id="application-success">
                 <CheckCircle size={48} className="success-icon" />
-                <h3>Application Submitted</h3>
-                <p>Redirecting you to checkout to finalize your academy enrollment details...</p>
+                <h3>{t.successFormTitle}</h3>
+                <p>{t.successFormDesc}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmitForm} className="contact-form" id="consultation-form">
                 <div className="input-group">
-                  <label htmlFor="name-input">Full Name</label>
+                  <label htmlFor="name-input">{t.fieldName}</label>
                   <input
                     type="text"
                     id="name-input"
                     name="name"
                     value={formData.name}
                     onChange={handleFormChange}
-                    placeholder="Enter your name"
+                    placeholder={t.placeholderName}
                     required
                   />
                 </div>
 
                 <div className="input-group">
-                  <label htmlFor="email-input">Email Address</label>
+                  <label htmlFor="email-input">{t.fieldEmail}</label>
                   <input
                     type="email"
                     id="email-input"
                     name="email"
                     value={formData.email}
                     onChange={handleFormChange}
-                    placeholder="Enter your email"
+                    placeholder={t.placeholderEmail}
                     required
                   />
                 </div>
 
                 <div className="input-group">
-                  <label htmlFor="focus-input">Primary Focus Area</label>
+                  <label htmlFor="focus-input">{t.fieldFocus}</label>
                   <select
                     id="focus-input"
                     name="focus"
                     value={formData.focus}
                     onChange={handleFormChange}
                   >
-                    <option value="discipline">Habit Optimization & Discipline</option>
-                    <option value="resilience">Mental Fortitude & Stress</option>
-                    <option value="focus">Strategic Vision & Execution</option>
-                    <option value="mastery">Emotional Self-Mastery</option>
+                    {t.focusOpts.map((opt) => (
+                      <option key={opt.val} value={opt.val}>{opt.label}</option>
+                    ))}
                   </select>
                 </div>
 
                 <div className="input-group">
-                  <label htmlFor="blocker-input">What is your current #1 mindset or growth bottleneck?</label>
+                  <label htmlFor="blocker-input">{t.fieldBlocker}</label>
                   <textarea
                     id="blocker-input"
                     name="blocker"
                     value={formData.blocker}
                     onChange={handleFormChange}
-                    placeholder="e.g. Consistency in stress, lack of clear goals, procrastination..."
+                    placeholder={t.placeholderBlocker}
                     rows={4}
                     required
                   ></textarea>
@@ -244,11 +228,11 @@ export default function Academy({ navigateToView, setCheckoutForm }) {
                   {isSubmitting ? (
                     <>
                       <RefreshCw className="spinner-icon" size={16} />
-                      Processing Application...
+                      {t.btnSubmitting}
                     </>
                   ) : (
                     <>
-                      Submit Application
+                      {t.btnSubmit}
                       <Send size={16} />
                     </>
                   )}
@@ -261,7 +245,7 @@ export default function Academy({ navigateToView, setCheckoutForm }) {
       
       <div className="page-back-nav flex-center" style={{ paddingBottom: '60px' }}>
         <button onClick={() => navigateToView('home')} className="secondary-btn go-back-home-btn">
-          ← Back to Home
+          {t.backToHome}
         </button>
       </div>
     </div>

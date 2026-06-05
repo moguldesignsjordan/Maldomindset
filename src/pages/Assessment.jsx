@@ -5,13 +5,17 @@ import {
   Sparkles, 
   RefreshCw 
 } from 'lucide-react';
-import { ASSESSMENT_QUESTIONS } from '../constants/data';
 
-export default function Assessment({ navigateToView }) {
+import { TRANSLATIONS, LOCALIZED_QUESTIONS } from '../constants/translations';
+
+export default function Assessment({ navigateToView, language = 'en' }) {
   // State for Mindset Assessment
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [assessmentResult, setAssessmentResult] = useState(null);
+
+  const activeQuestions = LOCALIZED_QUESTIONS[language] || LOCALIZED_QUESTIONS.en;
+  const t = TRANSLATIONS[language];
 
   const handleSelectOption = (questionId, optionScore) => {
     setSelectedAnswers(prev => ({
@@ -21,7 +25,7 @@ export default function Assessment({ navigateToView }) {
   };
 
   const handleNextQuestion = () => {
-    if (currentQuestionIndex < ASSESSMENT_QUESTIONS.length - 1) {
+    if (currentQuestionIndex < activeQuestions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
     } else {
       calculateResult();
@@ -30,30 +34,34 @@ export default function Assessment({ navigateToView }) {
 
   const calculateResult = () => {
     const totalScore = Object.values(selectedAnswers).reduce((sum, score) => sum + score, 0);
-    let archetype;
-    let description;
-    let recommendation;
+    let archKey;
 
     if (totalScore <= 7) {
-      archetype = "The Developing Catalyst";
-      description = "You are at the entry point of your mindset transformation. You have potential, but internal blocks, reactive habits, and self-doubt currently limit your trajectory.";
-      recommendation = "Focus on small, daily microscopic habits. Start by building a morning routine of just 15 minutes of structured focus, and practice reframing failure as a lesson rather than a judgment.";
+      archKey = "reactant";
     } else if (totalScore <= 11) {
-      archetype = "The Resilient Performer";
-      description = "You possess strong drive and handle obstacles reasonably well. However, consistency under high stress remains a bottleneck, and your goals sometimes lack systems.";
-      recommendation = "Establish hard boundaries. Create a weekly review session to align your micro-actions with your macro-vision. Introduce structured discipline routines that don't depend on raw motivation.";
+      archKey = "visionary";
     } else {
-      archetype = "The Growth Architect";
-      description = "You have developed an advanced growth mindset. You thrive on adversity, construct systematic habits, and view challenges as raw material for ascension.";
-      recommendation = "Optimize for high leverage and flow states. Shift focus towards extreme mental clarity, delegation, and building legacy systems. Push your boundaries into elite-level cognitive performance.";
+      archKey = "executioner";
     }
+
+    const archObj = t.archetypes[archKey];
 
     setAssessmentResult({
       score: totalScore,
-      maxScore: ASSESSMENT_QUESTIONS.length * 3,
-      archetype,
-      description,
-      recommendation
+      maxScore: activeQuestions.length * 3,
+      archetype: archObj.name,
+      description: archObj.desc,
+      recommendation: language === 'es'
+        ? (totalScore <= 7 
+            ? "Enfócate en hábitos diarios microscópicos. Comienza construyendo una rutina matutina de solo 15 minutos de enfoque estructurado, y practica reformular el fracaso como una lección." 
+            : totalScore <= 11 
+              ? "Establece límites firmes. Crea una sesión de revisión semanal para alinear tus micro-acciones con tu macro-visión. Introduce rutinas de disciplina estructurada." 
+              : "Optimiza para un alto apalancamiento y estados de flujo. Cambia el enfoque hacia una claridad mental extrema, delegación y construcción de sistemas heredados.")
+        : (totalScore <= 7 
+            ? "Focus on small, daily microscopic habits. Start by building a morning routine of just 15 minutes of structured focus, and practice reframing failure as a lesson." 
+            : totalScore <= 11 
+              ? "Establish hard boundaries. Create a weekly review session to align your micro-actions with your macro-vision. Introduce structured discipline routines." 
+              : "Optimize for high leverage and flow states. Shift focus towards extreme mental clarity, delegation, and building legacy systems.")
     });
   };
 
@@ -66,10 +74,10 @@ export default function Assessment({ navigateToView }) {
   return (
     <section id="assessment" className="section assessment-page-section">
       <div className="section-header">
-        <span className="section-subtitle">Interactive Audit</span>
-        <h2 className="section-title">Assess Your Current Mindset</h2>
+        <span className="section-subtitle">{t.assessSubtitle}</span>
+        <h2 className="section-title">{t.assessTitle}</h2>
         <p className="section-desc">
-          Discover your psychological bottlenecks. Answer these questions honestly to discover your mindset archetype and receive actionable feedback.
+          {t.assessDesc}
         </p>
       </div>
 
@@ -79,16 +87,18 @@ export default function Assessment({ navigateToView }) {
             <div className="assessment-progress">
               <div 
                 className="progress-bar-fill" 
-                style={{ width: `${((currentQuestionIndex + 1) / ASSESSMENT_QUESTIONS.length) * 100}%` }}
+                style={{ width: `${((currentQuestionIndex + 1) / activeQuestions.length) * 100}%` }}
               ></div>
-              <span className="progress-text">Question {currentQuestionIndex + 1} of {ASSESSMENT_QUESTIONS.length}</span>
+              <span className="progress-text">
+                {t.questionLabel} {currentQuestionIndex + 1} {t.ofLabel} {activeQuestions.length}
+              </span>
             </div>
 
-            <h3 className="question-text">{ASSESSMENT_QUESTIONS[currentQuestionIndex].question}</h3>
+            <h3 className="question-text">{activeQuestions[currentQuestionIndex].question}</h3>
 
             <div className="options-list">
-              {ASSESSMENT_QUESTIONS[currentQuestionIndex].options.map((option, idx) => {
-                const qId = ASSESSMENT_QUESTIONS[currentQuestionIndex].id;
+              {activeQuestions[currentQuestionIndex].options.map((option, idx) => {
+                const qId = activeQuestions[currentQuestionIndex].id;
                 const isSelected = selectedAnswers[qId] === option.score;
                 return (
                   <button
@@ -107,11 +117,13 @@ export default function Assessment({ navigateToView }) {
             <div className="assessment-nav">
               <button
                 onClick={handleNextQuestion}
-                disabled={selectedAnswers[ASSESSMENT_QUESTIONS[currentQuestionIndex].id] === undefined}
+                disabled={selectedAnswers[activeQuestions[currentQuestionIndex].id] === undefined}
                 className="assessment-next-btn"
                 id="quiz-next-btn"
               >
-                {currentQuestionIndex === ASSESSMENT_QUESTIONS.length - 1 ? 'Analyze Results' : 'Next Question'}
+                {currentQuestionIndex === activeQuestions.length - 1 
+                  ? (language === 'es' ? 'Analizar Resultados' : 'Analyze Results') 
+                  : (language === 'es' ? 'Siguiente Pregunta' : 'Next Question')}
                 <ChevronRight size={16} />
               </button>
             </div>
@@ -121,40 +133,54 @@ export default function Assessment({ navigateToView }) {
             <div className="result-header">
               <div className="result-badge">
                 <TrendingUp size={20} />
-                <span>Audit Complete</span>
+                <span>{language === 'es' ? 'Auditoría Completada' : 'Audit Complete'}</span>
               </div>
-              <h3>Your Archetype:</h3>
+              <h3>{t.archetypeLabel}</h3>
               <h4 className="archetype-title gradient-text">{assessmentResult.archetype}</h4>
             </div>
 
             <div className="result-body">
               <div className="score-summary">
                 <span className="score-value">{assessmentResult.score}</span>
-                <span className="score-label">out of {assessmentResult.maxScore} points</span>
+                <span className="score-label">
+                  {language === 'es' ? `de ${assessmentResult.maxScore} puntos` : `out of ${assessmentResult.maxScore} points`}
+                </span>
               </div>
               <p className="archetype-desc">{assessmentResult.description}</p>
               
               <div className="recommendation-box">
-                <h5><Sparkles size={16} className="rec-icon" /> Actionable Recommendation:</h5>
+                <h5><Sparkles size={16} className="rec-icon" /> {language === 'es' ? 'Recomendación Práctica:' : 'Actionable Recommendation:'}</h5>
                 <p>{assessmentResult.recommendation}</p>
               </div>
             </div>
 
-            <button 
-              onClick={resetAssessment} 
-              className="restart-btn"
-              id="quiz-restart-btn"
-            >
-              <RefreshCw size={14} />
-              Retake Assessment
-            </button>
+            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '24px' }}>
+              <button 
+                onClick={resetAssessment} 
+                className="restart-btn"
+                id="quiz-restart-btn"
+                style={{ margin: 0 }}
+              >
+                <RefreshCw size={14} />
+                {t.btnRestart}
+              </button>
+              <button 
+                onClick={() => navigateToView('academy')} 
+                className="primary-btn"
+                id="quiz-checkout-cta"
+                style={{ padding: '10px 20px', fontSize: '14px', borderRadius: '8px' }}
+              >
+                {t.assessCheckoutCTA}
+                <ChevronRight size={14} />
+              </button>
+            </div>
           </div>
         )}
       </div>
       
       <div className="page-back-nav flex-center" style={{ marginTop: '40px' }}>
         <button onClick={() => navigateToView('home')} className="secondary-btn go-back-home-btn">
-          ← Back to Home
+          {t.backToHome}
         </button>
       </div>
     </section>

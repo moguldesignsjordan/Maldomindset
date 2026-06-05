@@ -1,13 +1,16 @@
 import founderImg from '../assets/founder.png';
+import { TRANSLATIONS } from '../constants/translations';
 
-export default function Story({ navigateToView }) {
+export default function Story({ navigateToView, language = 'en' }) {
+  const t = TRANSLATIONS[language];
+
   return (
     <section id="story" className="section founder-page-section">
       <div className="section-header">
-        <span className="section-subtitle">About me</span>
-        <h2 className="section-title">Meet Baldo Mindset</h2>
+        <span className="section-subtitle">{t.storySubtitle}</span>
+        <h2 className="section-title">{t.storyTitle}</h2>
         <p className="section-desc">
-          The journey from dropping out and hitting absolute rock bottom to building an elite performance lifestyle.
+          {t.storyDesc}
         </p>
       </div>
 
@@ -22,27 +25,27 @@ export default function Story({ navigateToView }) {
 
         {/* Right Side: Story Card */}
         <div className="founder-story-card glass-card">
-          <h3 className="founder-name">Liss Almonte</h3>
-          <span className="founder-title">Founder of MaldoMindset</span>
+          <h3 className="founder-name">{t.founderName}</h3>
+          <span className="founder-title">{t.founderTitle}</span>
 
           <p className="founder-narrative">
-            In 2020, I decided to burn the ships to leave no turning back and dropped out of school during my final year. I wanted to forge my own path.
+            {t.bioPart1}
           </p>
 
           <div className="founder-quote">
             <p>
-              "By 2025, I had hit rock bottom: trapped in vices like marijuana, pills, Molly, alcohol, and distractions. On top of that, I was over a million in debt and going through a divorce that completely shattered me."
+              {t.bioQuote}
             </p>
           </div>
 
           <p className="founder-narrative">
-            Then I decided to change everything. I kicked my vices, completely reprogrammed my mindset, and rebuilt my psychology from scratch. Today, at 26, I’m living the life I once thought was impossible and have built the business of my dreams.
+            {t.bioPart2}
           </p>
 
           <div className="founder-mission-box">
-            <h4>My Purpose Is Clear:</h4>
+            <h4>{t.missionHeader}</h4>
             <p>
-              To help you do the same break free from your vices, wake up, and build the best version of yourself. I want to show you that it is possible to quit your job, build your personal brand from the ground up, and achieve high-performance self-mastery.
+              {t.missionText}
             </p>
           </div>
         </div>
@@ -50,7 +53,7 @@ export default function Story({ navigateToView }) {
 
       <div className="page-back-nav flex-center">
         <button onClick={() => navigateToView('home')} className="secondary-btn go-back-home-btn">
-          ← Back to Home
+          {t.backToHome}
         </button>
       </div>
     </section>

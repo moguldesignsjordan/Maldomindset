@@ -2347,5 +2347,202 @@
   }
 }
 
+/* ==========================================================================
+   Premium Animation & Transition Enhancements
+   ========================================================================== */
+
+/* Page View Transitions */
+.page-transition {
+  animation: pageFadeInSlideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  width: 100%;
+}
+
+@keyframes pageFadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button Shimmer Effect */
+.primary-btn,
+.cta-nav-btn,
+.submit-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-btn::after,
+.cta-nav-btn::after,
+.submit-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+}
+
+.primary-btn:hover::after,
+.cta-nav-btn:hover::after,
+.submit-btn:not(:disabled):hover::after {
+  animation: shimmer-sweep 1s ease-in-out forwards;
+}
+
+@keyframes shimmer-sweep {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+/* Entrance Animations helper classes */
+.animate-fade-in {
+  opacity: 0;
+  animation: pageFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slide-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes pageFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Staggered Delay classes */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+/* Micro-animations: Card Hover Icon Shifts */
+.portal-card {
+  transition: all var(--transition-normal);
+}
+
+.portal-card:hover .portal-card-icon {
+  transform: translateY(-4px) scale(1.1);
+  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.6));
+}
+
+.portal-card-icon {
+  transition: transform var(--transition-normal), filter var(--transition-normal);
+}
+
+/* Micro-animations: Benefit item checks hover pop */
+.academy-benefits-list li {
+  transition: transform var(--transition-fast);
+}
+
+.academy-benefits-list li:hover {
+  transform: translateX(4px);
+}
+
+.benefit-icon {
+  transition: transform var(--transition-normal);
+}
+
+.academy-benefits-list li:hover .benefit-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* Micro-animations: Pricing card hover badge animation */
+.academy-pricing-card:hover .limited-spots-badge {
+  animation: badge-bounce 0.5s ease-in-out alternate;
+}
+
+@keyframes badge-bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Boost Quote Card Transition Animation class */
+.boost-quote-card-active {
+  animation: quote-pulse 0.4s ease-out;
+}
+
+@keyframes quote-pulse {
+  0% {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Language Toggle Controls */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  padding: 2px;
+  gap: 2px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lang-btn:hover {
+  color: var(--text-primary);
+}
+
+.lang-btn.active {
+  background: var(--accent-gradient);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(56, 189, 248, 0.3);
+}
+
+@media (max-width: 768px) {
+  .lang-toggle {
+    margin-left: 0;
+    margin-top: 4px;
+  }
+}
+
+
+
 
 

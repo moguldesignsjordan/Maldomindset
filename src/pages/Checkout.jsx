@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { CheckCircle, RefreshCw, Shield } from 'lucide-react';
 
-export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm }) {
+import { TRANSLATIONS } from '../constants/translations';
+
+export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm, language = 'en' }) {
   const [selectedTier, setSelectedTier] = useState('mindset');
   const [isPaying, setIsPaying] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
@@ -33,20 +35,22 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
     navigateToView('home');
   };
 
+  const t = TRANSLATIONS[language];
+
   return (
     <section className="section checkout-section">
       <div className="section-header">
-        <span className="section-subtitle">Enrollment Portal</span>
-        <h2 className="section-title">Complete Your Academy Registration</h2>
+        <span className="section-subtitle">{t.checkoutSubtitle}</span>
+        <h2 className="section-title">{t.checkoutTitle}</h2>
         <p className="section-desc">
-          Select your performance tier and complete your billing setup to gain immediate access to Baldo Mindset's curriculum.
+          {t.checkoutDesc}
         </p>
       </div>
 
       <div className="checkout-grid">
         {/* Left Column: Tier Selection */}
         <div className="checkout-tiers-column">
-          <h3>1. Select Your Program</h3>
+          <h3>{language === 'es' ? '1. Selecciona tu Programa' : '1. Select Your Program'}</h3>
 
           <div className="tiers-selection-list">
             {/* Tier 1 */}
@@ -56,15 +60,25 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
             >
               <div className="tier-card-header">
                 <div className="tier-title-wrap">
-                  <h4>90-Day Mindset & Habits Academy</h4>
-                  <p>Reprogram habits and forge extreme self-discipline.</p>
+                  <h4>{t.billingTier1}</h4>
+                  <p>{t.billingTier1Detail}</p>
                 </div>
-                <span className="tier-price">$250</span>
+                <span className="tier-price">{t.billingTier1Price}</span>
               </div>
               <ul className="tier-features">
-                <li><CheckCircle size={14} className="feat-check" /> 90 Days of Structured Mindset Protocols</li>
-                <li><CheckCircle size={14} className="feat-check" /> Weekly Live Mentorship with Baldo Mindset</li>
-                <li><CheckCircle size={14} className="feat-check" /> Private Growth & Support Community Access</li>
+                {language === 'es' ? (
+                  <>
+                    <li><CheckCircle size={14} className="feat-check" /> 90 Días de protocolos mentales estructurados</li>
+                    <li><CheckCircle size={14} className="feat-check" /> Mentoría semanal en vivo con Baldo Mindset</li>
+                    <li><CheckCircle size={14} className="feat-check" /> Acceso a comunidad privada de crecimiento</li>
+                  </>
+                ) : (
+                  <>
+                    <li><CheckCircle size={14} className="feat-check" /> 90 Days of Structured Mindset Protocols</li>
+                    <li><CheckCircle size={14} className="feat-check" /> Weekly Live Mentorship with Baldo Mindset</li>
+                    <li><CheckCircle size={14} className="feat-check" /> Private Growth & Support Community Access</li>
+                  </>
+                )}
               </ul>
             </div>
 
@@ -75,15 +89,25 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
             >
               <div className="tier-card-header">
                 <div className="tier-title-wrap">
-                  <h4>Personal Brand & Business Accelerator</h4>
-                  <p>Full 90-day mindset + passion business launch plan.</p>
+                  <h4>{language === 'es' ? 'Acelerador de Marca Personal y Negocios' : 'Personal Brand & Business Accelerator'}</h4>
+                  <p>{language === 'es' ? 'Plan de mentalidad de 90 días + lanzamiento de negocio pasional.' : 'Full 90-day mindset + passion business launch plan.'}</p>
                 </div>
                 <span className="tier-price">$450</span>
               </div>
               <ul className="tier-features">
-                <li><CheckCircle size={14} className="feat-check" /> Complete 90-Day Mindset & Habits Academy</li>
-                <li><CheckCircle size={14} className="feat-check" /> Personal Branding Blueprint & Scale Strategy</li>
-                <li><CheckCircle size={14} className="feat-check" /> Passion-to-Income Monetization Step-by-Step</li>
+                {language === 'es' ? (
+                  <>
+                    <li><CheckCircle size={14} className="feat-check" /> Incluye Academia de Mentalidad y Hábitos de 90 días</li>
+                    <li><CheckCircle size={14} className="feat-check" /> Guía completa de marca personal y estrategia de escala</li>
+                    <li><CheckCircle size={14} className="feat-check" /> Monetización paso a paso para pasar de la pasión al ingreso</li>
+                  </>
+                ) : (
+                  <>
+                    <li><CheckCircle size={14} className="feat-check" /> Complete 90-Day Mindset & Habits Academy</li>
+                    <li><CheckCircle size={14} className="feat-check" /> Personal Branding Blueprint & Scale Strategy</li>
+                    <li><CheckCircle size={14} className="feat-check" /> Passion-to-Income Monetization Step-by-Step</li>
+                  </>
+                )}
               </ul>
             </div>
 
@@ -95,17 +119,27 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
               <div className="tier-card-header">
                 <div className="tier-title-wrap">
                   <div className="inner-circle-badge-wrap">
-                    <h4>Elite 1-on-1 Mentorship (Inner Circle)</h4>
+                    <h4>{language === 'es' ? 'Mentoría Élite 1-a-1 (Inner Circle)' : 'Elite 1-on-1 Mentorship (Inner Circle)'}</h4>
                     <span className="popular-badge">ELITE</span>
                   </div>
-                  <p>Maximum direct accountability and custom blueprints.</p>
+                  <p>{language === 'es' ? 'Máxima rendición de cuentas directa y planes personalizados.' : 'Maximum direct accountability and custom blueprints.'}</p>
                 </div>
                 <span className="tier-price">$950</span>
               </div>
               <ul className="tier-features">
-                <li><CheckCircle size={14} className="feat-check" /> Complete Mindset + Business programs</li>
-                <li><CheckCircle size={14} className="feat-check" /> Weekly 1-on-1 Private Mentorship Calls</li>
-                <li><CheckCircle size={14} className="feat-check" /> Direct WhatsApp Access to Baldo Mindset</li>
+                {language === 'es' ? (
+                  <>
+                    <li><CheckCircle size={14} className="feat-check" /> Acceso completo a programas de Mentalidad + Negocio</li>
+                    <li><CheckCircle size={14} className="feat-check" /> Llamadas semanales privadas 1-a-1 de mentoría</li>
+                    <li><CheckCircle size={14} className="feat-check" /> Acceso directo por WhatsApp con Baldo Mindset</li>
+                  </>
+                ) : (
+                  <>
+                    <li><CheckCircle size={14} className="feat-check" /> Complete Mindset + Business programs</li>
+                    <li><CheckCircle size={14} className="feat-check" /> Weekly 1-on-1 Private Mentorship Calls</li>
+                    <li><CheckCircle size={14} className="feat-check" /> Direct WhatsApp Access to Baldo Mindset</li>
+                  </>
+                )}
               </ul>
             </div>
           </div>
@@ -114,7 +148,7 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
         {/* Right Column: Billing Setup */}
         <div className="checkout-billing-column">
           <form onSubmit={handlePaySubmit} className="checkout-billing-form glass-card">
-            <h3>2. Payment Details</h3>
+            <h3>{language === 'es' ? '2. Detalles de Pago' : '2. Payment Details'}</h3>
 
             <div className="payment-method-selector">
               <button
@@ -122,7 +156,7 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
                 className={`method-tab ${checkoutForm.paymentMethod === 'card' ? 'active' : ''}`}
                 onClick={() => setCheckoutForm(prev => ({ ...prev, paymentMethod: 'card' }))}
               >
-                Credit Card
+                {language === 'es' ? 'Tarjeta' : 'Credit Card'}
               </button>
               <button
                 type="button"
@@ -134,7 +168,7 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
             </div>
 
             <div className="input-group">
-              <label htmlFor="checkout-name">Cardholder Name</label>
+              <label htmlFor="checkout-name">{language === 'es' ? 'Nombre del Titular' : 'Cardholder Name'}</label>
               <input
                 type="text"
                 id="checkout-name"
@@ -147,7 +181,7 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
             </div>
 
             <div className="input-group">
-              <label htmlFor="checkout-email">Email Address</label>
+              <label htmlFor="checkout-email">{t.fieldEmail}</label>
               <input
                 type="email"
                 id="checkout-email"
@@ -162,7 +196,7 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
             {checkoutForm.paymentMethod === 'card' ? (
               <>
                 <div className="input-group">
-                  <label htmlFor="checkout-cardNum">Card Number</label>
+                  <label htmlFor="checkout-cardNum">{t.paymentFormCardNum}</label>
                   <input
                     type="text"
                     id="checkout-cardNum"
@@ -177,27 +211,27 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
 
                 <div className="input-row-double">
                   <div className="input-group">
-                    <label htmlFor="checkout-cardExp">Expiration Date</label>
+                    <label htmlFor="checkout-cardExp">{t.paymentFormCardExp}</label>
                     <input
                       type="text"
                       id="checkout-cardExp"
                       name="cardExp"
                       value={checkoutForm.cardExp || ''}
                       onChange={handleCheckoutChange}
-                      placeholder="MM/YY"
+                      placeholder={t.placeholderCardExp}
                       maxLength="5"
                       required
                     />
                   </div>
                   <div className="input-group">
-                    <label htmlFor="checkout-cardCvc">CVC</label>
+                    <label htmlFor="checkout-cardCvc">{t.paymentFormCardCvc}</label>
                     <input
                       type="text"
                       id="checkout-cardCvc"
                       name="cardCvc"
                       value={checkoutForm.cardCvc || ''}
                       onChange={handleCheckoutChange}
-                      placeholder="123"
+                      placeholder={t.placeholderCardCvc}
                       maxLength="4"
                       required
                     />
@@ -206,22 +240,26 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
               </>
             ) : (
               <div className="paypal-instruction-box">
-                <p>You will be redirected to PayPal to complete your payment securely. Click below to continue.</p>
+                <p>
+                  {language === 'es' 
+                    ? 'Serás redirigido a PayPal para completar tu pago de forma segura. Haz clic abajo para continuar.' 
+                    : 'You will be redirected to PayPal to complete your payment securely. Click below to continue.'}
+                </p>
               </div>
             )}
 
             <div className="order-summary-box">
-              <h4>Order Summary</h4>
+              <h4>{t.summaryHeader}</h4>
               <div className="summary-row">
-                <span>Program:</span>
+                <span>{language === 'es' ? 'Programa:' : 'Program:'}</span>
                 <span>
-                  {selectedTier === 'mindset' && '90-Day Mindset & Habits Academy'}
-                  {selectedTier === 'accelerator' && 'Personal Brand & Business Accelerator'}
-                  {selectedTier === 'inner-circle' && 'Elite 1-on-1 Mentorship (Inner Circle)'}
+                  {selectedTier === 'mindset' && t.billingTier1}
+                  {selectedTier === 'accelerator' && (language === 'es' ? 'Acelerador de Marca y Negocios' : 'Personal Brand & Business Accelerator')}
+                  {selectedTier === 'inner-circle' && (language === 'es' ? 'Mentoría Élite 1-a-1 (Inner Circle)' : 'Elite 1-on-1 Mentorship (Inner Circle)')}
                 </span>
               </div>
               <div className="summary-row total-row">
-                <span>Total Due:</span>
+                <span>{language === 'es' ? 'Total a Pagar:' : 'Total Due:'}</span>
                 <span className="summary-total-price">
                   {selectedTier === 'mindset' && '$250 USD'}
                   {selectedTier === 'accelerator' && '$450 USD'}
@@ -239,11 +277,11 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
               {isPaying ? (
                 <>
                   <RefreshCw className="spinner-icon" size={16} />
-                  Processing Payment...
+                  {t.checkoutBtnProcessing}
                 </>
               ) : (
                 <>
-                  Pay & Enroll Now
+                  {language === 'es' ? 'Pagar e Inscribirse' : 'Pay & Enroll Now'}
                   <Shield size={16} />
                 </>
               )}
@@ -257,16 +295,26 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
         <div className="payment-success-overlay" id="checkout-success-modal">
           <div className="payment-success-card glass-card">
             <CheckCircle size={64} className="success-icon" />
-            <h2>Registration Successful!</h2>
-            <p className="success-message-lead">Welcome to the Academy, {checkoutForm.name || 'Champion'}.</p>
-            <p>Your enrollment has been successfully processed for the <strong>
-              {selectedTier === 'mindset' && '90-Day Mindset & Habits Academy'}
-              {selectedTier === 'accelerator' && 'Personal Brand & Business Accelerator'}
-              {selectedTier === 'inner-circle' && 'Elite 1-on-1 Mentorship (Inner Circle)'}
-            </strong>.</p>
-            <p className="success-instructions">We have sent a confirmation email with onboarding instructions and a link to join our private Discord community to <strong>{checkoutForm.email}</strong>.</p>
+            <h2>{t.successPayHeader}</h2>
+            <p className="success-message-lead">
+              {language === 'es' ? `¡Bienvenido a la Academia, ${checkoutForm.name || 'Campeón'}!` : `Welcome to the Academy, ${checkoutForm.name || 'Champion'}.`}
+            </p>
+            <p>
+              {language === 'es' ? 'Tu inscripción ha sido procesada con éxito para ' : 'Your enrollment has been successfully processed for '}
+              <strong>
+                {selectedTier === 'mindset' && t.billingTier1}
+                {selectedTier === 'accelerator' && (language === 'es' ? 'Acelerador de Marca Personal y Negocios' : 'Personal Brand & Business Accelerator')}
+                {selectedTier === 'inner-circle' && (language === 'es' ? 'Mentoría Élite 1-a-1 (Inner Circle)' : 'Elite 1-on-1 Mentorship (Inner Circle)')}
+              </strong>.
+            </p>
+            <p className="success-instructions">
+              {language === 'es'
+                ? `Hemos enviado un correo de confirmación con instrucciones de incorporación y un enlace para unirte a nuestra comunidad privada a `
+                : `We have sent a confirmation email with onboarding instructions and a link to join our private community to `}
+              <strong>{checkoutForm.email}</strong>.
+            </p>
             <button onClick={handleCloseSuccessModal} className="primary-btn close-modal-btn">
-              Go to Dashboard / Home
+              {language === 'es' ? 'Ir al Inicio' : 'Go to Dashboard / Home'}
             </button>
           </div>
         </div>

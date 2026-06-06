@@ -20,38 +20,38 @@ export const TRANSLATIONS = {
     heroDesc: "MaldoMindset provides a systematic framework to break mental plateaus, build elite habits, and construct the discipline required for high-performance self-mastery.",
     heroCtaAssessment: "Take Free Assessment",
     heroCtaStory: "Read My Story",
-    
+
     commandCenterSubtitle: "Command Center",
     commandCenterTitle: "Navigate Your Mindset Shift",
     commandCenterDesc: "Select a protocol below to explore our core training areas, take the performance audit, or begin enrollment.",
-    
+
     portalBadgeProgram: "PROGRAM",
     portalBadgeAudit: "AUDIT",
     portalBadgeBio: "BIOGRAPHY",
-    
+
     portalTitleProgram: "90-Day Challenge Academy",
     portalTitleAudit: "Mindset Assessment",
     portalTitleBio: "Founder's Story",
-    
+
     portalDescProgram: "The structured accelerator to eliminate vices, build military-grade discipline, and launch an online personal brand.",
     portalDescAudit: "Uncover your subconscious bottlenecks. Answer 5 performance-focused questions to receive your mindset archetype.",
     portalDescBio: "Learn how Liss Almonte (Baldo Mindset) dropped out of school, overcame extreme debt and vices, and rebuilt himself.",
-    
+
     portalBtnProgram: "Explore Program",
     portalBtnAudit: "Start Assessment",
     portalBtnBio: "Read Bio",
-    
+
     videoTitle: "Baldo Mindset 90-Day Challenge Blueprint",
-    
+
     ctaSubtitle: "ARE YOU READY TO BURN THE SHIPS?",
     ctaTitle: "Join The 90-Day Challenge Academy Today",
     ctaDesc: "Eliminate vices, build military-grade discipline, reprogram your psychology, and construct a highly profitable personal brand from scratch.",
     ctaBtnLarge: "Apply & Enroll Now",
-    
+
     faqSubtitle: "Common Inquiries",
     faqTitle: "Frequently Asked Questions",
     faqDesc: "Everything you need to know about the 90-Day Challenge Academy and our mindset coaching methodology.",
-    
+
     faqs: [
       {
         question: "What is the 90-Day Challenge Academy?",
@@ -112,7 +112,7 @@ export const TRANSLATIONS = {
     investmentLabel: "INVESTMENT",
     pricingGuarantee: "Today you can get full access to the 90-day program. Limited spots.",
     applyCtaBtn: "Apply For The Challenge",
-    
+
     // Application Form Section
     formSubtitle: "Direct Access",
     formTitle: "Apply For A Free Mindset Strategy Session",
@@ -121,7 +121,7 @@ export const TRANSLATIONS = {
     formFeat1Desc: "Uncover the subconscious patterns slowing you down.",
     formFeat2Title: "Tailored Action Blueprints",
     formFeat2Desc: "Get a custom roadmap matching your scores and goals.",
-    
+
     fieldName: "Full Name",
     fieldEmail: "Email Address",
     fieldFocus: "Primary Focus Area",
@@ -129,14 +129,14 @@ export const TRANSLATIONS = {
     placeholderName: "Enter your name",
     placeholderEmail: "Enter your email",
     placeholderBlocker: "e.g. Consistency in stress, lack of clear goals, procrastination...",
-    
+
     focusOpts: [
       { val: "discipline", label: "Habit Optimization & Discipline" },
       { val: "resilience", label: "Mental Fortitude & Stress" },
       { val: "focus", label: "Strategic Vision & Execution" },
       { val: "mastery", label: "Emotional Self-Mastery" }
     ],
-    
+
     btnSubmit: "Submit Application",
     btnSubmitting: "Processing Application...",
     successFormTitle: "Application Submitted",
@@ -146,21 +146,21 @@ export const TRANSLATIONS = {
     assessSubtitle: "Self-Audit",
     assessTitle: "Mindset Performance Audit",
     assessDesc: "Uncover your hidden blocks. Answer these questions to reveal your mindset archetype.",
-    
+
     welcomeTitle: "Audit Your Psychology",
     welcomeText: "This short performance check identifies subconscious blindspots in execution, focus, and resilience. Answer honestly to compute your psychological performance score.",
     welcomeStartBtn: "Begin Performance Audit",
-    
+
     questionLabel: "Question",
     ofLabel: "of",
     optionA: "Option A",
     optionB: "Option B",
     optionC: "Option C",
-    
+
     resultsTitle: "Your Performance Audit Results",
     resultsScore: "Your Score:",
     archetypeLabel: "Mindset Archetype:",
-    
+
     archetypes: {
       reactant: {
         name: "Habitual Reactant",
@@ -175,7 +175,7 @@ export const TRANSLATIONS = {
         desc: "You have highly disciplined patterns and structured routines. Your growth bottle-neck lies in scaling systems, mental resilience under severe crisis, or constructing a high-impact personal brand."
       }
     },
-    
+
     btnRestart: "Retake Assessment",
     assessCheckoutCTA: "Enroll in Academy & Scale",
 
@@ -199,7 +199,7 @@ export const TRANSLATIONS = {
     billingTier2: "Premium 1-on-1 Mentorship Bundle",
     billingTier2Price: "$450 USD",
     billingTier2Detail: "Standard access + monthly private deep-dives with Baldo Mindset.",
-    
+
     paymentTitle: "Secure Payment Portal",
     paymentTypeCard: "Credit/Debit Card",
     paymentTypeCrypto: "Cryptocurrency (BTC/USDT)",
@@ -215,7 +215,7 @@ export const TRANSLATIONS = {
     summaryTotal: "Total Due Today",
     checkoutBtnPay: "Pay & Initialize Program",
     checkoutBtnProcessing: "Securing Transaction...",
-    
+
     successPayHeader: "Enrollment Complete!",
     successPayText: "Welcome to the 90-Day Challenge Academy. Your transaction was processed successfully. Check your email for login access details and community welcome templates.",
     successPayButton: "Go to Dashboard",
@@ -227,9 +227,9 @@ export const TRANSLATIONS = {
     igFollowBtn: "Follow @baldomindset",
     igToggleProfile: "Profile View",
     igToggleReel: "Reel View",
-    igReelIds: ["C9V_U92R2xG", "DF5K_R7Rxgp", "DF28-1sM3sZ"]
+    igReelIds: ["DVUl6Auj79g", "DF5K_R7Rxgp", "DF28-1sM3sZ"]
   },
-  
+
   es: {
     // Shared Layout / Common
     brand: "MaldoMindset",
@@ -250,38 +250,38 @@ export const TRANSLATIONS = {
     heroDesc: "MaldoMindset proporciona un marco sistemático para romper mesetas mentales, construir hábitos de élite y desarrollar la disciplina requerida para el autodominio de alto rendimiento.",
     heroCtaAssessment: "Evaluación Gratuita",
     heroCtaStory: "Mi Historia",
-    
+
     commandCenterSubtitle: "Centro de Mando",
     commandCenterTitle: "Navega tu Cambio de Mentalidad",
     commandCenterDesc: "Selecciona un protocolo a continuación para explorar nuestras áreas centrales de entrenamiento, realizar la auditoría de rendimiento o comenzar la inscripción.",
-    
+
     portalBadgeProgram: "PROGRAMA",
     portalBadgeAudit: "AUDITORÍA",
     portalBadgeBio: "BIOGRAFÍA",
-    
+
     portalTitleProgram: "Academia del Reto de 90 Días",
     portalTitleAudit: "Evaluación de Mentalidad",
     portalTitleBio: "Historia del Fundador",
-    
+
     portalDescProgram: "El acelerador estructurado para eliminar vicios, construir una disciplina de nivel militar y lanzar una marca personal en línea.",
     portalDescAudit: "Descubre tus bloqueos subconscientes. Responde 5 preguntas de rendimiento para recibir tu arquetipo de mentalidad.",
     portalDescBio: "Aprende cómo Liss Almonte (Baldo Mindset) dejó la escuela, superó deudas extremas y vicios, y se reconstruyó a sí mismo.",
-    
+
     portalBtnProgram: "Explorar Programa",
     portalBtnAudit: "Comenzar Auditoría",
     portalBtnBio: "Leer Biografía",
-    
+
     videoTitle: "Mapa de Ruta del Reto de 90 Días de Baldo Mindset",
-    
+
     ctaSubtitle: "¿ESTÁS LISTO PARA QUEMAR LOS BARCOS?",
     ctaTitle: "Únete a la Academia del Reto de 90 Días Hoy",
     ctaDesc: "Elimina vicios, construye una disciplina militar, reprograma tu psicología y construye una marca personal altamente rentable desde cero.",
     ctaBtnLarge: "Aplicar e Inscribirse Ahora",
-    
+
     faqSubtitle: "Preguntas Frecuentes",
     faqTitle: "Inquietudes Comunes",
     faqDesc: "Todo lo que necesitas saber sobre la Academia del Reto de 90 Días y nuestra metodología de entrenamiento mental.",
-    
+
     faqs: [
       {
         question: "¿Qué es la Academia del Reto de 90 Días?",
@@ -342,7 +342,7 @@ export const TRANSLATIONS = {
     investmentLabel: "INVERSIÓN",
     pricingGuarantee: "Hoy puedes obtener acceso completo al programa de 90 días. Cupos limitados.",
     applyCtaBtn: "Aplicar al Reto",
-    
+
     // Application Form Section
     formSubtitle: "Acceso Directo",
     formTitle: "Aplica para una Sesión Estratégica Mental Gratuita",
@@ -351,7 +351,7 @@ export const TRANSLATIONS = {
     formFeat1Desc: "Descubre los patrones subconscientes que te están frenando.",
     formFeat2Title: "Mapa de Ruta a la Medida",
     formFeat2Desc: "Recibe un plan de acción adaptado a tus puntuaciones y metas.",
-    
+
     fieldName: "Nombre Completo",
     fieldEmail: "Dirección de Correo",
     fieldFocus: "Área de Enfoque Principal",
@@ -359,14 +359,14 @@ export const TRANSLATIONS = {
     placeholderName: "Ingresa tu nombre",
     placeholderEmail: "Ingresa tu correo",
     placeholderBlocker: "Ej. Consistencia bajo estrés, falta de metas claras, procrastinación...",
-    
+
     focusOpts: [
       { val: "discipline", label: "Optimización de Hábitos y Disciplina" },
       { val: "resilience", label: "Fortaleza Mental y Estrés" },
       { val: "focus", label: "Visión Estratégica y Ejecución" },
       { val: "mastery", label: "Autodominio Emocional" }
     ],
-    
+
     btnSubmit: "Enviar Aplicación",
     btnSubmitting: "Procesando Aplicación...",
     successFormTitle: "Aplicación Enviada",
@@ -376,21 +376,21 @@ export const TRANSLATIONS = {
     assessSubtitle: "Autoverificación",
     assessTitle: "Auditoría de Rendimiento Mental",
     assessDesc: "Descubre tus bloqueos ocultos. Responde estas preguntas para revelar tu arquetipo de mentalidad.",
-    
+
     welcomeTitle: "Audita tu Psicología",
     welcomeText: "Este breve control de rendimiento identifica los puntos ciegos subconscientes en tu ejecución, enfoque y resiliencia. Responde con honestidad para calcular tu puntaje.",
     welcomeStartBtn: "Iniciar Auditoría de Rendimiento",
-    
+
     questionLabel: "Pregunta",
     ofLabel: "de",
     optionA: "Opción A",
     optionB: "Opción B",
     optionC: "Opción C",
-    
+
     resultsTitle: "Resultados de tu Auditoría de Rendimiento",
     resultsScore: "Tu Puntuación:",
     archetypeLabel: "Arquetipo de Mentalidad:",
-    
+
     archetypes: {
       reactant: {
         name: "Reactivo Habitual",
@@ -405,7 +405,7 @@ export const TRANSLATIONS = {
         desc: "Posees patrones altamente disciplinados y rutinas estructuradas. Tu próximo gran paso radica en escalar sistemas, mantener la resiliencia en situaciones límite o construir una marca personal de alto impacto."
       }
     },
-    
+
     btnRestart: "Repetir Auditoría",
     assessCheckoutCTA: "Inscribirse en la Academia",
 
@@ -429,7 +429,7 @@ export const TRANSLATIONS = {
     billingTier2: "Paquete de Mentoría Privada 1-a-1",
     billingTier2Price: "$450 USD",
     billingTier2Detail: "Acceso estándar + análisis profundos mensuales individuales directamente con Baldo Mindset.",
-    
+
     paymentTitle: "Portal de Pago Seguro",
     paymentTypeCard: "Tarjeta de Crédito/Débito",
     paymentTypeCrypto: "Criptomonedas (BTC/USDT)",
@@ -445,7 +445,7 @@ export const TRANSLATIONS = {
     summaryTotal: "Total a Pagar Hoy",
     checkoutBtnPay: "Pagar e Iniciar Programa",
     checkoutBtnProcessing: "Asegurando Transacción...",
-    
+
     successPayHeader: "¡Inscripción Completada!",
     successPayText: "Bienvenido a la Academia del Reto de 90 Días. Tu transacción se procesó con éxito. Revisa tu correo electrónico para obtener tus accesos y las plantillas de bienvenida a la comunidad.",
     successPayButton: "Ir al Panel",
@@ -457,7 +457,7 @@ export const TRANSLATIONS = {
     igFollowBtn: "Seguir a @baldomindset",
     igToggleProfile: "Ver Perfil",
     igToggleReel: "Ver Reel",
-    igReelIds: ["C9V_U92R2xG", "DF5K_R7Rxgp", "DF28-1sM3sZ"]
+    igReelIds: ["DVUl6Auj79g", "DF5K_R7Rxgp", "DF28-1sM3sZ"]
   }
 };
 

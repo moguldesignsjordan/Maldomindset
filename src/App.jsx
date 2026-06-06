@@ -19,7 +19,7 @@ function App() {
   const [currentView, setCurrentView] = useState('home');
 
   // Language State
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState('es');
 
   // Checkout Form shared state (pre-filled by Academy application form)
   const [checkoutForm, setCheckoutForm] = useState({

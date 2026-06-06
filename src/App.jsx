@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrainCircuit } from 'lucide-react';
+import { BrainCircuit, Menu, X } from 'lucide-react';
 import './App.css';
 import mdaLogo from './assets/mdalogo.png';
 
@@ -21,6 +21,9 @@ function App() {
   // Language State
   const [language, setLanguage] = useState('es');
 
+  // Mobile Menu State
+  const [menuOpen, setMenuOpen] = useState(false);
+
   // Checkout Form shared state (pre-filled by Academy application form)
   const [checkoutForm, setCheckoutForm] = useState({
     name: '',
@@ -33,6 +36,7 @@ function App() {
 
   const navigateToView = (view) => {
     setCurrentView(view);
+    setMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
@@ -42,19 +46,54 @@ function App() {
     <div className="app-container">
       {/* Header / Navbar */}
       <header className="navbar">
-        <div className="nav-brand" onClick={() => navigateToView('home')}>
+        <div className="nav-home-icon" onClick={() => navigateToView('home')}>
           <BrainCircuit className="nav-logo-icon" />
-          <span>{t.brand}</span>
         </div>
-        <nav className="nav-links">
+
+        {/* Desktop Nav Links (centered) */}
+        <nav className="nav-links-desktop">
           <button onClick={() => navigateToView('story')} className={`nav-link-btn ${currentView === 'story' ? 'active' : ''}`}>{t.storyTab}</button>
           <button onClick={() => navigateToView('academy')} className={`nav-link-btn ${currentView === 'academy' ? 'active' : ''}`}>{t.academyTab}</button>
           <button onClick={() => navigateToView('assessment')} className={`nav-link-btn ${currentView === 'assessment' ? 'active' : ''}`}>{t.assessmentTab}</button>
           <button onClick={() => navigateToView('boost')} className={`nav-link-btn ${currentView === 'boost' ? 'active' : ''}`}>{t.boostTab}</button>
-          <button onClick={() => navigateToView('checkout')} className={`cta-nav-btn ${currentView === 'checkout' ? 'active' : ''}`}>{t.checkoutTab}</button>
+        </nav>
+
+        {/* Right side: CTA + Lang + Hamburger */}
+        <div className="nav-right">
+          <button onClick={() => navigateToView('checkout')} className={`cta-nav-btn desktop-only ${currentView === 'checkout' ? 'active' : ''}`}>{t.checkoutTab}</button>
           
-          {/* Language Toggle */}
-          <div className="lang-toggle">
+          <div className="lang-toggle desktop-only">
+            <button 
+              className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+              onClick={() => setLanguage('en')}
+            >
+              EN
+            </button>
+            <button 
+              className={`lang-btn ${language === 'es' ? 'active' : ''}`}
+              onClick={() => setLanguage('es')}
+            >
+              ES
+            </button>
+          </div>
+
+          <button className="hamburger-btn" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`mobile-menu-overlay ${menuOpen ? 'open' : ''}`}>
+        <nav className="mobile-menu-nav">
+          <button onClick={() => navigateToView('home')} className={`mobile-nav-link ${currentView === 'home' ? 'active' : ''}`}>{language === 'es' ? 'Inicio' : 'Home'}</button>
+          <button onClick={() => navigateToView('story')} className={`mobile-nav-link ${currentView === 'story' ? 'active' : ''}`}>{t.storyTab}</button>
+          <button onClick={() => navigateToView('academy')} className={`mobile-nav-link ${currentView === 'academy' ? 'active' : ''}`}>{t.academyTab}</button>
+          <button onClick={() => navigateToView('assessment')} className={`mobile-nav-link ${currentView === 'assessment' ? 'active' : ''}`}>{t.assessmentTab}</button>
+          <button onClick={() => navigateToView('boost')} className={`mobile-nav-link ${currentView === 'boost' ? 'active' : ''}`}>{t.boostTab}</button>
+          <button onClick={() => navigateToView('checkout')} className="mobile-nav-cta">{t.checkoutTab}</button>
+          
+          <div className="mobile-lang-toggle">
             <button 
               className={`lang-btn ${language === 'en' ? 'active' : ''}`}
               onClick={() => setLanguage('en')}
@@ -69,7 +108,7 @@ function App() {
             </button>
           </div>
         </nav>
-      </header>
+      </div>
 
       {/* Main Content Sections based on view */}
       <main className="page-transition" key={currentView}>

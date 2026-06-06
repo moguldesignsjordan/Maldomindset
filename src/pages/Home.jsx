@@ -23,6 +23,18 @@ export default function Home({ navigateToView, language = 'en' }) {
     <>
       {/* Hero Section */}
       <section id="home" className="hero-section">
+        {/* Background Video */}
+        <div className="hero-video-bg">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/f_F8FzEIPp0?autoplay=1&mute=1&loop=1&playlist=f_F8FzEIPp0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&iv_load_policy=3"
+            title="Background Video"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            frameBorder="0"
+          ></iframe>
+        </div>
+        <div className="hero-video-overlay"></div>
+
         <div className="hero-content">
           <h1 className="hero-title animate-slide-up delay-1">
             {t.heroTitleFirst}<br />

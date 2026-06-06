@@ -2,14 +2,14 @@
 export const TRANSLATIONS = {
   en: {
     // Shared Layout / Common
-    brand: "MaldoMindset",
+    brand: "BaldoMindset",
     storyTab: "Story",
     academyTab: "Academy",
     assessmentTab: "Assessment",
     boostTab: "Daily Boost",
     checkoutTab: "Academy Checkout",
     footerTagline: "Forge Unbreakable Psychology. Architect Your Legacy.",
-    footerCopyright: "MaldoMindset Academy. All rights reserved.",
+    footerCopyright: "BaldoMindset Academy. All rights reserved.",
     createdWith: "Created with",
     by: "by",
     backToHome: "← Back to Home",
@@ -17,7 +17,7 @@ export const TRANSLATIONS = {
     // Home Page
     heroTitleFirst: "Master Your Mind.",
     heroTitleSecond: "Architect Your Legacy.",
-    heroDesc: "MaldoMindset provides a systematic framework to break mental plateaus, build elite habits, and construct the discipline required for high-performance self-mastery.",
+    heroDesc: "BaldoMindset provides a systematic framework to break mental plateaus, build elite habits, and construct the discipline required for high-performance self-mastery.",
     heroCtaAssessment: "Take Free Assessment",
     heroCtaStory: "Read My Story",
 
@@ -80,7 +80,7 @@ export const TRANSLATIONS = {
     storyTitle: "Meet Baldo Mindset",
     storyDesc: "The journey from dropping out and hitting absolute rock bottom to building an elite performance lifestyle.",
     founderName: "Liss Almonte",
-    founderTitle: "Founder of MaldoMindset",
+    founderTitle: "Founder of BaldoMindset",
     bioPart1: "In 2020, I decided to burn the ships to leave no turning back and dropped out of school during my final year. I wanted to forge my own path.",
     bioQuote: "\"By 2025, I had hit rock bottom: trapped in vices like marijuana, pills, Molly, alcohol, and distractions. On top of that, I was over a million in debt and going through a divorce that completely shattered me.\"",
     bioPart2: "Then I decided to change everything. I kicked my vices, completely reprogrammed my mindset, and rebuilt my psychology from scratch. Today, at 26, I’m living the life I once thought was impossible and have built the business of my dreams.",
@@ -232,14 +232,14 @@ export const TRANSLATIONS = {
 
   es: {
     // Shared Layout / Common
-    brand: "MaldoMindset",
+    brand: "BaldoMindset",
     storyTab: "Historia",
     academyTab: "Academia",
     assessmentTab: "Evaluación",
     boostTab: "Impulso Diario",
     checkoutTab: "Pagar Academia",
     footerTagline: "Forja una Psicología Inquebrantable. Diseña tu Legado.",
-    footerCopyright: "Academia MaldoMindset. Todos los derechos reservados.",
+    footerCopyright: "Academia BaldoMindset. Todos los derechos reservados.",
     createdWith: "Creado con",
     by: "por",
     backToHome: "← Volver al Inicio",
@@ -247,7 +247,7 @@ export const TRANSLATIONS = {
     // Home Page
     heroTitleFirst: "Domina tu Mente.",
     heroTitleSecond: "Diseña tu Legado.",
-    heroDesc: "MaldoMindset proporciona un marco sistemático para romper mesetas mentales, construir hábitos de élite y desarrollar la disciplina requerida para el autodominio de alto rendimiento.",
+    heroDesc: "BaldoMindset proporciona un marco sistemático para romper mesetas mentales, construir hábitos de élite y desarrollar la disciplina requerida para el autodominio de alto rendimiento.",
     heroCtaAssessment: "Evaluación Gratuita",
     heroCtaStory: "Mi Historia",
 
@@ -310,7 +310,7 @@ export const TRANSLATIONS = {
     storyTitle: "Conoce a Baldo Mindset",
     storyDesc: "El viaje de abandonar los estudios y tocar fondo absoluto hasta construir un estilo de vida de rendimiento de élite.",
     founderName: "Liss Almonte",
-    founderTitle: "Fundador de MaldoMindset",
+    founderTitle: "Fundador de BaldoMindset",
     bioPart1: "En 2020, decidí quemar los barcos para no dejar opción de dar marcha atrás y abandoné la escuela durante mi último año. Quería forjar mi propio camino.",
     bioQuote: "\"Para 2025, había tocado fondo: estaba atrapado en vicios como la marihuana, pastillas, Molly, alcohol y distracciones. Para colmo, tenía una deuda de más de un millón y atravesaba un divorcio que me destrozó por completo.\"",
     bioPart2: "Luego decidí cambiarlo todo. Dejé mis vicios, reprogramé mi mentalidad por completo y reconstruí mi psicología desde cero. Hoy, a los 26 años, vivo la vida que una vez creí imposible y he construido el negocio de mis sueños.",

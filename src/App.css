@@ -333,19 +333,22 @@
 }
 
 .hero-title {
-  font-size: 54px;
+  font-size: clamp(40px, 7vw, 76px);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.05;
   margin-bottom: 24px;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 .hero-description {
-  font-size: 18px;
+  font-size: clamp(15px, 2vw, 19px);
   color: var(--text-secondary);
   margin-bottom: 36px;
-  max-width: 640px;
+  max-width: 680px;
   line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 .hero-actions {

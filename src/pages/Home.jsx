@@ -25,13 +25,15 @@ export default function Home({ navigateToView, language = 'en' }) {
       <section id="home" className="hero-section">
         {/* Background Video */}
         <div className="hero-video-bg">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/f_F8FzEIPp0?autoplay=1&mute=1&loop=1&playlist=f_F8FzEIPp0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&iv_load_policy=3"
-            title="Background Video"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-            frameBorder="0"
-          ></iframe>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          >
+            <source src="/hero-bg.mp4" type="video/mp4" />
+          </video>
         </div>
         <div className="hero-video-overlay"></div>
 

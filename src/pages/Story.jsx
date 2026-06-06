@@ -97,7 +97,7 @@ export default function Story({ navigateToView, language = 'en' }) {
                 <div key={index} className="instagram-video-card glass-card">
                   <div className="video-card-iframe-wrapper">
                     <iframe
-                      src={`https://www.instagram.com/p/${reelId}/embed/captioned/?cr=1&v=12`}
+                      src={`https://www.instagram.com/reel/${reelId}/embed/captioned/?cr=1&v=12`}
                       title={`Baldo Mindset Instagram Post ${index + 1}`}
                       frameBorder="0"
                       scrolling="no"

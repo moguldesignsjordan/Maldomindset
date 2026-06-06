@@ -227,7 +227,7 @@ export const TRANSLATIONS = {
     igFollowBtn: "Follow @baldomindset",
     igToggleProfile: "Profile View",
     igToggleReel: "Reel View",
-    igReelIds: ["DVUl6Auj79g", "DF5K_R7Rxgp", "DF28-1sM3sZ"]
+    igReelIds: ["DVUl6Auj79g", "DZNIHLsxMN3", "DW_gxxZACun"]
   },
 
   es: {
@@ -457,7 +457,7 @@ export const TRANSLATIONS = {
     igFollowBtn: "Seguir a @baldomindset",
     igToggleProfile: "Ver Perfil",
     igToggleReel: "Ver Reel",
-    igReelIds: ["DVUl6Auj79g", "DF5K_R7Rxgp", "DF28-1sM3sZ"]
+    igReelIds: ["DVUl6Auj79g", "DZNIHLsxMN3", "DW_gxxZACun"]
   }
 };
 

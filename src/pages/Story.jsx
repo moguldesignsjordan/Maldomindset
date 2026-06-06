@@ -1,11 +1,8 @@
-import { useState } from 'react';
 import founderImg from '../assets/founder.png';
 import { TRANSLATIONS } from '../constants/translations';
 import igProfileImg from '../assets/ig_profile.jpg';
-import igReelImg from '../assets/ig_reel.jpg';
 
 export default function Story({ navigateToView, language = 'en' }) {
-  const [phoneView, setPhoneView] = useState('profile');
   const t = TRANSLATIONS[language];
 
   return (
@@ -71,21 +68,6 @@ export default function Story({ navigateToView, language = 'en' }) {
         <div className="instagram-container animate-slide-up delay-1">
           {/* Left: Phone Mockup Container */}
           <div className="instagram-mockup-column">
-            <div className="mockup-toggle-tabs">
-              <button 
-                className={`mockup-tab-btn ${phoneView === 'profile' ? 'active' : ''}`}
-                onClick={() => setPhoneView('profile')}
-              >
-                {t.igToggleProfile}
-              </button>
-              <button 
-                className={`mockup-tab-btn ${phoneView === 'reel' ? 'active' : ''}`}
-                onClick={() => setPhoneView('reel')}
-              >
-                {t.igToggleReel}
-              </button>
-            </div>
-
             <div className="phone-mockup-wrapper">
               <div className="phone-mockup glass-card">
                 <div className="phone-notch"></div>
@@ -98,8 +80,8 @@ export default function Story({ navigateToView, language = 'en' }) {
                 </div>
                 <div className="phone-screen">
                   <img 
-                    src={phoneView === 'profile' ? igProfileImg : igReelImg} 
-                    alt="Instagram View" 
+                    src={igProfileImg} 
+                    alt="Instagram Profile Screenshot" 
                     className="phone-screen-img"
                   />
                 </div>

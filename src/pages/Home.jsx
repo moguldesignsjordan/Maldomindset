@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   ArrowRight,
   Zap,
@@ -8,10 +8,30 @@ import {
 } from 'lucide-react';
 
 import { TRANSLATIONS } from '../constants/translations';
+import slide1 from '../assets/img1.png';
+import slide2 from '../assets/img2.png';
+import slide3 from '../assets/img3.jpeg';
+import slide4 from '../assets/img4.png';
+
+const SLIDES = [
+  { src: slide1, pos: 'center 35%' }, // podcast seated
+  { src: slide2, pos: 'center 20%' }, // full body suit
+  { src: slide3, pos: 'center 20%' }, // full body suit
+  { src: slide4, pos: 'center 35%' }, // podcast seated
+];
 
 export default function Home({ navigateToView, language = 'en' }) {
   // State for FAQ Accordion
   const [activeFaqIndex, setActiveFaqIndex] = useState(null);
+  // Slideshow state
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide(prev => (prev + 1) % SLIDES.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const toggleFaq = (index) => {
     setActiveFaqIndex(prev => (prev === index ? null : index));
@@ -23,17 +43,18 @@ export default function Home({ navigateToView, language = 'en' }) {
     <>
       {/* Hero Section */}
       <section id="home" className="hero-section">
-        {/* Background Video */}
-        <div className="hero-video-bg">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-          >
-            <source src="/hero-bg.mp4" type="video/mp4" />
-          </video>
+        {/* Background Slideshow */}
+        <div className="hero-image-bg">
+          {SLIDES.map((slide, i) => (
+            <img
+              key={i}
+              src={slide.src}
+              alt=""
+              aria-hidden="true"
+              className={`hero-slide ${i === activeSlide ? 'active' : ''}`}
+              style={{ objectPosition: slide.pos }}
+            />
+          ))}
         </div>
         <div className="hero-video-overlay"></div>
 

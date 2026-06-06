@@ -8,15 +8,10 @@ import {
 } from 'lucide-react';
 
 import { TRANSLATIONS } from '../constants/translations';
-import igProfileImg from '../assets/ig_profile.jpg';
-import igReelImg from '../assets/ig_reel.jpg';
 
 export default function Home({ navigateToView, language = 'en' }) {
   // State for FAQ Accordion
   const [activeFaqIndex, setActiveFaqIndex] = useState(null);
-
-  // State for Instagram Phone Mockup Toggler
-  const [phoneView, setPhoneView] = useState('profile');
 
   const toggleFaq = (index) => {
     setActiveFaqIndex(prev => (prev === index ? null : index));
@@ -173,105 +168,6 @@ export default function Home({ navigateToView, language = 'en' }) {
               </div>
             );
           })}
-        </div>
-      </section>
-
-      {/* Instagram Showcase Section */}
-      <section className="section instagram-section animate-slide-up">
-        <div className="section-header">
-          <span className="section-subtitle">{t.igSubtitle}</span>
-          <h2 className="section-title">{t.igTitle}</h2>
-          <p className="section-desc">
-            {t.igDesc}
-          </p>
-        </div>
-
-        <div className="instagram-container animate-slide-up delay-1">
-          {/* Left: Phone Mockup Container */}
-          <div className="instagram-mockup-column">
-            <div className="mockup-toggle-tabs">
-              <button 
-                className={`mockup-tab-btn ${phoneView === 'profile' ? 'active' : ''}`}
-                onClick={() => setPhoneView('profile')}
-              >
-                {t.igToggleProfile}
-              </button>
-              <button 
-                className={`mockup-tab-btn ${phoneView === 'reel' ? 'active' : ''}`}
-                onClick={() => setPhoneView('reel')}
-              >
-                {t.igToggleReel}
-              </button>
-            </div>
-
-            <div className="phone-mockup-wrapper">
-              <div className="phone-mockup glass-card">
-                <div className="phone-notch"></div>
-                <div className="phone-status-bar">
-                  <span className="phone-time">09:41</span>
-                  <div className="phone-status-icons">
-                    <span style={{ marginRight: '6px' }}>📶</span>
-                    <span>🔋</span>
-                  </div>
-                </div>
-                <div className="phone-screen">
-                  <img 
-                    src={phoneView === 'profile' ? igProfileImg : igReelImg} 
-                    alt="Instagram View" 
-                    className="phone-screen-img"
-                  />
-                </div>
-                <div className="phone-home-indicator"></div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right: Embedded Video Columns */}
-          <div className="instagram-videos-column">
-            <div className="instagram-videos-grid">
-              {t.igReelIds.map((reelId, index) => (
-                <div key={index} className="instagram-video-card glass-card">
-                  <div className="video-card-iframe-wrapper">
-                    <iframe
-                      src={`https://www.instagram.com/p/${reelId}/embed/captioned/?cr=1&v=12`}
-                      title={`Baldo Mindset Instagram Post ${index + 1}`}
-                      frameBorder="0"
-                      scrolling="no"
-                      allowTransparency="true"
-                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    ></iframe>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="instagram-actions">
-              <a 
-                href="https://www.instagram.com/baldomindset/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="primary-btn ig-follow-btn"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  style={{ marginRight: '8px', display: 'inline-block', verticalAlign: 'middle' }}
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
-                <span>{t.igFollowBtn}</span>
-              </a>
-            </div>
-          </div>
         </div>
       </section>
     </>

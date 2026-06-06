@@ -273,7 +273,6 @@
   z-index: 1;
   pointer-events: none;
 }
-}
 
 /* Ambient Glowing Background for Centered Hero */
 .hero-section::before {

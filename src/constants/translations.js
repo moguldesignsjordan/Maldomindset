@@ -218,7 +218,16 @@ export const TRANSLATIONS = {
     
     successPayHeader: "Enrollment Complete!",
     successPayText: "Welcome to the 90-Day Challenge Academy. Your transaction was processed successfully. Check your email for login access details and community welcome templates.",
-    successPayButton: "Go to Dashboard"
+    successPayButton: "Go to Dashboard",
+
+    // Instagram Section
+    igSubtitle: "HIGH-PERFORMANCE COMMUNITY",
+    igTitle: "Follow The Movement",
+    igDesc: "Get daily mindset hacks, training breakdowns, and direct motivation by following Baldo Mindset on Instagram.",
+    igFollowBtn: "Follow @baldomindset",
+    igToggleProfile: "Profile View",
+    igToggleReel: "Reel View",
+    igReelIds: ["C9V_U92R2xG", "DF5K_R7Rxgp", "DF28-1sM3sZ"]
   },
   
   es: {
@@ -439,7 +448,16 @@ export const TRANSLATIONS = {
     
     successPayHeader: "¡Inscripción Completada!",
     successPayText: "Bienvenido a la Academia del Reto de 90 Días. Tu transacción se procesó con éxito. Revisa tu correo electrónico para obtener tus accesos y las plantillas de bienvenida a la comunidad.",
-    successPayButton: "Ir al Panel"
+    successPayButton: "Ir al Panel",
+
+    // Instagram Section
+    igSubtitle: "COMUNIDAD DE ALTO RENDIMIENTO",
+    igTitle: "Sigue el Movimiento",
+    igDesc: "Obtén trucos de mentalidad diarios, desgloses de entrenamiento y motivación directa siguiendo a Baldo Mindset en Instagram.",
+    igFollowBtn: "Seguir a @baldomindset",
+    igToggleProfile: "Ver Perfil",
+    igToggleReel: "Ver Reel",
+    igReelIds: ["C9V_U92R2xG", "DF5K_R7Rxgp", "DF28-1sM3sZ"]
   }
 };
 

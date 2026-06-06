@@ -2542,6 +2542,252 @@
   }
 }
 
+/* Instagram Showcase Section */
+.instagram-section {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 80px;
+}
+
+.instagram-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Phone Mockup Column */
+.instagram-mockup-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mockup-toggle-tabs {
+  display: flex;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  padding: 4px;
+  margin-bottom: 30px;
+  box-shadow: var(--shadow-sm);
+}
+
+.mockup-tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all var(--transition-fast) ease;
+}
+
+.mockup-tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.mockup-tab-btn.active {
+  background: var(--accent-gradient);
+  color: var(--text-primary);
+  box-shadow: 0 2px 10px rgba(56, 189, 248, 0.25);
+}
+
+.phone-mockup-wrapper {
+  perspective: 1000px;
+}
+
+.phone-mockup {
+  position: relative;
+  width: 290px;
+  height: 590px;
+  border: 12px solid #1c1c1e;
+  border-radius: 44px;
+  background: #000;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(56, 189, 248, 0.12);
+  overflow: hidden;
+  transform: rotateY(-5deg) rotateX(5deg);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.phone-mockup:hover {
+  transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+  box-shadow: 
+    0 30px 60px -10px rgba(0, 0, 0, 0.9),
+    0 0 40px rgba(56, 189, 248, 0.2);
+}
+
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 22px;
+  background: #1c1c1e;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  z-index: 10;
+}
+
+.phone-status-bar {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 10px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.phone-status-icons {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 32px;
+  background: #000;
+}
+
+.phone-screen-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: opacity 0.35s ease;
+  animation: img-fade 0.35s ease-in-out;
+}
+
+@keyframes img-fade {
+  from { opacity: 0.6; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.phone-home-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 99px;
+  z-index: 10;
+}
+
+/* Videos Column & Grid */
+.instagram-videos-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.instagram-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.instagram-video-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  transition: transform var(--transition-normal) ease, box-shadow var(--transition-normal) ease, border-color var(--transition-normal) ease;
+}
+
+.instagram-video-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.1);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.video-card-iframe-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.video-card-iframe-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  border: none;
+  background: #000;
+}
+
+.instagram-actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.ig-follow-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-size: 15px;
+}
+
+/* Responsive Rules for Instagram Section */
+@media (max-width: 1024px) {
+  .instagram-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .phone-mockup {
+    transform: none;
+  }
+  
+  .phone-mockup:hover {
+    transform: scale(1.02);
+  }
+}
+
+@media (max-width: 768px) {
+  .instagram-videos-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .instagram-video-card {
+    max-width: 300px;
+  }
+}
+
+
 
 
 

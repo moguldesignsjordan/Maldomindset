@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   ArrowRight,
   Zap,
@@ -39,8 +39,21 @@ export default function Home({ navigateToView, language = 'en' }) {
 
   const t = TRANSLATIONS[language];
 
+  // Scroll-reveal observer
+  const pageRef = useRef(null);
+  useEffect(() => {
+    const els = pageRef.current?.querySelectorAll('.reveal');
+    if (!els) return;
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } }),
+      { threshold: 0.12 }
+    );
+    els.forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, [language]);
+
   return (
-    <>
+    <div ref={pageRef}>
       {/* Hero Section */}
       <section id="home" className="hero-section">
         {/* Background Slideshow */}
@@ -88,7 +101,7 @@ export default function Home({ navigateToView, language = 'en' }) {
 
       {/* Portal Navigation Dashboard */}
       <section className="section home-portal-section">
-        <div className="section-header">
+        <div className="section-header reveal">
           <span className="section-subtitle">{t.commandCenterSubtitle}</span>
           <h2 className="section-title">{t.commandCenterTitle}</h2>
           <p className="section-desc">
@@ -97,7 +110,7 @@ export default function Home({ navigateToView, language = 'en' }) {
         </div>
 
         <div className="home-portal-grid">
-          <div className="portal-card glass-card animate-slide-up delay-1" onClick={() => navigateToView('academy')}>
+          <div className="portal-card glass-card animate-slide-up delay-1 reveal" onClick={() => navigateToView('academy')}>
             <div className="portal-card-badge">{t.portalBadgeProgram}</div>
             <div className="portal-card-header">
               <Zap size={24} className="portal-card-icon academy-color" />
@@ -109,7 +122,7 @@ export default function Home({ navigateToView, language = 'en' }) {
             </button>
           </div>
 
-          <div className="portal-card glass-card animate-slide-up delay-2" onClick={() => navigateToView('assessment')}>
+          <div className="portal-card glass-card animate-slide-up delay-2 reveal" onClick={() => navigateToView('assessment')}>
             <div className="portal-card-badge">{t.portalBadgeAudit}</div>
             <div className="portal-card-header">
               <BrainCircuit size={24} className="portal-card-icon assessment-color" />
@@ -121,7 +134,7 @@ export default function Home({ navigateToView, language = 'en' }) {
             </button>
           </div>
 
-          <div className="portal-card glass-card animate-slide-up delay-3" onClick={() => navigateToView('story')}>
+          <div className="portal-card glass-card animate-slide-up delay-3 reveal" onClick={() => navigateToView('story')}>
             <div className="portal-card-badge">{t.portalBadgeBio}</div>
             <div className="portal-card-header">
               <Target size={24} className="portal-card-icon story-color" />
@@ -152,7 +165,7 @@ export default function Home({ navigateToView, language = 'en' }) {
 
       {/* Academy CTA Section */}
       <section className="section academy-cta-section">
-        <div className="cta-glass-box glass-card">
+        <div className="cta-glass-box glass-card reveal">
           <div className="cta-glow-overlay"></div>
           <div className="cta-content">
             <span className="cta-subtitle">{t.ctaSubtitle}</span>
@@ -174,7 +187,7 @@ export default function Home({ navigateToView, language = 'en' }) {
 
       {/* FAQ Section */}
       <section className="section faq-section">
-        <div className="section-header">
+        <div className="section-header reveal">
           <span className="section-subtitle">{t.faqSubtitle}</span>
           <h2 className="section-title">{t.faqTitle}</h2>
           <p className="section-desc">
@@ -205,6 +218,6 @@ export default function Home({ navigateToView, language = 'en' }) {
           })}
         </div>
       </section>
-    </>
+    </div>
   );
 }

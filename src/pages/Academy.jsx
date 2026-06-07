@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { 
-  CheckCircle, 
-  Sparkles, 
-  ArrowRight, 
-  Send, 
-  RefreshCw 
+import {
+  CheckCircle,
+  Sparkles,
+  ArrowRight,
+  Send,
+  RefreshCw
 } from 'lucide-react';
 
 import { TRANSLATIONS } from '../constants/translations';
@@ -29,7 +29,7 @@ export default function Academy({ navigateToView, setCheckoutForm, language = 'e
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.blocker) return;
     setIsSubmitting(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
@@ -39,7 +39,7 @@ export default function Academy({ navigateToView, setCheckoutForm, language = 'e
         name: formData.name,
         email: formData.email
       }));
-      
+
       setTimeout(() => {
         setSubmitSuccess(false);
         setFormData({
@@ -63,8 +63,35 @@ export default function Academy({ navigateToView, setCheckoutForm, language = 'e
 
   const t = TRANSLATIONS[language];
 
+
+
   return (
     <div className="academy-page-wrapper">
+
+      {/* Vertical Video Section — Top of page */}
+      <section className="section academy-video-section">
+        <div className="section-header">
+          <span className="section-subtitle">See It In Action</span>
+          <h2 className="section-title">Real Talk. Real Results.</h2>
+          <p className="section-desc">
+            Watch what the Baldo Mindset Academy is all about straight from the source.
+          </p>
+        </div>
+        <div className="academy-video-wrapper">
+          <div className="academy-video-card glass-card">
+            <div className="vertical-video-container">
+              <iframe
+                src="https://www.youtube.com/embed/d_4lJk2UrQ4"
+                title="Bow-Do Mindset Academy - Real Talk Real Results"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="academy" className="section academy-page-section">
         <div className="section-header">
           <span className="section-subtitle">{t.academySubtitle}</span>
@@ -97,7 +124,7 @@ export default function Academy({ navigateToView, setCheckoutForm, language = 'e
               <Sparkles size={14} className="badge-sparkle" />
               <span>⚠️ {t.spotsBadge}</span>
             </div>
-            
+
             <div className="academy-includes">
               <h4>{t.pricingHeader}</h4>
               <ul className="includes-list">
@@ -118,8 +145,8 @@ export default function Academy({ navigateToView, setCheckoutForm, language = 'e
               <p className="pricing-guarantee">{t.pricingGuarantee}</p>
             </div>
 
-            <button 
-              onClick={() => scrollToId('apply')} 
+            <button
+              onClick={() => scrollToId('apply')}
               className="primary-btn academy-cta-btn"
               id="academy-enroll-cta"
             >
@@ -129,6 +156,7 @@ export default function Academy({ navigateToView, setCheckoutForm, language = 'e
           </div>
         </div>
       </section>
+
 
       {/* Booking / Application Section */}
       <section id="apply" className="section contact-section">
@@ -219,9 +247,9 @@ export default function Academy({ navigateToView, setCheckoutForm, language = 'e
                   ></textarea>
                 </div>
 
-                <button 
-                  type="submit" 
-                  className="submit-btn" 
+                <button
+                  type="submit"
+                  className="submit-btn"
                   disabled={isSubmitting}
                   id="btn-submit-application"
                 >
@@ -242,7 +270,7 @@ export default function Academy({ navigateToView, setCheckoutForm, language = 'e
           </div>
         </div>
       </section>
-      
+
       <div className="page-back-nav flex-center" style={{ paddingBottom: '60px' }}>
         <button onClick={() => navigateToView('home')} className="secondary-btn go-back-home-btn">
           {t.backToHome}

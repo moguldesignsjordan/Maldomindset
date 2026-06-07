@@ -71,10 +71,10 @@ export default function Academy({ navigateToView, setCheckoutForm, language = 'e
       {/* Vertical Video Section — Top of page */}
       <section className="section academy-video-section">
         <div className="section-header">
-          <span className="section-subtitle">See It In Action</span>
-          <h2 className="section-title">Real Talk. Real Results.</h2>
+          <span className="section-subtitle">{t.videoSectionSubtitle}</span>
+          <h2 className="section-title">{t.videoSectionTitle}</h2>
           <p className="section-desc">
-            Watch what the Baldo Mindset Academy is all about straight from the source.
+            {t.videoSectionDesc}
           </p>
         </div>
         <div className="academy-video-wrapper">

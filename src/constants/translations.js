@@ -101,6 +101,11 @@ export const TRANSLATIONS = {
       { bold: "Scale online business:", normal: "Turn passiveness into passion and monetize assets online." },
       { bold: "Authentic personal branding:", normal: "Build a profitable brand and become the person you admire." }
     ],
+    // Academy Video Section
+    videoSectionSubtitle: "See It In Action",
+    videoSectionTitle: "Real Talk. Real Results.",
+    videoSectionDesc: "Watch what the Baldo Mindset Academy is all about straight from the source.",
+
     spotsBadge: "Spots are limited",
     pricingHeader: "What will you get?",
     pricingIncludes: [
@@ -331,6 +336,11 @@ export const TRANSLATIONS = {
       { bold: "Escalar tu negocio en línea:", normal: "Convierte tu pasión en ingresos y monetiza tus habilidades en la web." },
       { bold: "Marca personal auténtica:", normal: "Construye una marca rentable y conviértete en la persona que admiras." }
     ],
+    // Academy Video Section
+    videoSectionSubtitle: "Míralo en Acción",
+    videoSectionTitle: "Real Talk. Resultados Reales.",
+    videoSectionDesc: "Mira de qué se trata la Academia Baldo Mindset directamente desde la fuente.",
+
     spotsBadge: "Cupos Limitados",
     pricingHeader: "¿Qué recibirás?",
     pricingIncludes: [

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrainCircuit, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import './App.css';
 import mdaLogo from './assets/mdalogo.png';
 
@@ -46,8 +46,8 @@ function App() {
     <div className="app-container">
       {/* Header / Navbar */}
       <header className="navbar">
-        <div className="nav-home-icon" onClick={() => navigateToView('home')}>
-          <BrainCircuit className="nav-logo-icon" />
+        <div className="nav-home-brand" onClick={() => navigateToView('home')}>
+          {t.brand}
         </div>
 
         {/* Desktop Nav Links (centered) */}
@@ -137,7 +137,6 @@ function App() {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-brand" onClick={() => navigateToView('home')}>
-            <BrainCircuit className="footer-logo-icon" />
             <span>{t.brand}</span>
           </div>
           <p className="footer-tagline">{t.footerTagline}</p>
@@ -146,6 +145,31 @@ function App() {
             <button onClick={() => navigateToView('academy')} className="footer-link-btn">{t.academyTab}</button>
             <button onClick={() => navigateToView('assessment')} className="footer-link-btn">{t.assessmentTab}</button>
             <button onClick={() => navigateToView('boost')} className="footer-link-btn">{t.boostTab}</button>
+          </div>
+          <div className="footer-social">
+            <a
+              href="https://www.instagram.com/baldomindset/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-link"
+              aria-label="Instagram"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
           </div>
           <div className="footer-bottom">
             <p>&copy; {new Date().getFullYear()} {t.footerCopyright}</p>

@@ -119,40 +119,42 @@ export default function Academy({ navigateToView, setCheckoutForm, language = 'e
           </div>
 
           {/* Right Panel - Investment & Inclusions */}
-          <div className="academy-pricing-card glass-card">
+          <div className="academy-pricing-wrap">
             <div className="limited-spots-badge">
               <Sparkles size={14} className="badge-sparkle" />
               <span>⚠️ {t.spotsBadge}</span>
             </div>
 
-            <div className="academy-includes">
-              <h4>{t.pricingHeader}</h4>
-              <ul className="includes-list">
-                {t.pricingIncludes.map((inc, index) => (
-                  <li key={index}><span>🔥</span> {inc}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="pricing-divider"></div>
-
-            <div className="pricing-container">
-              <span className="pricing-label">{t.investmentLabel}</span>
-              <div className="pricing-digits">
-                <span className="current-price">$250 <span className="currency">USD</span></span>
-                <span className="original-price">$1,000 USD</span>
+            <div className="academy-pricing-card glass-card">
+              <div className="academy-includes">
+                <h4>{t.pricingHeader}</h4>
+                <ul className="includes-list">
+                  {t.pricingIncludes.map((inc, index) => (
+                    <li key={index}><span>🔥</span> {inc}</li>
+                  ))}
+                </ul>
               </div>
-              <p className="pricing-guarantee">{t.pricingGuarantee}</p>
-            </div>
 
-            <button
-              onClick={() => scrollToId('apply')}
-              className="primary-btn academy-cta-btn"
-              id="academy-enroll-cta"
-            >
-              {t.applyCtaBtn}
-              <ArrowRight size={16} />
-            </button>
+              <div className="pricing-divider"></div>
+
+              <div className="pricing-container">
+                <span className="pricing-label">{t.investmentLabel}</span>
+                <div className="pricing-digits">
+                  <span className="current-price">$250 <span className="currency">USD</span></span>
+                  <span className="original-price">$1,000 USD</span>
+                </div>
+                <p className="pricing-guarantee">{t.pricingGuarantee}</p>
+              </div>
+
+              <button
+                onClick={() => scrollToId('apply')}
+                className="primary-btn academy-cta-btn"
+                id="academy-enroll-cta"
+              >
+                {t.applyCtaBtn}
+                <ArrowRight size={16} />
+              </button>
+            </div>
           </div>
         </div>
       </section>

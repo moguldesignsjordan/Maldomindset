@@ -549,14 +549,13 @@ main.page-transition {
    ========================================================================== */
 .home-portal-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 48px;
+  align-items: stretch;
 }
 
-.home-portal-grid .portal-card:first-child {
-  grid-row: span 2;
+.home-portal-grid .portal-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -626,7 +625,6 @@ main.page-transition {
 
 @media (max-width: 768px) {
   .home-portal-grid { grid-template-columns: 1fr; }
-  .home-portal-grid .portal-card:first-child { grid-row: auto; }
 }
 
 /* ==========================================================================

@@ -115,7 +115,7 @@ export const TRANSLATIONS = {
       "My complete blueprint to accelerate your results"
     ],
     investmentLabel: "INVESTMENT",
-    pricingGuarantee: "Today you can get full access to the 90-day program. Limited spots.",
+    pricingGuarantee: "A $1,000 value, yours today for just $99. Limited spots available.",
     applyCtaBtn: "Apply For The Challenge",
 
     // Application Form Section
@@ -199,7 +199,7 @@ export const TRANSLATIONS = {
     checkoutDesc: "Select your program options and secure enrollment to begin the 90-Day Challenge.",
     billingHeader: "Select Program Inclusions",
     billingTier1: "90-Day Academy Access",
-    billingTier1Price: "$250 USD",
+    billingTier1Price: "$99 USD",
     billingTier1Detail: "Includes weekly live mentorship, templates, and community access.",
     billingTier2: "Premium 1-on-1 Mentorship Bundle",
     billingTier2Price: "$450 USD",
@@ -350,7 +350,7 @@ export const TRANSLATIONS = {
       "Mi mapa de ruta completo para acelerar tus resultados"
     ],
     investmentLabel: "INVERSIÓN",
-    pricingGuarantee: "Hoy puedes obtener acceso completo al programa de 90 días. Cupos limitados.",
+    pricingGuarantee: "Un valor de $1,000, tuyo hoy por solo $99. Cupos limitados.",
     applyCtaBtn: "Aplicar al Reto",
 
     // Application Form Section
@@ -434,7 +434,7 @@ export const TRANSLATIONS = {
     checkoutDesc: "Selecciona las opciones de tu programa y asegura tu cupo para comenzar el Reto de 90 Días.",
     billingHeader: "Selecciona Incluidos del Programa",
     billingTier1: "Acceso a la Academia 90 Días",
-    billingTier1Price: "$250 USD",
+    billingTier1Price: "$99 USD",
     billingTier1Detail: "Incluye mentorías grupales semanales en vivo, plantillas y acceso a la comunidad.",
     billingTier2: "Paquete de Mentoría Privada 1-a-1",
     billingTier2Price: "$450 USD",

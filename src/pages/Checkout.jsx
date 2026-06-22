@@ -191,7 +191,7 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
               <div className="summary-row total-row">
                 <span>{language === 'es' ? 'Total a Pagar:' : 'Total Due:'}</span>
                 <span className="summary-total-price">
-                  {selectedTier === 'mindset' && '$250 USD'}
+                  {selectedTier === 'mindset' && '$99 USD'}
                   {selectedTier === 'accelerator' && '$450 USD'}
                   {selectedTier === 'inner-circle' && '$950 USD'}
                 </span>

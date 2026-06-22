@@ -363,7 +363,7 @@ main.page-transition {
   transition: transform var(--transition-fast), background var(--transition-fast);
 }
 .square-btn:hover {
-  background: var(--accent-secondary);
+  background: #000;
   transform: translateY(-2px);
 }
 
@@ -522,7 +522,7 @@ main.page-transition {
 }
 
 .primary-btn:hover {
-  background: var(--accent-secondary);
+  background: #000;
   transform: translateY(-2px);
 }
 
@@ -540,7 +540,7 @@ main.page-transition {
 /* Hover effects for interactive cards */
 .glass-card:hover, .pillar-card:hover {
   border-color: var(--border-color-hover);
-  box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 30px 0 var(--card-hover-shadow, rgba(0, 0, 0, 0.4));
   transform: translateY(-4px);
 }
 

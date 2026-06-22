@@ -1,11 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import {
-  ArrowRight,
-  Zap,
-  BrainCircuit,
-  Target,
-  ChevronRight
-} from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 
 import { TRANSLATIONS } from '../constants/translations';
 import founderImg from '../assets/founder.png';
@@ -102,7 +96,6 @@ export default function Home({ navigateToView, language = 'en' }) {
           <div className="portal-card glass-card animate-slide-up delay-1 reveal" onClick={() => navigateToView('academy')}>
             <div className="portal-card-badge">{t.portalBadgeProgram}</div>
             <div className="portal-card-header">
-              <Zap size={24} className="portal-card-icon academy-color" />
               <h3>{t.portalTitleProgram}</h3>
             </div>
             <p>{t.portalDescProgram}</p>
@@ -114,7 +107,6 @@ export default function Home({ navigateToView, language = 'en' }) {
           <div className="portal-card glass-card animate-slide-up delay-2 reveal" onClick={() => navigateToView('assessment')}>
             <div className="portal-card-badge">{t.portalBadgeAudit}</div>
             <div className="portal-card-header">
-              <BrainCircuit size={24} className="portal-card-icon assessment-color" />
               <h3>{t.portalTitleAudit}</h3>
             </div>
             <p>{t.portalDescAudit}</p>
@@ -126,7 +118,6 @@ export default function Home({ navigateToView, language = 'en' }) {
           <div className="portal-card glass-card animate-slide-up delay-3 reveal" onClick={() => navigateToView('story')}>
             <div className="portal-card-badge">{t.portalBadgeBio}</div>
             <div className="portal-card-header">
-              <Target size={24} className="portal-card-icon story-color" />
               <h3>{t.portalTitleBio}</h3>
             </div>
             <p>{t.portalDescBio}</p>

@@ -140,10 +140,9 @@ function App() {
         {currentView === 'home' && <Home navigateToView={navigateToView} language={language} />}
         {currentView === 'story' && <Story navigateToView={navigateToView} language={language} />}
         {currentView === 'academy' && (
-          <Academy 
-            navigateToView={navigateToView} 
-            setCheckoutForm={setCheckoutForm} 
-            language={language} 
+          <Academy
+            navigateToView={navigateToView}
+            language={language}
           />
         )}
         {currentView === 'assessment' && <Assessment navigateToView={navigateToView} language={language} />}

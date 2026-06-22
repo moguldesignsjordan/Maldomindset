@@ -9,19 +9,19 @@
 }
 
 :root {
-  /* Colors */
+  /* Colors — dark mode defaults */
   --bg-primary: #0d0d0d;
   --bg-secondary: #111111;
   --bg-card: #161616;
   --bg-card-hover: #1c1c1c;
 
-  --border-color: rgba(255, 255, 255, 0.07);
-  --border-color-hover: rgba(56, 189, 248, 0.28);
+  --border-color: rgba(255, 255, 255, 0.11);
+  --border-color-hover: rgba(56, 189, 248, 0.32);
   --border-glow: rgba(56, 189, 248, 0.18);
 
   --text-primary: #f2efea;
-  --text-secondary: #7d7d7d;
-  --text-muted: #4a4a4a;
+  --text-secondary: #9a9a9a;
+  --text-muted: #5a5a5a;
 
   --accent-primary: #38bdf8;
   --accent-secondary: #2563eb;
@@ -30,6 +30,16 @@
 
   --success: #10b981;
   --success-glow: rgba(16, 185, 129, 0.12);
+
+  /* Surface & overlay helpers */
+  --navbar-bg: rgba(13, 13, 13, 0.80);
+  --overlay-bg: rgba(13, 13, 13, 0.96);
+  --footer-bg: rgba(13, 13, 13, 0.92);
+  --input-bg: rgba(255, 255, 255, 0.04);
+  --input-bg-focus: rgba(255, 255, 255, 0.07);
+  --hover-overlay: rgba(255, 255, 255, 0.05);
+  --card-shimmer: rgba(255, 255, 255, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
 
   /* Fonts */
   --font-heading: 'Expose Variable', 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -57,6 +67,41 @@
   scroll-behavior: smooth;
 }
 
+/* ── Light Mode ─────────────────────────────────────────────── */
+[data-theme="light"] {
+  --bg-primary: #f5f4f0;
+  --bg-secondary: #eceae5;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8f7f4;
+
+  --border-color: rgba(0, 0, 0, 0.09);
+  --border-color-hover: rgba(37, 99, 235, 0.35);
+  --border-glow: rgba(37, 99, 235, 0.15);
+
+  --text-primary: #0f0f0f;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+
+  --accent-primary: #2563eb;
+  --accent-secondary: #1d4ed8;
+  --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --accent-gradient-glow: rgba(37, 99, 235, 0.07);
+
+  --success: #059669;
+  --success-glow: rgba(5, 150, 105, 0.12);
+
+  --navbar-bg: rgba(245, 244, 240, 0.88);
+  --overlay-bg: rgba(245, 244, 240, 0.97);
+  --footer-bg: rgba(236, 234, 229, 0.97);
+  --input-bg: rgba(0, 0, 0, 0.03);
+  --input-bg-focus: rgba(37, 99, 235, 0.04);
+  --hover-overlay: rgba(0, 0, 0, 0.04);
+  --card-shimmer: rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+  --glass-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.09);
+}
+
 /* Base resets */
 * {
   box-sizing: border-box;
@@ -69,6 +114,7 @@ body {
   overflow-x: hidden;
   background-color: var(--bg-primary);
   color: var(--text-primary);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 /* Respect reduced-motion preferences across all pages */

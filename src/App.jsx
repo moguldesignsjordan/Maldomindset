@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import './App.css';
 import mdaLogo from './assets/mdalogo.png';
 
@@ -20,6 +20,13 @@ function App() {
 
   // Language State
   const [language, setLanguage] = useState('es');
+
+  // Theme State
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   // Mobile Menu State
   const [menuOpen, setMenuOpen] = useState(false);
@@ -61,7 +68,15 @@ function App() {
         {/* Right side: CTA + Lang + Hamburger */}
         <div className="nav-right">
           <button onClick={() => navigateToView('checkout')} className={`cta-nav-btn desktop-only ${currentView === 'checkout' ? 'active' : ''}`}>{t.checkoutTab}</button>
-          
+
+          <button
+            className="theme-toggle-btn desktop-only"
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
+
           <div className="lang-toggle desktop-only">
             <button 
               className={`lang-btn ${language === 'en' ? 'active' : ''}`}
@@ -93,6 +108,15 @@ function App() {
           <button onClick={() => navigateToView('boost')} className={`mobile-nav-link ${currentView === 'boost' ? 'active' : ''}`}>{t.boostTab}</button>
           <button onClick={() => navigateToView('checkout')} className="mobile-nav-cta">{t.checkoutTab}</button>
           
+          <button
+            className="theme-toggle-btn"
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            aria-label="Toggle theme"
+            style={{ marginTop: '8px' }}
+          >
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
           <div className="mobile-lang-toggle">
             <button 
               className={`lang-btn ${language === 'en' ? 'active' : ''}`}

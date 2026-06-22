@@ -59,6 +59,7 @@ function App() {
 
         {/* Desktop Nav Links (centered) */}
         <nav className="nav-links-desktop">
+          <button onClick={() => navigateToView('home')} className={`nav-link-btn ${currentView === 'home' ? 'active' : ''}`}>{language === 'es' ? 'Inicio' : 'Home'}</button>
           <button onClick={() => navigateToView('story')} className={`nav-link-btn ${currentView === 'story' ? 'active' : ''}`}>{t.storyTab}</button>
           <button onClick={() => navigateToView('academy')} className={`nav-link-btn ${currentView === 'academy' ? 'active' : ''}`}>{t.academyTab}</button>
           <button onClick={() => navigateToView('assessment')} className={`nav-link-btn ${currentView === 'assessment' ? 'active' : ''}`}>{t.assessmentTab}</button>

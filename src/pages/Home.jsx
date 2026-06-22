@@ -8,30 +8,11 @@ import {
 } from 'lucide-react';
 
 import { TRANSLATIONS } from '../constants/translations';
-import slide1 from '../assets/img1.png';
-import slide2 from '../assets/img2.png';
-import slide3 from '../assets/img3.jpeg';
-import slide4 from '../assets/img4.png';
-
-const SLIDES = [
-  { src: slide1, pos: 'center 35%' }, // podcast seated
-  { src: slide2, pos: 'center 20%' }, // full body suit
-  { src: slide3, pos: 'center 20%' }, // full body suit
-  { src: slide4, pos: 'center 35%' }, // podcast seated
-];
+import founderImg from '../assets/founder.png';
 
 export default function Home({ navigateToView, language = 'en' }) {
   // State for FAQ Accordion
   const [activeFaqIndex, setActiveFaqIndex] = useState(null);
-  // Slideshow state
-  const [activeSlide, setActiveSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveSlide(prev => (prev + 1) % SLIDES.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
 
   const toggleFaq = (index) => {
     setActiveFaqIndex(prev => (prev === index ? null : index));
@@ -39,67 +20,75 @@ export default function Home({ navigateToView, language = 'en' }) {
 
   const t = TRANSLATIONS[language];
 
-  // Scroll-reveal observer
+  // Scroll-reveal observer for fluid entrance animations
   const pageRef = useRef(null);
   useEffect(() => {
     const els = pageRef.current?.querySelectorAll('.reveal');
     if (!els) return;
+    
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } }),
+      (entries) => entries.forEach(e => { 
+        if (e.isIntersecting) { 
+          e.target.classList.add('visible'); 
+        } 
+      }),
       { threshold: 0.12 }
     );
+    
     els.forEach(el => observer.observe(el));
     return () => observer.disconnect();
   }, [language]);
 
   return (
-    <div ref={pageRef}>
-      {/* Hero Section */}
+    <div ref={pageRef} className="home-wrapper">
+      {/* 1. Brutalist Hero Section */}
       <section id="home" className="hero-section">
-        {/* Background Slideshow */}
-        <div className="hero-image-bg">
-          {SLIDES.map((slide, i) => (
-            <img
-              key={i}
-              src={slide.src}
-              alt=""
-              aria-hidden="true"
-              className={`hero-slide ${i === activeSlide ? 'active' : ''}`}
-              style={{ objectPosition: slide.pos }}
-            />
-          ))}
-        </div>
-        <div className="hero-video-overlay"></div>
+        {/* Military/Tech Grid & Crosshairs */}
+        <div className="hero-grid-bg"></div>
+        <div className="hero-crosshair top-left"></div>
+        <div className="hero-crosshair bottom-right"></div>
 
-        <div className="hero-content">
-          <h1 className="hero-title animate-slide-up delay-1">
-            {t.heroTitleFirst}<br />
-            <span className="gradient-text">{t.heroTitleSecond}</span>
-          </h1>
-          <p className="hero-description animate-slide-up delay-2">
-            {t.heroDesc}
-          </p>
-          <div className="hero-actions animate-slide-up delay-3">
-            <button
-              onClick={() => navigateToView('assessment')}
-              className="primary-btn"
-              id="hero-assessment-cta"
-            >
-              {t.heroCtaAssessment}
-              <ArrowRight size={16} />
-            </button>
-            <button
-              onClick={() => navigateToView('story')}
-              className="secondary-btn"
-              id="hero-story-cta"
-            >
-              {t.heroCtaStory}
-            </button>
+        <div className="hero-layout">
+          {/* Left Column: Aggressive Copy */}
+          <div className="hero-content">
+            <h1 className="hero-title animate-slide-up delay-2">
+              {t.heroTitleFirst}<br />
+              <span className="text-highlight">{t.heroTitleSecond}</span>
+            </h1>
+            
+            <p className="hero-description animate-slide-up delay-3">
+              {t.heroDesc}
+            </p>
+            
+            <div className="hero-actions animate-slide-up delay-4">
+              <button
+                onClick={() => navigateToView('academy')}
+                className="primary-btn square-btn"
+                id="hero-assessment-cta"
+              >
+                {t.heroCtaAssessment}
+                <ArrowRight size={16} />
+              </button>
+              <button
+                onClick={() => navigateToView('story')}
+                className="secondary-btn ghost-btn"
+                id="hero-story-cta"
+              >
+                [ {t.heroCtaStory} ]
+              </button>
+            </div>
+          </div>
+
+          {/* Right Column: Editorial Visual */}
+          <div className="hero-visual animate-slide-up delay-2">
+            <div className="visual-backdrop-text">LEGACY</div>
+            <div className="visual-shape-accent"></div>
+            <img src={founderImg} alt="Liss Almonte" className="founder-cutout" />
           </div>
         </div>
       </section>
 
-      {/* Portal Navigation Dashboard */}
+      {/* 2. Portal Navigation Dashboard (Asymmetric Bento Grid) */}
       <section className="section home-portal-section">
         <div className="section-header reveal">
           <span className="section-subtitle">{t.commandCenterSubtitle}</span>
@@ -148,9 +137,9 @@ export default function Home({ navigateToView, language = 'en' }) {
         </div>
       </section>
 
-      {/* Video Section */}
+      {/* 3. Video Section */}
       <section className="video-section">
-        <div className="video-container glass-card">
+        <div className="video-container glass-card reveal">
           <div className="video-wrapper">
             <iframe
               src="https://www.youtube-nocookie.com/embed/KwdXk5LH6po"
@@ -163,10 +152,9 @@ export default function Home({ navigateToView, language = 'en' }) {
         </div>
       </section>
 
-      {/* Academy CTA Section */}
+      {/* 4. Academy CTA Section */}
       <section className="section academy-cta-section">
         <div className="cta-glass-box glass-card reveal">
-          <div className="cta-glow-overlay"></div>
           <div className="cta-content">
             <span className="cta-subtitle">{t.ctaSubtitle}</span>
             <h2 className="cta-title">{t.ctaTitle}</h2>
@@ -185,7 +173,7 @@ export default function Home({ navigateToView, language = 'en' }) {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* 5. FAQ Section */}
       <section className="section faq-section">
         <div className="section-header reveal">
           <span className="section-subtitle">{t.faqSubtitle}</span>
@@ -195,7 +183,7 @@ export default function Home({ navigateToView, language = 'en' }) {
           </p>
         </div>
 
-        <div className="faq-list">
+        <div className="faq-list reveal">
           {t.faqs.map((faq, index) => {
             const isOpen = activeFaqIndex === index;
             return (

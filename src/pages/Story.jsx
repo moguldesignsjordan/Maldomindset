@@ -65,77 +65,29 @@ export default function Story({ navigateToView, language = 'en' }) {
           </p>
         </div>
 
-        <div className="instagram-container animate-slide-up delay-1">
-          {/* Left: Phone Mockup Container */}
-          <div className="instagram-mockup-column">
-            <div className="phone-mockup-wrapper">
-              <div className="phone-mockup glass-card">
-                <div className="phone-notch"></div>
-                <div className="phone-status-bar">
-                  <span className="phone-time">09:41</span>
-                  <div className="phone-status-icons">
-                    <span style={{ marginRight: '6px' }}>📶</span>
-                    <span>🔋</span>
-                  </div>
-                </div>
-                <div className="phone-screen">
-                  <img 
-                    src={igProfileImg} 
-                    alt="Instagram Profile Screenshot" 
-                    className="phone-screen-img"
-                  />
-                </div>
-                <div className="phone-home-indicator"></div>
-              </div>
-            </div>
-          </div>
+        <div className="ig-social-row animate-slide-up delay-1">
+          <a href="https://www.instagram.com/baldomindset/" target="_blank" rel="noopener noreferrer" className="ig-social-icon-btn" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+            <span>Instagram</span>
+          </a>
 
-          {/* Right: Embedded Video Columns */}
-          <div className="instagram-videos-column">
-            <div className="instagram-videos-grid">
-              {t.igReelIds.map((reelId, index) => (
-                <div key={index} className="instagram-video-card glass-card">
-                  <div className="video-card-iframe-wrapper">
-                    <iframe
-                      src={`https://www.instagram.com/reel/${reelId}/embed/captioned/?cr=1&v=12`}
-                      title={`Baldo Mindset Instagram Post ${index + 1}`}
-                      frameBorder="0"
-                      scrolling="no"
-                      allowTransparency="true"
-                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    ></iframe>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <a href="https://www.tiktok.com/@baldomindset" target="_blank" rel="noopener noreferrer" className="ig-social-icon-btn" aria-label="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.3 6.3 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.77a4.85 4.85 0 0 1-1.01-.08z"/>
+            </svg>
+            <span>TikTok</span>
+          </a>
 
-            <div className="instagram-actions">
-              <a 
-                href="https://www.instagram.com/baldomindset/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="primary-btn ig-follow-btn"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  style={{ marginRight: '8px', display: 'inline-block', verticalAlign: 'middle' }}
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
-                <span>{t.igFollowBtn}</span>
-              </a>
-            </div>
-          </div>
+          <a href="https://www.youtube.com/@Baldomindset" target="_blank" rel="noopener noreferrer" className="ig-social-icon-btn" aria-label="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            <span>YouTube</span>
+          </a>
         </div>
       </section>
 

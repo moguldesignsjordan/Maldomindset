@@ -81,7 +81,7 @@ export default function Academy({ navigateToView, setCheckoutForm, language = 'e
           <div className="academy-video-card glass-card">
             <div className="vertical-video-container">
               <iframe
-                src="https://www.youtube.com/embed/tniN4jCsR9E"
+                src="https://www.youtube.com/embed/d_4lJk2UrQ4"
                 title="Bow-Do Mindset Academy - Real Talk Real Results"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 
 import { TRANSLATIONS } from '../constants/translations';
-import founderImg from '../assets/founder.png';
+import founderImg from '../assets/img2.png';
 
 export default function Home({ navigateToView, language = 'en' }) {
   // State for FAQ Accordion

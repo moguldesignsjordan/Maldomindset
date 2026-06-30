@@ -18,7 +18,7 @@ export const TRANSLATIONS = {
     heroTitleFirst: "Master Your Mind.",
     heroTitleSecond: "Architect Your Legacy.",
     heroDesc: "BaldoMindset provides a systematic framework to break mental plateaus, build elite habits, and construct the discipline required for high-performance self-mastery.",
-    heroCtaAssessment: "Take Free Assessment",
+    heroCtaAssessment: "Start 90-Day Program",
     heroCtaStory: "Read My Story",
 
     commandCenterSubtitle: "Command Center",
@@ -253,7 +253,7 @@ export const TRANSLATIONS = {
     heroTitleFirst: "Domina tu Mente.",
     heroTitleSecond: "Diseña tu Legado.",
     heroDesc: "BaldoMindset proporciona un marco sistemático para romper mesetas mentales, construir hábitos de élite y desarrollar la disciplina requerida para el autodominio de alto rendimiento.",
-    heroCtaAssessment: "Evaluación Gratuita",
+    heroCtaAssessment: "Comenzar Programa de 90 Días",
     heroCtaStory: "Mi Historia",
 
     commandCenterSubtitle: "Centro de Mando",

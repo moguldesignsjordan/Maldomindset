@@ -77,7 +77,14 @@ export default function Home({ navigateToView, language = 'en' }) {
           <div className="hero-visual animate-slide-up delay-2">
             <div className="visual-backdrop-text">LEGACY</div>
             <div className="visual-shape-accent"></div>
-            <img src={founderImg} alt="Liss Almonte" className="founder-cutout" />
+            <div className="hero-image-frame">
+              <img src={founderImg} alt="Liss Almonte" className="founder-cutout" />
+              <div className="frame-scanline"></div>
+              <span className="frame-corner tl"></span>
+              <span className="frame-corner tr"></span>
+              <span className="frame-corner bl"></span>
+              <span className="frame-corner br"></span>
+            </div>
           </div>
         </div>
       </section>

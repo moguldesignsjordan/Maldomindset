@@ -1,26 +1,37 @@
-import { CheckCircle, Sparkles, ArrowRight } from 'lucide-react';
+import { CheckCircle, Sparkles, ArrowRight, Clock, Users } from 'lucide-react';
 import { TRANSLATIONS } from '../constants/translations';
 
-export default function Academy({ navigateToView, language = 'en' }) {
+// Swap this for the Academy overview video ID when the final cut is ready.
+const ACADEMY_VIDEO_ID = 'd_4lJk2UrQ4';
+
+export default function Academy({ navigateToView, language = 'en', setSelectedTier }) {
   const t = TRANSLATIONS[language];
+
+  // The 90-Day Challenge has its own dedicated page and single-product checkout;
+  // every other program goes through the multi-tier Academy checkout.
+  const goToCheckout = (tierId) => {
+    if (tierId === 'mindset') {
+      navigateToView('challenge-checkout');
+      return;
+    }
+    if (setSelectedTier) setSelectedTier(tierId);
+    navigateToView('checkout');
+  };
 
   return (
     <div className="academy-page-wrapper">
-
-      {/* Vertical Video Section — Top of page */}
+      {/* Academy overview video */}
       <section className="section academy-video-section">
         <div className="section-header">
-          <h2 className="section-title">{t.academyTitle}</h2>
-          <p className="section-desc">
-            {t.academyDesc}
-          </p>
+          <h2 className="section-title">{t.academyVideoTitle}</h2>
+          <p className="section-desc">{t.academyVideoDesc}</p>
         </div>
         <div className="academy-video-wrapper">
           <div className="academy-video-card glass-card">
             <div className="vertical-video-container">
               <iframe
-                src="https://www.youtube.com/embed/d_4lJk2UrQ4"
-                title="Bow-Do Mindset Academy - Real Talk Real Results"
+                src={`https://www.youtube.com/embed/${ACADEMY_VIDEO_ID}`}
+                title={t.academyVideoTitle}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
@@ -30,64 +41,71 @@ export default function Academy({ navigateToView, language = 'en' }) {
         </div>
       </section>
 
-      <section id="academy" className="section academy-page-section">
-        <div className="academy-grid">
-          {/* Left Panel - What you will learn */}
-          <div className="academy-learn-card glass-card">
-            <h3>{t.learnHeader}</h3>
-            <p className="academy-lead-text">
-              {t.learnLead}
-            </p>
-            <ul className="academy-benefits-list">
-              {t.benefits.map((benefit, index) => (
-                <li key={index}>
-                  <CheckCircle size={18} className="benefit-icon" />
-                  <span><strong>{benefit.bold}</strong> {benefit.normal}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="academy-closing-line">{t.learnClosing}</p>
-          </div>
+      <section id="programs" className="section academy-programs-section">
+        <div className="section-header">
+          <span className="section-subtitle">{t.programsSubtitle}</span>
+          <h2 className="section-title">{t.programsTitle}</h2>
+          <p className="section-desc">{t.programsDesc}</p>
+        </div>
 
-          {/* Right Panel - Investment & Inclusions */}
-          <div className="academy-pricing-wrap">
-            <div className="limited-spots-badge">
-              <Sparkles size={14} className="badge-sparkle" />
-              <span>⚠️ {t.spotsBadge}</span>
-            </div>
+        <div className="programs-grid">
+          {t.programs.map((program) => (
+            <div
+              key={program.id}
+              className={`program-card glass-card ${program.popular ? 'featured' : ''}`}
+            >
+              {program.popular && (
+                <span className="program-popular-badge">
+                  <Sparkles size={12} /> {t.programsMostPopular}
+                </span>
+              )}
 
-            <div className="academy-pricing-card glass-card">
-              <div className="academy-includes">
-                <h4>{t.pricingHeader}</h4>
-                <ul className="includes-list">
-                  {t.pricingIncludes.map((inc, index) => (
-                    <li key={index}>{inc}</li>
-                  ))}
-                </ul>
+              <h3 className="program-name">{program.name}</h3>
+              <p className="program-tagline">{program.tagline}</p>
+
+              <div className="program-meta">
+                {program.duration && <span><Clock size={14} /> {program.duration}</span>}
+                <span><Users size={14} /> {program.format}</span>
               </div>
 
-              <div className="pricing-divider"></div>
-
-              <div className="pricing-container">
-                <span className="pricing-label">{t.investmentLabel}</span>
-                <div className="pricing-digits">
-                  <span className="current-price">{t.priceCurrent} <span className="currency">{t.priceCurrency}</span></span>
-                  <span className="original-price">{t.priceOriginal}</span>
-                </div>
-                <p className="pricing-guarantee">{t.pricingGuarantee}</p>
+              <div className="program-price-block">
+                <span className="program-price">{program.price}</span>
+                <span className="program-price-note">{program.priceNote}</span>
               </div>
+
+              <span className="program-includes-label">{t.programsIncludesLabel}</span>
+              <ul className="program-features">
+                {program.features.map((feature, i) => (
+                  <li key={i}>
+                    <CheckCircle size={16} className="benefit-icon" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="program-best-for">{program.bestFor}</p>
+
+              {program.id === 'mindset' && (
+                <button
+                  onClick={() => navigateToView('challenge')}
+                  className="program-details-link"
+                >
+                  {language === 'es' ? 'Ver detalles del Reto' : 'See Challenge details'}
+                </button>
+              )}
 
               <button
-                onClick={() => navigateToView('checkout')}
-                className="primary-btn academy-cta-btn"
-                id="academy-enroll-cta"
+                onClick={() => goToCheckout(program.id)}
+                className={program.popular ? 'primary-btn program-cta-btn' : 'secondary-btn program-cta-btn'}
               >
-                {language === 'es' ? 'Únete a la Academia' : 'Join the Academy'}
+                {t.programsCta}
                 <ArrowRight size={16} />
               </button>
             </div>
-          </div>
+          ))}
         </div>
+
+        <p className="programs-footnote">{t.programsFootnote}</p>
       </section>
 
       <div className="page-back-nav flex-center" style={{ paddingBottom: '60px' }}>

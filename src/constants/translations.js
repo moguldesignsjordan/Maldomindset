@@ -5,6 +5,13 @@ export const TRANSLATIONS = {
     brand: "BaldoMindset",
     storyTab: "Story",
     academyTab: "Academy",
+    challengeTab: "90-Day Challenge",
+    navProgramsMenu: "Programs",
+    navChallengeBlurb: "Our flagship 90-day mindset accelerator.",
+    navAcademyBlurb: "Compare all three programs side by side.",
+    navMenuLabel: "Menu",
+    navSectionExplore: "Explore",
+    navSectionPrograms: "Programs",
     assessmentTab: "Assessment",
     boostTab: "Daily Boost",
     checkoutTab: "Academy Checkout",
@@ -63,7 +70,7 @@ export const TRANSLATIONS = {
       },
       {
         question: "How much time does this require daily?",
-        answer: "The program is designed to integrate into your life, but it requires a dedicated commitment of at least 1–2 hours daily to complete mindset protocols, physical routines, and branding blueprints."
+        answer: "The program is designed to integrate into your life, but it requires a dedicated commitment of at least 1 to 2 hours daily to complete mindset protocols, physical routines, and branding blueprints."
       },
       {
         question: "How do the weekly live mentorship calls work?",
@@ -116,6 +123,69 @@ export const TRANSLATIONS = {
     priceOriginal: "$1,000 USD",
     pricingGuarantee: "A $1,000 value, yours today for just $250. Limited spots available.",
     applyCtaBtn: "Apply For The Challenge",
+
+    // All Programs
+    academyVideoTitle: "Inside The Academy",
+    academyVideoDesc: "A look at how the Academy actually works: the mentorship, the community, and the results our students build.",
+    programsSubtitle: "Our Programs",
+    programsTitle: "Choose Your Path",
+    programsDesc: "Three levels of transformation. Start where you are, go as far as you are willing to work.",
+    programsMostPopular: "MOST POPULAR",
+    programsIncludesLabel: "What's included",
+    programsCta: "Enroll Now",
+    programsFootnote: "Every program includes lifetime access to the materials and our private community.",
+    programs: [
+      {
+        id: "mindset",
+        name: "90-Day Challenge Academy",
+        tagline: "Rebuild your discipline, habits and psychology in 90 days.",
+        price: "$250",
+        priceNote: "one-time \u00b7 was $1,000",
+        duration: "90 days",
+        format: "Group program",
+        features: [
+          "90 days of structured mindset protocols",
+          "Weekly LIVE group mentorship with Baldo Mindset",
+          "Private growth & support community access",
+          "Exclusive step-by-step masterclasses",
+          "Habit tracker, templates and daily blueprints"
+        ],
+        bestFor: "Best for: anyone starting the work on discipline, vices and consistency."
+      },
+      {
+        id: "accelerator",
+        name: "Personal Brand & Business Accelerator",
+        tagline: "Everything in the 90-Day Challenge plus a plan to turn your passion into income.",
+        price: "$450",
+        priceNote: "one-time",
+        format: "Group + workshops",
+        popular: true,
+        features: [
+          "Everything in the 90-Day Challenge Academy",
+          "Personal branding blueprint & scale strategy",
+          "Passion-to-income monetization step-by-step",
+          "Content system: what to post and when",
+          "Offer, pricing and client acquisition workshops"
+        ],
+        bestFor: "Best for: creators and entrepreneurs building a brand from scratch."
+      },
+      {
+        id: "inner-circle",
+        name: "Elite 1-on-1 Mentorship (Inner Circle)",
+        tagline: "Maximum accountability. A custom blueprint built with you, for you.",
+        price: "$950",
+        priceNote: "one-time \u00b7 limited seats",
+        format: "1-on-1 private",
+        features: [
+          "Complete Mindset + Business programs included",
+          "Weekly private 1-on-1 mentorship calls",
+          "Direct WhatsApp access to Baldo Mindset",
+          "Custom 90-day blueprint built for your situation",
+          "Priority reviews of your offer, content and numbers"
+        ],
+        bestFor: "Best for: those who want direct access and the fastest possible results."
+      }
+    ],
 
     // Application Form Section
     formSubtitle: "Direct Access",
@@ -192,6 +262,14 @@ export const TRANSLATIONS = {
     boostBtnCopy: "Copy Boost",
     boostBtnCopied: "Copied!",
 
+    // 90-Day Challenge Checkout (single product)
+    challengeCheckoutSubtitle: "Enrollment",
+    challengeCheckoutTitle: "Join The 90-Day Challenge",
+    challengeCheckoutDesc: "One program, one payment. Fill in your details and secure your spot.",
+    challengeOrderHeader: "Your order",
+    challengeSeeAllPrograms: "Looking for the other programs? See all Academy programs \u2192",
+    challengeBackBtn: "\u2190 Back to the 90-Day Challenge",
+
     // Checkout Page
     checkoutSubtitle: "Checkout",
     checkoutTitle: "Finalize Academy Registration",
@@ -242,6 +320,13 @@ export const TRANSLATIONS = {
     brand: "BaldoMindset",
     storyTab: "Historia",
     academyTab: "Academia",
+    challengeTab: "Reto de 90 D\u00edas",
+    navProgramsMenu: "Programas",
+    navChallengeBlurb: "Nuestro acelerador insignia de mentalidad de 90 d\u00edas.",
+    navAcademyBlurb: "Compara los tres programas lado a lado.",
+    navMenuLabel: "Men\u00fa",
+    navSectionExplore: "Explora",
+    navSectionPrograms: "Programas",
     assessmentTab: "Evaluación",
     boostTab: "Impulso Diario",
     checkoutTab: "Pagar Academia",
@@ -354,6 +439,69 @@ export const TRANSLATIONS = {
     pricingGuarantee: "Un valor de 58,000 DOP, tuyo hoy por solo 14,500 DOP. Cupos limitados.",
     applyCtaBtn: "Aplicar al Reto",
 
+    // Todos los Programas
+    academyVideoTitle: "Dentro de la Academia",
+    academyVideoDesc: "As\u00ed funciona la Academia por dentro: la mentor\u00eda, la comunidad y los resultados que construyen nuestros estudiantes.",
+    programsSubtitle: "Nuestros Programas",
+    programsTitle: "Elige Tu Camino",
+    programsDesc: "Tres niveles de transformaci\u00f3n. Empieza donde est\u00e1s y llega tan lejos como est\u00e9s dispuesto a trabajar.",
+    programsMostPopular: "M\u00c1S POPULAR",
+    programsIncludesLabel: "Qu\u00e9 incluye",
+    programsCta: "Inscribirme",
+    programsFootnote: "Todos los programas incluyen acceso de por vida a los materiales y a nuestra comunidad privada.",
+    programs: [
+      {
+        id: "mindset",
+        name: "Academia Reto de 90 D\u00edas",
+        tagline: "Reconstruye tu disciplina, tus h\u00e1bitos y tu psicolog\u00eda en 90 d\u00edas.",
+        price: "14,500 DOP",
+        priceNote: "pago \u00fanico \u00b7 antes 58,000 DOP",
+        duration: "90 d\u00edas",
+        format: "Programa grupal",
+        features: [
+          "90 d\u00edas de protocolos mentales estructurados",
+          "Mentor\u00eda grupal semanal EN VIVO con Baldo Mindset",
+          "Acceso a la comunidad privada de crecimiento y soporte",
+          "Clases magistrales exclusivas paso a paso",
+          "Rastreador de h\u00e1bitos, plantillas y rutinas diarias"
+        ],
+        bestFor: "Ideal para: quien empieza a trabajar disciplina, vicios y constancia."
+      },
+      {
+        id: "accelerator",
+        name: "Acelerador de Marca Personal y Negocios",
+        tagline: "Todo el Reto de 90 D\u00edas m\u00e1s un plan para convertir tu pasi\u00f3n en ingresos.",
+        price: "26,100 DOP",
+        priceNote: "pago \u00fanico",
+        format: "Grupal + talleres",
+        popular: true,
+        features: [
+          "Todo lo de la Academia Reto de 90 D\u00edas",
+          "Gu\u00eda completa de marca personal y estrategia de escala",
+          "Monetizaci\u00f3n paso a paso: de la pasi\u00f3n al ingreso",
+          "Sistema de contenido: qu\u00e9 publicar y cu\u00e1ndo",
+          "Talleres de oferta, precios y captaci\u00f3n de clientes"
+        ],
+        bestFor: "Ideal para: creadores y emprendedores construyendo su marca desde cero."
+      },
+      {
+        id: "inner-circle",
+        name: "Mentor\u00eda \u00c9lite 1-a-1 (Inner Circle)",
+        tagline: "M\u00e1xima rendici\u00f3n de cuentas. Un plan personalizado hecho contigo y para ti.",
+        price: "55,100 DOP",
+        priceNote: "pago \u00fanico \u00b7 cupos limitados",
+        format: "Privado 1-a-1",
+        features: [
+          "Incluye los programas completos de Mentalidad + Negocio",
+          "Llamadas privadas semanales 1-a-1 de mentor\u00eda",
+          "Acceso directo por WhatsApp con Baldo Mindset",
+          "Plan de 90 d\u00edas dise\u00f1ado para tu situaci\u00f3n",
+          "Revisi\u00f3n prioritaria de tu oferta, contenido y n\u00fameros"
+        ],
+        bestFor: "Ideal para: quien quiere acceso directo y los resultados m\u00e1s r\u00e1pidos."
+      }
+    ],
+
     // Application Form Section
     formSubtitle: "Acceso Directo",
     formTitle: "Aplica para una Sesión Estratégica Mental Gratuita",
@@ -428,6 +576,14 @@ export const TRANSLATIONS = {
     boostBtnGenerate: "Generar Impulso",
     boostBtnCopy: "Copiar Frase",
     boostBtnCopied: "¡Copiado!",
+
+    // Checkout del Reto de 90 D\u00edas (producto \u00fanico)
+    challengeCheckoutSubtitle: "Inscripci\u00f3n",
+    challengeCheckoutTitle: "\u00danete al Reto de 90 D\u00edas",
+    challengeCheckoutDesc: "Un programa, un solo pago. Completa tus datos y asegura tu cupo.",
+    challengeOrderHeader: "Tu orden",
+    challengeSeeAllPrograms: "\u00bfBuscas los otros programas? Ver todos los programas de la Academia \u2192",
+    challengeBackBtn: "\u2190 Volver al Reto de 90 D\u00edas",
 
     // Checkout Page
     checkoutSubtitle: "Pago",

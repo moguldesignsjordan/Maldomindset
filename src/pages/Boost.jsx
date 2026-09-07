@@ -41,7 +41,7 @@ export default function Boost({ navigateToView, language = 'en' }) {
   };
 
   const copyToClipboard = () => {
-    const textToCopy = `"${currentQuote.text}" — ${currentQuote.author}`;
+    const textToCopy = `"${currentQuote.text}" ${currentQuote.author}`;
     navigator.clipboard.writeText(textToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -79,7 +79,7 @@ export default function Boost({ navigateToView, language = 'en' }) {
           <div className={`quote-card ${quoteAnim ? 'fade-out' : 'fade-in boost-quote-card-active'}`}>
             <BookOpen size={36} className="quote-icon" />
             <p className="quote-text">"{currentQuote.text}"</p>
-            <span className="quote-author">— {currentQuote.author}</span>
+            <span className="quote-author">{currentQuote.author}</span>
           </div>
 
           <div className="quote-actions">

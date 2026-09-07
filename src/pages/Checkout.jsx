@@ -12,8 +12,7 @@ const PAYPAL_OPTIONS = {
   intent: 'capture',
 };
 
-export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm, language = 'en' }) {
-  const [selectedTier, setSelectedTier] = useState('mindset');
+export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm, language = 'en', selectedTier = 'mindset', setSelectedTier }) {
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [paypalError, setPaypalError] = useState(null);
 
@@ -173,8 +172,8 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
             <div className="paypal-instruction-box">
               <p>
                 {language === 'es'
-                  ? 'Paga de forma segura con tu cuenta de PayPal o con tarjeta de crédito/débito — tú eliges en el siguiente paso.'
-                  : 'Pay securely with your PayPal account or a credit/debit card — you choose in the next step.'}
+                  ? 'Paga de forma segura con tu cuenta de PayPal o con tarjeta de crédito/débito. Tú eliges en el siguiente paso.'
+                  : 'Pay securely with your PayPal account or a credit/debit card. You choose in the next step.'}
               </p>
             </div>
 

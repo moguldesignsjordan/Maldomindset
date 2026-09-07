@@ -56,7 +56,7 @@ export default function Home({ navigateToView, language = 'en' }) {
             
             <div className="hero-actions animate-slide-up delay-4">
               <button
-                onClick={() => navigateToView('academy')}
+                onClick={() => navigateToView('challenge')}
                 className="primary-btn square-btn"
                 id="hero-assessment-cta"
               >
@@ -100,7 +100,7 @@ export default function Home({ navigateToView, language = 'en' }) {
         </div>
 
         <div className="home-portal-grid">
-          <div className="portal-card glass-card animate-slide-up delay-1 reveal" onClick={() => navigateToView('academy')}>
+          <div className="portal-card glass-card animate-slide-up delay-1 reveal" onClick={() => navigateToView('challenge')}>
             <div className="portal-card-badge">{t.portalBadgeProgram}</div>
             <div className="portal-card-header">
               <h3>{t.portalTitleProgram}</h3>
@@ -160,7 +160,7 @@ export default function Home({ navigateToView, language = 'en' }) {
               {t.ctaDesc}
             </p>
             <button
-              onClick={() => navigateToView('academy')}
+              onClick={() => navigateToView('challenge')}
               className="primary-btn cta-btn-large"
               id="home-academy-cta-btn"
             >

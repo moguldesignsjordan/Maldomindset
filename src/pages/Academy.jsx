@@ -1,7 +1,7 @@
 import { CheckCircle, Sparkles, ArrowRight, Clock, Users } from 'lucide-react';
 import { TRANSLATIONS } from '../constants/translations';
 
-// Swap this for the Academy overview video ID when the final cut is ready.
+// Long-form (16:9) Academy overview video. Swap the ID for the final cut.
 const ACADEMY_VIDEO_ID = 'd_4lJk2UrQ4';
 
 export default function Academy({ navigateToView, language = 'en', setSelectedTier }) {
@@ -27,8 +27,8 @@ export default function Academy({ navigateToView, language = 'en', setSelectedTi
           <p className="section-desc">{t.academyVideoDesc}</p>
         </div>
         <div className="academy-video-wrapper">
-          <div className="academy-video-card glass-card">
-            <div className="vertical-video-container">
+          <div className="academy-video-card landscape">
+            <div className="landscape-video-container">
               <iframe
                 src={`https://www.youtube.com/embed/${ACADEMY_VIDEO_ID}`}
                 title={t.academyVideoTitle}

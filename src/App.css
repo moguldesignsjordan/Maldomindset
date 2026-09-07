@@ -2321,8 +2321,45 @@ main.page-transition {
   border-radius: 16px;
 }
 
+/* Widescreen variant: a bare 16:9 embed, no card frame or padding */
+.academy-video-card.landscape {
+  max-width: 900px;
+  padding: 0;
+  border: none;
+  border-radius: 16px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.academy-video-card.landscape:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.landscape-video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+}
+
+.landscape-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 16px;
+}
+
 @media (max-width: 480px) {
   .academy-video-card { max-width: 100%; padding: 14px; border-radius: 20px; }
+  /* the bare embed keeps its edge-to-edge framing on small screens */
+  .academy-video-card.landscape { padding: 0; border-radius: 12px; }
+  .landscape-video-container, .landscape-video-container iframe { border-radius: 12px; }
 }
 
 /* ==========================================================================

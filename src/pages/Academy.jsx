@@ -1,8 +1,11 @@
 import { CheckCircle, Sparkles, ArrowRight, Clock, Users } from 'lucide-react';
 import { TRANSLATIONS } from '../constants/translations';
 
-// Long-form (16:9) Academy overview video. Swap the ID for the final cut.
-const ACADEMY_VIDEO_ID = 'd_4lJk2UrQ4';
+// The channel's "uploads" playlist: same id as the channel with UC swapped for UU.
+// Embedding it means the player always opens on the newest upload, with the rest
+// of the back catalogue reachable from the player's playlist controls.
+const CHANNEL_ID = 'UCQNVnq0GC66_cUWeBStgdzw';
+const UPLOADS_PLAYLIST_ID = `UU${CHANNEL_ID.slice(2)}`;
 
 export default function Academy({ navigateToView, language = 'en', setSelectedTier }) {
   const t = TRANSLATIONS[language];
@@ -30,7 +33,7 @@ export default function Academy({ navigateToView, language = 'en', setSelectedTi
           <div className="academy-video-card landscape">
             <div className="landscape-video-container">
               <iframe
-                src={`https://www.youtube.com/embed/${ACADEMY_VIDEO_ID}`}
+                src={`https://www.youtube.com/embed/videoseries?list=${UPLOADS_PLAYLIST_ID}&rel=0`}
                 title={t.academyVideoTitle}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

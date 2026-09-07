@@ -125,8 +125,8 @@ export const TRANSLATIONS = {
     applyCtaBtn: "Apply For The Challenge",
 
     // All Programs
-    academyVideoTitle: "Inside The Academy",
-    academyVideoDesc: "A look at how the Academy actually works: the mentorship, the community, and the results our students build.",
+    academyVideoTitle: "Latest From Baldo Mindset",
+    academyVideoDesc: "Our newest videos, updated automatically. Press play for the most recent upload, or browse the back catalogue from the player.",
     programsSubtitle: "Our Programs",
     programsTitle: "Choose Your Path",
     programsDesc: "Three levels of transformation. Start where you are, go as far as you are willing to work.",
@@ -440,8 +440,8 @@ export const TRANSLATIONS = {
     applyCtaBtn: "Aplicar al Reto",
 
     // Todos los Programas
-    academyVideoTitle: "Dentro de la Academia",
-    academyVideoDesc: "As\u00ed funciona la Academia por dentro: la mentor\u00eda, la comunidad y los resultados que construyen nuestros estudiantes.",
+    academyVideoTitle: "Lo M\u00e1s Reciente de Baldo Mindset",
+    academyVideoDesc: "Nuestros videos m\u00e1s nuevos, actualizados autom\u00e1ticamente. Dale play al \u00faltimo video o explora el resto desde el reproductor.",
     programsSubtitle: "Nuestros Programas",
     programsTitle: "Elige Tu Camino",
     programsDesc: "Tres niveles de transformaci\u00f3n. Empieza donde est\u00e1s y llega tan lejos como est\u00e9s dispuesto a trabajar.",

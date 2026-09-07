@@ -1,6 +1,5 @@
 import founderImg from '../assets/founder.png';
 import { TRANSLATIONS } from '../constants/translations';
-import igProfileImg from '../assets/ig_profile.jpg';
 
 export default function Story({ navigateToView, language = 'en' }) {
   const t = TRANSLATIONS[language];

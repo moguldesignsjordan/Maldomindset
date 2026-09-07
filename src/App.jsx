@@ -19,10 +19,18 @@ import ChallengeCheckout from './pages/ChallengeCheckout';
 // Import Translations
 import { TRANSLATIONS } from './constants/translations';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { pathForView, viewForPath } from './lib/routes';
 
 function AppShell() {
-  // View Routing State
-  const [currentView, setCurrentView] = useState('home');
+  // View routing, mirrored to the address bar so every page has a real URL
+  const [currentView, setCurrentView] = useState(() => viewForPath(window.location.pathname));
+
+  // Back and forward buttons
+  useEffect(() => {
+    const onPopState = () => setCurrentView(viewForPath(window.location.pathname));
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
 
   // Language State
   const [language, setLanguage] = useState('es');
@@ -93,8 +101,24 @@ function AppShell() {
     setCurrentView(view);
     setMenuOpen(false);
     setProgramsOpen(false);
+
+    const path = pathForView(view);
+    if (window.location.pathname !== path) {
+      window.history.pushState({ view }, '', path);
+    }
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
+
+  // Plain links: real hrefs so pages can be opened in a new tab, copied or
+  // crawled, while a normal click still routes without a reload.
+  const linkTo = (view) => ({
+    href: pathForView(view),
+    onClick: (e) => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      e.preventDefault();
+      navigateToView(view);
+    },
+  });
 
   const { user, isAdmin } = useAuth();
 
@@ -108,15 +132,15 @@ function AppShell() {
     <div className="app-container">
       {/* Header / Navbar */}
       <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-        <button className="nav-home-brand" onClick={() => navigateToView('home')}>
+        <a className="nav-home-brand" {...linkTo('home')}>
           <span className="brand-mark" aria-hidden="true">B</span>
           <span className="brand-word">{t.brand}</span>
-        </button>
+        </a>
 
         {/* Desktop Nav Links */}
         <nav className="nav-links-desktop" aria-label={t.navMenuLabel}>
-          <button onClick={() => navigateToView('home')} className={`nav-link-btn ${currentView === 'home' ? 'active' : ''}`}>{language === 'es' ? 'Inicio' : 'Home'}</button>
-          <button onClick={() => navigateToView('story')} className={`nav-link-btn ${currentView === 'story' ? 'active' : ''}`}>{t.storyTab}</button>
+          <a {...linkTo('home')} className={`nav-link-btn ${currentView === 'home' ? 'active' : ''}`}>{language === 'es' ? 'Inicio' : 'Home'}</a>
+          <a {...linkTo('story')} className={`nav-link-btn ${currentView === 'story' ? 'active' : ''}`}>{t.storyTab}</a>
 
           {/* Programs dropdown groups the two program pages */}
           <div className="nav-dropdown" ref={programsRef}>
@@ -131,25 +155,25 @@ function AppShell() {
             </button>
 
             <div className={`nav-dropdown-menu ${programsOpen ? 'open' : ''}`}>
-              <button
-                onClick={() => navigateToView('challenge')}
+              <a
+                {...linkTo('challenge')}
                 className={`nav-dropdown-item ${currentView === 'challenge' ? 'active' : ''}`}
               >
                 <span className="nav-dropdown-item-title">{t.challengeTab}</span>
                 <span className="nav-dropdown-item-desc">{t.navChallengeBlurb}</span>
-              </button>
-              <button
-                onClick={() => navigateToView('academy')}
+              </a>
+              <a
+                {...linkTo('academy')}
                 className={`nav-dropdown-item ${currentView === 'academy' ? 'active' : ''}`}
               >
                 <span className="nav-dropdown-item-title">{t.academyTab}</span>
                 <span className="nav-dropdown-item-desc">{t.navAcademyBlurb}</span>
-              </button>
+              </a>
             </div>
           </div>
 
-          <button onClick={() => navigateToView('assessment')} className={`nav-link-btn ${currentView === 'assessment' ? 'active' : ''}`}>{t.assessmentTab}</button>
-          <button onClick={() => navigateToView('boost')} className={`nav-link-btn ${currentView === 'boost' ? 'active' : ''}`}>{t.boostTab}</button>
+          <a {...linkTo('assessment')} className={`nav-link-btn ${currentView === 'assessment' ? 'active' : ''}`}>{t.assessmentTab}</a>
+          <a {...linkTo('boost')} className={`nav-link-btn ${currentView === 'boost' ? 'active' : ''}`}>{t.boostTab}</a>
         </nav>
 
         {/* Right side: CTA + theme + language + hamburger */}
@@ -178,30 +202,30 @@ function AppShell() {
           </button>
 
           {isAdmin && (
-            <button
-              onClick={() => navigateToView('admin')}
+            <a
+              {...linkTo('admin')}
               className={`nav-icon-btn desktop-only ${currentView === 'admin' ? 'active' : ''}`}
               title={t.adminTab}
               aria-label={t.adminTab}
             >
               <LayoutDashboard size={16} />
-            </button>
+            </a>
           )}
 
-          <button
-            onClick={() => navigateToView(accountView)}
+          <a
+            {...linkTo(accountView)}
             className={`nav-account-btn desktop-only ${['login', 'dashboard'].includes(currentView) ? 'active' : ''}`}
           >
             <UserCircle size={16} />
             {user ? t.accountTab : t.loginTab}
-          </button>
+          </a>
 
-          <button
-            onClick={() => navigateToView('challenge')}
+          <a
+            {...linkTo('challenge')}
             className={`cta-nav-btn desktop-only ${currentView === 'challenge-checkout' ? 'active' : ''}`}
           >
             {language === 'es' ? 'Inscr\u00edbete' : 'Enroll Now'}
-          </button>
+          </a>
 
           <button
             className="hamburger-btn"
@@ -222,28 +246,28 @@ function AppShell() {
       <div className={`mobile-menu-overlay ${menuOpen ? 'open' : ''}`}>
         <nav className="mobile-menu-nav" aria-label={t.navMenuLabel}>
           <span className="mobile-nav-section">{t.navSectionExplore}</span>
-          <button onClick={() => navigateToView('home')} className={`mobile-nav-link ${currentView === 'home' ? 'active' : ''}`}>{language === 'es' ? 'Inicio' : 'Home'}</button>
-          <button onClick={() => navigateToView('story')} className={`mobile-nav-link ${currentView === 'story' ? 'active' : ''}`}>{t.storyTab}</button>
-          <button onClick={() => navigateToView('assessment')} className={`mobile-nav-link ${currentView === 'assessment' ? 'active' : ''}`}>{t.assessmentTab}</button>
-          <button onClick={() => navigateToView('boost')} className={`mobile-nav-link ${currentView === 'boost' ? 'active' : ''}`}>{t.boostTab}</button>
+          <a {...linkTo('home')} className={`mobile-nav-link ${currentView === 'home' ? 'active' : ''}`}>{language === 'es' ? 'Inicio' : 'Home'}</a>
+          <a {...linkTo('story')} className={`mobile-nav-link ${currentView === 'story' ? 'active' : ''}`}>{t.storyTab}</a>
+          <a {...linkTo('assessment')} className={`mobile-nav-link ${currentView === 'assessment' ? 'active' : ''}`}>{t.assessmentTab}</a>
+          <a {...linkTo('boost')} className={`mobile-nav-link ${currentView === 'boost' ? 'active' : ''}`}>{t.boostTab}</a>
 
           <span className="mobile-nav-section">{t.navSectionPrograms}</span>
-          <button onClick={() => navigateToView('challenge')} className={`mobile-nav-link ${currentView === 'challenge' ? 'active' : ''}`}>{t.challengeTab}</button>
-          <button onClick={() => navigateToView('academy')} className={`mobile-nav-link ${currentView === 'academy' ? 'active' : ''}`}>{t.academyTab}</button>
+          <a {...linkTo('challenge')} className={`mobile-nav-link ${currentView === 'challenge' ? 'active' : ''}`}>{t.challengeTab}</a>
+          <a {...linkTo('academy')} className={`mobile-nav-link ${currentView === 'academy' ? 'active' : ''}`}>{t.academyTab}</a>
 
           <span className="mobile-nav-section">{t.accountTab}</span>
-          <button onClick={() => navigateToView(accountView)} className={`mobile-nav-link ${['login', 'dashboard'].includes(currentView) ? 'active' : ''}`}>
+          <a {...linkTo(accountView)} className={`mobile-nav-link ${['login', 'dashboard'].includes(currentView) ? 'active' : ''}`}>
             {user ? t.accountTab : t.loginTab}
-          </button>
+          </a>
           {isAdmin && (
-            <button onClick={() => navigateToView('admin')} className={`mobile-nav-link ${currentView === 'admin' ? 'active' : ''}`}>
+            <a {...linkTo('admin')} className={`mobile-nav-link ${currentView === 'admin' ? 'active' : ''}`}>
               {t.adminTab}
-            </button>
+            </a>
           )}
 
-          <button onClick={() => navigateToView('challenge')} className="mobile-nav-cta">
+          <a {...linkTo('challenge')} className="mobile-nav-cta">
             {language === 'es' ? 'Inscr\u00edbete' : 'Enroll Now'}
-          </button>
+          </a>
 
           <div className="mobile-nav-controls">
             <div className="lang-toggle">
@@ -325,11 +349,11 @@ function AppShell() {
           </div>
           <p className="footer-tagline">{t.footerTagline}</p>
           <div className="footer-links">
-            <button onClick={() => navigateToView('story')} className="footer-link-btn">{t.storyTab}</button>
-            <button onClick={() => navigateToView('challenge')} className="footer-link-btn">{t.challengeTab}</button>
-            <button onClick={() => navigateToView('academy')} className="footer-link-btn">{t.academyTab}</button>
-            <button onClick={() => navigateToView('assessment')} className="footer-link-btn">{t.assessmentTab}</button>
-            <button onClick={() => navigateToView('boost')} className="footer-link-btn">{t.boostTab}</button>
+            <a {...linkTo('story')} className="footer-link-btn">{t.storyTab}</a>
+            <a {...linkTo('challenge')} className="footer-link-btn">{t.challengeTab}</a>
+            <a {...linkTo('academy')} className="footer-link-btn">{t.academyTab}</a>
+            <a {...linkTo('assessment')} className="footer-link-btn">{t.assessmentTab}</a>
+            <a {...linkTo('boost')} className="footer-link-btn">{t.boostTab}</a>
           </div>
           <div className="footer-social">
             <a

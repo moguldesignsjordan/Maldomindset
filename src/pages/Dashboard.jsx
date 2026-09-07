@@ -121,7 +121,7 @@ export default function Dashboard({ navigateToView, language = 'en' }) {
               <span className="dash-stat-label">{t.dashProgress}</span>
               <span className="dash-stat-value">{percent}%</span>
               <div className="dash-progress-track">
-                <div className="dash-progress-fill" style={{ width: `${percent}%` }} />
+                <div className="dash-progress-fill" style={{ transform: `scaleX(${percent / 100})` }} />
               </div>
             </div>
             <div className="dash-stat glass-card">

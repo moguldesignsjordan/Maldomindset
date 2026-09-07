@@ -202,6 +202,40 @@ export const TRANSLATIONS = {
     // All Programs
     academyVideoTitle: "Latest From Baldo Mindset",
     academyVideoDesc: "Our newest videos, updated automatically. Press play for the most recent upload, or browse the back catalogue from the player.",
+    programsMatrixCaption: "What each program includes",
+    programsWhoFor: "Who it is for",
+    programsIncluded: "Included",
+    programsNotIncluded: "Not included",
+    programGroups: [
+      {
+        title: "Mindset & Discipline",
+        rows: [
+          { label: "90 days of structured mindset protocols", in: ["mindset", "accelerator", "inner-circle"] },
+          { label: "Habit tracker, templates and daily blueprints", in: ["mindset", "accelerator", "inner-circle"] },
+          { label: "Exclusive step-by-step masterclasses", in: ["mindset", "accelerator", "inner-circle"] }
+        ]
+      },
+      {
+        title: "Mentorship & Community",
+        rows: [
+          { label: "Weekly LIVE group mentorship with Baldo Mindset", in: ["mindset", "accelerator", "inner-circle"] },
+          { label: "Private growth & support community access", in: ["mindset", "accelerator", "inner-circle"] },
+          { label: "Weekly private 1-on-1 mentorship calls", in: ["inner-circle"] },
+          { label: "Direct WhatsApp access to Baldo Mindset", in: ["inner-circle"] }
+        ]
+      },
+      {
+        title: "Brand & Business",
+        rows: [
+          { label: "Personal branding blueprint & scale strategy", in: ["accelerator", "inner-circle"] },
+          { label: "Passion-to-income monetization step-by-step", in: ["accelerator", "inner-circle"] },
+          { label: "Content system: what to post and when", in: ["accelerator", "inner-circle"] },
+          { label: "Offer, pricing and client acquisition workshops", in: ["accelerator", "inner-circle"] },
+          { label: "Custom 90-day blueprint built for your situation", in: ["inner-circle"] },
+          { label: "Priority reviews of your offer, content and numbers", in: ["inner-circle"] }
+        ]
+      }
+    ],
     programsSubtitle: "Our Programs",
     programsTitle: "Choose Your Path",
     programsDesc: "Three levels of transformation. Start where you are, go as far as you are willing to work.",
@@ -591,6 +625,40 @@ export const TRANSLATIONS = {
     // Todos los Programas
     academyVideoTitle: "Lo M\u00e1s Reciente de Baldo Mindset",
     academyVideoDesc: "Nuestros videos m\u00e1s nuevos, actualizados autom\u00e1ticamente. Dale play al \u00faltimo video o explora el resto desde el reproductor.",
+    programsMatrixCaption: "Qu\u00e9 incluye cada programa",
+    programsWhoFor: "Para qui\u00e9n es",
+    programsIncluded: "Incluido",
+    programsNotIncluded: "No incluido",
+    programGroups: [
+      {
+        title: "Mentalidad y Disciplina",
+        rows: [
+          { label: "90 d\u00edas de protocolos mentales estructurados", in: ["mindset", "accelerator", "inner-circle"] },
+          { label: "Rastreador de h\u00e1bitos, plantillas y rutinas diarias", in: ["mindset", "accelerator", "inner-circle"] },
+          { label: "Clases magistrales exclusivas paso a paso", in: ["mindset", "accelerator", "inner-circle"] }
+        ]
+      },
+      {
+        title: "Mentor\u00eda y Comunidad",
+        rows: [
+          { label: "Mentor\u00eda grupal semanal EN VIVO con Baldo Mindset", in: ["mindset", "accelerator", "inner-circle"] },
+          { label: "Acceso a la comunidad privada de crecimiento y soporte", in: ["mindset", "accelerator", "inner-circle"] },
+          { label: "Llamadas privadas semanales 1-a-1 de mentor\u00eda", in: ["inner-circle"] },
+          { label: "Acceso directo por WhatsApp con Baldo Mindset", in: ["inner-circle"] }
+        ]
+      },
+      {
+        title: "Marca y Negocio",
+        rows: [
+          { label: "Gu\u00eda completa de marca personal y estrategia de escala", in: ["accelerator", "inner-circle"] },
+          { label: "Monetizaci\u00f3n paso a paso: de la pasi\u00f3n al ingreso", in: ["accelerator", "inner-circle"] },
+          { label: "Sistema de contenido: qu\u00e9 publicar y cu\u00e1ndo", in: ["accelerator", "inner-circle"] },
+          { label: "Talleres de oferta, precios y captaci\u00f3n de clientes", in: ["accelerator", "inner-circle"] },
+          { label: "Plan de 90 d\u00edas dise\u00f1ado para tu situaci\u00f3n", in: ["inner-circle"] },
+          { label: "Revisi\u00f3n prioritaria de tu oferta, contenido y n\u00fameros", in: ["inner-circle"] }
+        ]
+      }
+    ],
     programsSubtitle: "Nuestros Programas",
     programsTitle: "Elige Tu Camino",
     programsDesc: "Tres niveles de transformaci\u00f3n. Empieza donde est\u00e1s y llega tan lejos como est\u00e9s dispuesto a trabajar.",

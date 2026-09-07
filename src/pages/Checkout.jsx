@@ -86,7 +86,7 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
                   <h4>{language === 'es' ? 'Acelerador de Marca Personal y Negocios' : 'Personal Brand & Business Accelerator'}</h4>
                   <p>{language === 'es' ? 'Plan de mentalidad de 90 días + lanzamiento de negocio pasional.' : 'Full 90-day mindset + passion business launch plan.'}</p>
                 </div>
-                <span className="tier-price">$450</span>
+                <span className="tier-price">{t.billingTier2PriceShort}</span>
               </div>
               <ul className="tier-features">
                 {language === 'es' ? (
@@ -118,7 +118,7 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
                   </div>
                   <p>{language === 'es' ? 'Máxima rendición de cuentas directa y planes personalizados.' : 'Maximum direct accountability and custom blueprints.'}</p>
                 </div>
-                <span className="tier-price">$950</span>
+                <span className="tier-price">{t.billingTier3PriceShort}</span>
               </div>
               <ul className="tier-features">
                 {language === 'es' ? (
@@ -192,8 +192,8 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
                 <span>{language === 'es' ? 'Total a Pagar:' : 'Total Due:'}</span>
                 <span className="summary-total-price">
                   {selectedTier === 'mindset' && t.billingTier1Price}
-                  {selectedTier === 'accelerator' && '$450 USD'}
-                  {selectedTier === 'inner-circle' && '$950 USD'}
+                  {selectedTier === 'accelerator' && t.billingTier2Price}
+                  {selectedTier === 'inner-circle' && t.billingTier3Price}
                 </span>
               </div>
             </div>

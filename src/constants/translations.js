@@ -202,6 +202,9 @@ export const TRANSLATIONS = {
     billingTier1Detail: "Includes weekly live mentorship, templates, and community access.",
     billingTier2: "Premium 1-on-1 Mentorship Bundle",
     billingTier2Price: "$450 USD",
+    billingTier2PriceShort: "$450",
+    billingTier3Price: "$950 USD",
+    billingTier3PriceShort: "$950",
     billingTier2Detail: "Standard access + monthly private deep-dives with Baldo Mindset.",
 
     paymentTitle: "Secure Payment Portal",
@@ -435,7 +438,10 @@ export const TRANSLATIONS = {
     billingTier1Price: "14,500 DOP",
     billingTier1Detail: "Incluye mentorías grupales semanales en vivo, plantillas y acceso a la comunidad.",
     billingTier2: "Paquete de Mentoría Privada 1-a-1",
-    billingTier2Price: "$450 USD",
+    billingTier2Price: "26,100 DOP",
+    billingTier2PriceShort: "26,100 DOP",
+    billingTier3Price: "55,100 DOP",
+    billingTier3PriceShort: "55,100 DOP",
     billingTier2Detail: "Acceso estándar + análisis profundos mensuales individuales directamente con Baldo Mindset.",
 
     paymentTitle: "Portal de Pago Seguro",

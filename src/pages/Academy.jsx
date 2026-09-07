@@ -1,23 +1,22 @@
-import { Fragment, useState } from 'react';
-import { Check, Minus, ArrowRight, Sparkles } from 'lucide-react';
+import { Check, ArrowRight, Sparkles } from 'lucide-react';
 import { TRANSLATIONS } from '../constants/translations';
-import { useMediaQuery } from '../lib/useMediaQuery';
 
 /*
- * DIRECTION CONTRACT — Academy surface (seed d4c49579, form "The Matrix", 2 of 7)
+ * DIRECTION CONTRACT — Academy surface (seed d4c49579, form "The Prospectus")
  *
- * THESIS: The upgrade path between three programs is the page's real content.
- *   Refuses the three same-size pricing cards that make tiers look parallel
- *   rather than cumulative.
+ * THESIS: An academy publishes a curriculum, not a feature comparison. Each
+ *   program is a track with a syllabus you can read; the tiers stack, so each
+ *   track opens by naming what it inherits. Refuses the pricing grid.
  * OWN-WORLD: Inherited, unchanged — #0d0d0d ground, #161616 panels, hairline
- *   rules, one cyan accent. Recognizable by the ruled matrix and the single
- *   raised column, not by new ornament.
- * STORY: A visitor sees every capability at once, reads down a column to find
- *   where their money stops, and enrolls from the row they stopped on.
- * FIRST VIEWPORT: Heading and one line of lead, then the sticky program header
- *   with three names and prices, the middle column raised. Feature groups run
- *   beneath; CTAs sit in the table foot; the video sits below as proof.
- * FORM: Comparison matrix, structure locked by the user on the decision page.
+ *   rules, one cyan accent, the Expose display face. Recognizable by the
+ *   number-and-rule track headers and the ruled syllabus, not new ornament.
+ * STORY: A visitor reads the tracks in order, sees each one absorb the last,
+ *   and enrolls from the track whose curriculum matches their ambition.
+ * FIRST VIEWPORT: Heading and one line of lead, then Track 01 opening full
+ *   width: a sticky identity rail on the left holding number, name, price and
+ *   the action, its curriculum ruled out to the right.
+ * FORM: Editorial prospectus, chosen after the user asked for less grid and
+ *   more academy.
  * FINISH: unreviewed and undocumented is unfinished; this build ends with the
  *   finish review, the verdict, DESIGN.md, and every shipping raster carrying
  *   its provenance.
@@ -28,12 +27,7 @@ const UPLOADS_PLAYLIST_ID = `UU${CHANNEL_ID.slice(2)}`;
 
 export default function Academy({ navigateToView, language = 'en', setSelectedTier }) {
   const t = TRANSLATIONS[language];
-  const [activeTier, setActiveTier] = useState(null);
-
-  // Three columns cannot hold their labels on a phone, so the same matrix
-  // linearizes into one block per program. Every capability still shows its
-  // check or dash; nothing is summarized away or hidden behind a tap.
-  const isNarrow = useMediaQuery('(max-width: 720px)');
+  const programs = t.programs;
 
   // The 90-Day Challenge has its own page and single-product checkout;
   // the other programs go through the multi-tier Academy checkout.
@@ -46,199 +40,129 @@ export default function Academy({ navigateToView, language = 'en', setSelectedTi
     navigateToView('checkout');
   };
 
-  const programs = t.programs;
-  const colProps = (id) => ({
-    onMouseEnter: () => setActiveTier(id),
-    onMouseLeave: () => setActiveTier(null),
-  });
-  const cellClass = (program) =>
-    [
-      'matrix-cell',
-      program.popular ? 'featured' : '',
-      activeTier === program.id ? 'active' : '',
-    ]
-      .filter(Boolean)
-      .join(' ');
+  // Each track lists its own curriculum in full. Tracks after the first open by
+  // naming the one they absorb, which is what makes the ladder legible without
+  // a comparison grid.
+  const curriculumFor = (tierId, previousId) =>
+    t.programGroups
+      .map((group) => ({
+        title: group.title,
+        rows: group.rows
+          .filter((row) => row.in.includes(tierId))
+          .map((row) => ({
+            ...row,
+            isNew: previousId ? !row.in.includes(previousId) : false,
+          })),
+      }))
+      .filter((group) => group.rows.length > 0);
 
   return (
     <div className="academy-page-wrapper">
-      <section id="programs" className="section academy-matrix-section">
-        <div className="matrix-intro">
-          <h2 className="matrix-title">{t.programsTitle}</h2>
-          <p className="matrix-lead">{t.programsDesc}</p>
+      <section id="programs" className="section academy-tracks-section">
+        <div className="tracks-intro">
+          <h2 className="tracks-title">{t.programsTitle}</h2>
+          <p className="tracks-lead">{t.programsDesc}</p>
         </div>
 
-        {isNarrow ? (
-          <div className="matrix-stack">
-            {programs.map((program) => (
+        <div className="tracks">
+          {programs.map((program, index) => {
+            const previous = programs[index - 1];
+            return (
               <article
                 key={program.id}
-                className={`matrix-stack-card ${program.popular ? 'featured' : ''}`}
+                className={`track ${program.popular ? 'featured' : ''}`}
               >
-                <header className="matrix-stack-head">
+                <div className="track-rail">
+                  <div className="track-marker">
+                    <span className="track-index">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="track-label">{t.trackLabel}</span>
+                  </div>
+
                   {program.popular && (
-                    <span className="matrix-flag">
+                    <span className="track-flag">
                       <Sparkles size={11} /> {t.programsMostPopular}
                     </span>
                   )}
-                  <h3 className="matrix-program-name">{program.name}</h3>
-                  <span className="matrix-price">{program.price}</span>
-                  <span className="matrix-price-note">{program.priceNote}</span>
-                </header>
 
-                {t.programGroups.map((group) => (
-                  <div key={group.title} className="matrix-stack-group">
-                    <h4>{group.title}</h4>
-                    <ul>
-                      {group.rows.map((row) => {
-                        const included = row.in.includes(program.id);
-                        return (
-                          <li key={row.label} className={included ? 'yes' : 'no'}>
-                            {included ? (
-                              <Check size={16} className="matrix-yes" aria-hidden="true" />
-                            ) : (
-                              <Minus size={14} className="matrix-no" aria-hidden="true" />
-                            )}
-                            <span>{row.label}</span>
-                            <span className="visually-hidden">
-                              {included ? t.programsIncluded : t.programsNotIncluded}
+                  <h3 className="track-name">{program.name}</h3>
+                  <p className="track-tagline">{program.tagline}</p>
+
+                  <dl className="track-facts">
+                    {program.duration && (
+                      <div>
+                        <dt>{t.trackDurationLabel}</dt>
+                        <dd>{program.duration}</dd>
+                      </div>
+                    )}
+                    <div>
+                      <dt>{t.trackFormatLabel}</dt>
+                      <dd>{program.format}</dd>
+                    </div>
+                  </dl>
+
+                  <p className="track-price">
+                    {program.price}
+                    <span className="track-price-note">{program.priceNote}</span>
+                  </p>
+
+                  <button
+                    onClick={() => goToCheckout(program.id)}
+                    className={program.popular ? 'primary-btn track-cta' : 'secondary-btn track-cta'}
+                  >
+                    {t.trackEnroll}
+                    <ArrowRight size={15} />
+                  </button>
+
+                  {program.id === 'mindset' && (
+                    <button
+                      onClick={() => navigateToView('challenge')}
+                      className="track-details-link"
+                    >
+                      {t.programsSeeDetails}
+                    </button>
+                  )}
+                </div>
+
+                <div className="track-body">
+                  {previous && (
+                    <p className="track-inherits">
+                      {t.trackBuildsOn} <strong>{previous.name}</strong>.
+                    </p>
+                  )}
+
+                  <h4 className="track-curriculum-label">{t.trackCurriculum}</h4>
+
+                  {curriculumFor(program.id, previous?.id).map((group) => (
+                    <section key={group.title} className="track-group">
+                      <h5>{group.title}</h5>
+                      <ul>
+                        {group.rows.map((row) => (
+                          <li key={row.label} className={row.isNew ? 'is-new' : ''}>
+                            <Check size={15} aria-hidden="true" />
+                            <span>
+                              {row.label}
+                              {row.isNew && <span className="track-new-tag">{t.trackNewLabel}</span>}
                             </span>
                           </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                ))}
-
-                <p className="matrix-who-text">{program.bestFor}</p>
-
-                <button
-                  onClick={() => goToCheckout(program.id)}
-                  className={program.popular ? 'primary-btn matrix-cta' : 'secondary-btn matrix-cta'}
-                >
-                  {t.programsCta}
-                  <ArrowRight size={15} />
-                </button>
-                {program.id === 'mindset' && (
-                  <button onClick={() => navigateToView('challenge')} className="matrix-details-link">
-                    {language === 'es' ? 'Ver detalles' : 'See details'}
-                  </button>
-                )}
-              </article>
-            ))}
-          </div>
-        ) : (
-        <div className="matrix-scroll">
-          <table className="program-matrix">
-            <caption className="visually-hidden">{t.programsMatrixCaption}</caption>
-
-            <thead>
-              <tr>
-                <th scope="col" className="matrix-corner">
-                  <span className="visually-hidden">{t.programsIncludesLabel}</span>
-                </th>
-                {programs.map((program) => (
-                  <th
-                    key={program.id}
-                    scope="col"
-                    className={cellClass(program)}
-                    {...colProps(program.id)}
-                  >
-                    {program.popular && (
-                      <span className="matrix-flag">
-                        <Sparkles size={11} /> {t.programsMostPopular}
-                      </span>
-                    )}
-                    <span className="matrix-program-name">{program.name}</span>
-                    <span className="matrix-price">{program.price}</span>
-                    <span className="matrix-price-note">{program.priceNote}</span>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-
-            <tbody>
-              {t.programGroups.map((group) => (
-                <Fragment key={group.title}>
-                  <tr className="matrix-group-row">
-                    <th scope="row">{group.title}</th>
-                    {/* empty cells keep the featured column unbroken down the table */}
-                    {programs.map((program) => (
-                      <td key={program.id} className={cellClass(program)} {...colProps(program.id)} />
-                    ))}
-                  </tr>
-                  {group.rows.map((row) => (
-                    <tr key={row.label}>
-                      <th scope="row" className="matrix-row-label">{row.label}</th>
-                      {programs.map((program) => {
-                        const included = row.in.includes(program.id);
-                        return (
-                          <td
-                            key={program.id}
-                            className={cellClass(program)}
-                            {...colProps(program.id)}
-                          >
-                            {included ? (
-                              <Check size={17} className="matrix-yes" aria-hidden="true" />
-                            ) : (
-                              <Minus size={15} className="matrix-no" aria-hidden="true" />
-                            )}
-                            <span className="visually-hidden">
-                              {included ? t.programsIncluded : t.programsNotIncluded}
-                            </span>
-                          </td>
-                        );
-                      })}
-                    </tr>
+                        ))}
+                      </ul>
+                    </section>
                   ))}
-                </Fragment>
-              ))}
 
-              <tr className="matrix-who-row">
-                <th scope="row" className="matrix-row-label">{t.programsWhoFor}</th>
-                {programs.map((program) => (
-                  <td key={program.id} className={cellClass(program)} {...colProps(program.id)}>
-                    <span className="matrix-who-text">{program.bestFor}</span>
-                  </td>
-                ))}
-              </tr>
-            </tbody>
-
-            <tfoot>
-              <tr>
-                <td className="matrix-corner" />
-                {programs.map((program) => (
-                  <td key={program.id} className={cellClass(program)} {...colProps(program.id)}>
-                    <button
-                      onClick={() => goToCheckout(program.id)}
-                      className={program.popular ? 'primary-btn matrix-cta' : 'secondary-btn matrix-cta'}
-                    >
-                      {t.programsCta}
-                      <ArrowRight size={15} />
-                    </button>
-                    {program.id === 'mindset' && (
-                      <button
-                        onClick={() => navigateToView('challenge')}
-                        className="matrix-details-link"
-                      >
-                        {language === 'es' ? 'Ver detalles' : 'See details'}
-                      </button>
-                    )}
-                  </td>
-                ))}
-              </tr>
-            </tfoot>
-          </table>
+                  <p className="track-who">{program.bestFor}</p>
+                </div>
+              </article>
+            );
+          })}
         </div>
-        )}
 
-        <p className="matrix-footnote">{t.programsFootnote}</p>
+        <p className="tracks-footnote">{t.programsFootnote}</p>
       </section>
 
       <section className="section academy-video-section">
-        <div className="matrix-intro">
-          <h2 className="matrix-title">{t.academyVideoTitle}</h2>
-          <p className="matrix-lead">{t.academyVideoDesc}</p>
+        <div className="video-intro">
+          <h2 className="video-title">{t.academyVideoTitle}</h2>
+          <p className="tracks-lead">{t.academyVideoDesc}</p>
         </div>
         <div className="academy-video-wrapper">
           <div className="academy-video-card landscape">
@@ -255,7 +179,7 @@ export default function Academy({ navigateToView, language = 'en', setSelectedTi
         </div>
       </section>
 
-      <div className="page-back-nav flex-center" style={{ paddingBottom: '60px' }}>
+      <div className="page-back-nav flex-center" style={{ paddingBottom: '40px' }}>
         <button onClick={() => navigateToView('home')} className="secondary-btn go-back-home-btn">
           {t.backToHome}
         </button>

@@ -2963,3 +2963,18 @@ main.page-transition {
   .founder-grid { grid-template-columns: 1fr; gap: 40px; }
   .founder-story-card { padding: 32px 24px; }
 }
+
+.academy-closing-line {
+  margin-top: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.05rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-color);
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

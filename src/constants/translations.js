@@ -88,23 +88,19 @@ export const TRANSLATIONS = {
     missionText: "To help you do the same break free from your vices, wake up, and build the best version of yourself. I want to show you that it is possible to quit your job, build your personal brand from the ground up, and achieve high-performance self-mastery.",
 
     // Academy Page
-    academySubtitle: "The Academy",
     academyTitle: "90-Day Challenge",
     academyDesc: "An elite, structured accelerator designed to help you break plateaus, reprogram your psychology, and build physical and financial leverage.",
     learnHeader: "Create The Life You Desire",
-    learnLead: "Are you tired of feeling like you have potential but aren't making the progress you want? Over these 90 days, you will learn to:",
+    learnLead: "Are you ready to break your limits, transform your habits, and become the person you want to be? Over these 90 days, you will learn to:",
     benefits: [
-      { bold: "Eliminate vices & habits:", normal: "Clear the distractions and bad habits that hold back your growth." },
-      { bold: "Develop real discipline:", normal: "Replace temporary motivation with consistent execution structures." },
-      { bold: "Reprogram mindset:", normal: "Replace self-doubt with psychological conditioning for success." },
-      { bold: "Strengthen multi-dimensionally:", normal: "Excel physically, mentally, and spiritually." },
-      { bold: "Scale online business:", normal: "Turn passiveness into passion and monetize assets online." },
-      { bold: "Authentic personal branding:", normal: "Build a profitable brand and become the person you admire." }
+      { bold: "Eliminate your vices:", normal: "Break the patterns at the root." },
+      { bold: "Develop discipline:", normal: "Learn to be consistent, even without motivation." },
+      { bold: "Reprogram your mind:", normal: "Change the way you think and create a new reality." },
+      { bold: "Transform yourself completely:", normal: "Strengthen your mind, body, and habits." },
+      { bold: "Create the person you admire:", normal: "Become who you want to be." }
     ],
+    learnClosing: "90 DAYS TO CHANGE YOUR LIFE.",
     // Academy Video Section
-    videoSectionSubtitle: "See It In Action",
-    videoSectionTitle: "Real Talk. Real Results.",
-    videoSectionDesc: "Watch what the Baldo Mindset Academy is all about straight from the source.",
 
     spotsBadge: "Spots are limited",
     pricingHeader: "What will you get?",
@@ -115,7 +111,10 @@ export const TRANSLATIONS = {
       "My complete blueprint to accelerate your results"
     ],
     investmentLabel: "INVESTMENT",
-    pricingGuarantee: "A $1,000 value, yours today for just $99. Limited spots available.",
+    priceCurrent: "$250",
+    priceCurrency: "USD",
+    priceOriginal: "$1,000 USD",
+    pricingGuarantee: "A $1,000 value, yours today for just $250. Limited spots available.",
     applyCtaBtn: "Apply For The Challenge",
 
     // Application Form Section
@@ -199,7 +198,7 @@ export const TRANSLATIONS = {
     checkoutDesc: "Select your program options and secure enrollment to begin the 90-Day Challenge.",
     billingHeader: "Select Program Inclusions",
     billingTier1: "90-Day Academy Access",
-    billingTier1Price: "$99 USD",
+    billingTier1Price: "$250 USD",
     billingTier1Detail: "Includes weekly live mentorship, templates, and community access.",
     billingTier2: "Premium 1-on-1 Mentorship Bundle",
     billingTier2Price: "$450 USD",
@@ -323,23 +322,19 @@ export const TRANSLATIONS = {
     missionText: "Ayudarte a hacer lo mismo: liberarte de tus vicios, despertar y construir la mejor versión de ti mismo. Quiero demostrarte que es posible dejar tu trabajo, construir tu marca personal desde cero y lograr un autodominio de alto rendimiento.",
 
     // Academy Page
-    academySubtitle: "La Academia",
     academyTitle: "El Reto de 90 Días",
     academyDesc: "Un acelerador estructurado de élite diseñado para ayudarte a romper mesetas, reprogramar tu psicología y construir apalancamiento físico y financiero.",
     learnHeader: "Crea la Vida que Deseas",
-    learnLead: "¿Estás cansado de sentir que tienes potencial pero no logras los avances que deseas? Durante estos 90 días, aprenderás a:",
+    learnLead: "¿Estás listo para romper tus límites, transformar tus hábitos y convertirte en la persona que quieres ser? Durante estos 90 días, aprenderás a:",
     benefits: [
-      { bold: "Eliminar vicios y hábitos:", normal: "Limpia las distracciones y los malos hábitos que frenan tu crecimiento." },
-      { bold: "Desarrollar disciplina real:", normal: "Reemplaza la motivación temporal con estructuras de ejecución constante." },
-      { bold: "Reprogramar tu mentalidad:", normal: "Reemplaza las dudas por un acondicionamiento psicológico hacia el éxito." },
-      { bold: "Fortalecerte de forma integral:", normal: "Sobresale en lo físico, mental y espiritual." },
-      { bold: "Escalar tu negocio en línea:", normal: "Convierte tu pasión en ingresos y monetiza tus habilidades en la web." },
-      { bold: "Marca personal auténtica:", normal: "Construye una marca rentable y conviértete en la persona que admiras." }
+      { bold: "Eliminar tus vicios:", normal: "Rompe los patrones desde la raíz." },
+      { bold: "Desarrollar disciplina:", normal: "Aprende a ser constante, incluso sin motivación." },
+      { bold: "Reprogramar tu mente:", normal: "Cambia tu forma de pensar y crea una nueva realidad." },
+      { bold: "Transformarte integralmente:", normal: "Fortalece tu mente, cuerpo y hábitos." },
+      { bold: "Crear la persona que admiras:", normal: "Conviértete en quien quieres ser." }
     ],
+    learnClosing: "90 DÍAS PARA CAMBIAR TU VIDA.",
     // Academy Video Section
-    videoSectionSubtitle: "Míralo en Acción",
-    videoSectionTitle: "Real Talk. Resultados Reales.",
-    videoSectionDesc: "Mira de qué se trata la Academia Baldo Mindset directamente desde la fuente.",
 
     spotsBadge: "Cupos Limitados",
     pricingHeader: "¿Qué recibirás?",
@@ -350,7 +345,10 @@ export const TRANSLATIONS = {
       "Mi mapa de ruta completo para acelerar tus resultados"
     ],
     investmentLabel: "INVERSIÓN",
-    pricingGuarantee: "Un valor de $1,000, tuyo hoy por solo $99. Cupos limitados.",
+    priceCurrent: "14,500",
+    priceCurrency: "DOP",
+    priceOriginal: "58,000 DOP",
+    pricingGuarantee: "Un valor de 58,000 DOP, tuyo hoy por solo 14,500 DOP. Cupos limitados.",
     applyCtaBtn: "Aplicar al Reto",
 
     // Application Form Section
@@ -434,7 +432,7 @@ export const TRANSLATIONS = {
     checkoutDesc: "Selecciona las opciones de tu programa y asegura tu cupo para comenzar el Reto de 90 Días.",
     billingHeader: "Selecciona Incluidos del Programa",
     billingTier1: "Acceso a la Academia 90 Días",
-    billingTier1Price: "$99 USD",
+    billingTier1Price: "14,500 DOP",
     billingTier1Detail: "Incluye mentorías grupales semanales en vivo, plantillas y acceso a la comunidad.",
     billingTier2: "Paquete de Mentoría Privada 1-a-1",
     billingTier2Price: "$450 USD",

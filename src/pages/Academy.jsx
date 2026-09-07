@@ -10,10 +10,9 @@ export default function Academy({ navigateToView, language = 'en' }) {
       {/* Vertical Video Section — Top of page */}
       <section className="section academy-video-section">
         <div className="section-header">
-          <span className="section-subtitle">{t.videoSectionSubtitle}</span>
-          <h2 className="section-title">{t.videoSectionTitle}</h2>
+          <h2 className="section-title">{t.academyTitle}</h2>
           <p className="section-desc">
-            {t.videoSectionDesc}
+            {t.academyDesc}
           </p>
         </div>
         <div className="academy-video-wrapper">
@@ -32,14 +31,6 @@ export default function Academy({ navigateToView, language = 'en' }) {
       </section>
 
       <section id="academy" className="section academy-page-section">
-        <div className="section-header">
-          <span className="section-subtitle">{t.academySubtitle}</span>
-          <h2 className="section-title">{t.academyTitle}</h2>
-          <p className="section-desc">
-            {t.academyDesc}
-          </p>
-        </div>
-
         <div className="academy-grid">
           {/* Left Panel - What you will learn */}
           <div className="academy-learn-card glass-card">
@@ -55,6 +46,7 @@ export default function Academy({ navigateToView, language = 'en' }) {
                 </li>
               ))}
             </ul>
+            <p className="academy-closing-line">{t.learnClosing}</p>
           </div>
 
           {/* Right Panel - Investment & Inclusions */}
@@ -79,8 +71,8 @@ export default function Academy({ navigateToView, language = 'en' }) {
               <div className="pricing-container">
                 <span className="pricing-label">{t.investmentLabel}</span>
                 <div className="pricing-digits">
-                  <span className="current-price">$99 <span className="currency">USD</span></span>
-                  <span className="original-price">$1,000 USD</span>
+                  <span className="current-price">{t.priceCurrent} <span className="currency">{t.priceCurrency}</span></span>
+                  <span className="original-price">{t.priceOriginal}</span>
                 </div>
                 <p className="pricing-guarantee">{t.pricingGuarantee}</p>
               </div>

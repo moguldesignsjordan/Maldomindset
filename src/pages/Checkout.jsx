@@ -219,7 +219,11 @@ export default function Checkout({ navigateToView, checkoutForm, setCheckoutForm
                       const response = await fetch('/api/paypal/capture-order', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ orderID: data.orderID }),
+                        body: JSON.stringify({
+                          orderID: data.orderID,
+                          tier: selectedTier,
+                          email: checkoutForm.email,
+                        }),
                       });
                       const capture = await response.json();
                       if (!response.ok) throw new Error(capture.error || 'Failed to capture payment');

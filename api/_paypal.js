@@ -2,13 +2,13 @@ export const PAYPAL_API_BASE = process.env.PAYPAL_API_BASE || 'https://api-m.san
 
 // Server-side source of truth for tier pricing — never trust an amount sent from the client.
 export const TIER_PRICES = {
-  mindset: '99.00',
+  mindset: '250.00',
   accelerator: '450.00',
   'inner-circle': '950.00',
 };
 
 export const TIER_LABELS = {
-  mindset: 'BaldoMindset Academy - Mindset Mastery',
+  mindset: 'BaldoMindset Academy - 90-Day Challenge',
   accelerator: 'BaldoMindset Academy - Personal Brand & Business Accelerator',
   'inner-circle': 'BaldoMindset Academy - Elite 1-on-1 Mentorship (Inner Circle)',
 };

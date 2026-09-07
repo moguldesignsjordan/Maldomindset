@@ -1,0 +1,58 @@
+rules_version = '2';
+
+// Deploy with:  firebase deploy --only firestore:rules
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    function ownEmail(emailKey) {
+      return signedIn() && request.auth.token.email.lower() == emailKey;
+    }
+
+    // Profiles: a user reads and creates their own; only an admin can change a
+    // role, so nobody can promote themselves after signup.
+    match /users/{uid} {
+      allow read: if isAdmin() || (signedIn() && request.auth.uid == uid);
+      allow create: if signedIn() && request.auth.uid == uid
+                    && request.resource.data.role in ['student', 'admin'];
+      allow update: if isAdmin()
+                    || (signedIn() && request.auth.uid == uid
+                        && request.resource.data.role == resource.data.role);
+      allow delete: if isAdmin();
+    }
+
+    // Enrollments are written by the checkout function (Admin SDK, which
+    // bypasses these rules) or by an admin. Students may only read their own.
+    match /enrollments/{emailKey} {
+      allow read: if isAdmin() || ownEmail(emailKey);
+      allow write: if isAdmin();
+    }
+
+    // Course content: any signed-in student may read, only admins may author.
+    match /content/{tier} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+
+    // Progress and check-ins belong to one student.
+    match /progress/{uid} {
+      allow read: if isAdmin() || (signedIn() && request.auth.uid == uid);
+      allow write: if signedIn() && request.auth.uid == uid;
+    }
+
+    // Payment records are written server-side and read by admins only.
+    match /orders/{orderId} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+  }
+}

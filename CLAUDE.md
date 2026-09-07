@@ -17,7 +17,7 @@ No test suite is configured.
 
 Single-page React app built with Vite. Navigation is handled entirely in state — there is no router. `App.jsx` owns `currentView`, `language`, and the shared `checkoutForm` state, and conditionally renders one page component at a time.
 
-**Pages** (`src/pages/`): `Home`, `Story`, `Academy`, `Assessment`, `Boost`, `Checkout`. Each receives `navigateToView` and `language` as props. `Academy` also receives `setCheckoutForm` so it can pre-fill the checkout form from the application form before navigating.
+**Pages** (`src/pages/`): `Home`, `Story`, `Challenge`, `Academy`, `Assessment`, `Boost`, `Checkout`, `ChallengeCheckout`, `Login`, `Dashboard`, `Admin`. Each receives `navigateToView` and `language` as props. `Academy` also receives `setCheckoutForm` so it can pre-fill the checkout form from the application form before navigating.
 
 **Constants** (`src/constants/`):
 - `translations.js` — `TRANSLATIONS` object keyed by `'en'` and `'es'`. All user-visible strings live here. To add a string, add it to both locale objects.

@@ -141,7 +141,11 @@ export default function ChallengeCheckout({ navigateToView, checkoutForm, setChe
                       const response = await fetch('/api/paypal/capture-order', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ orderID: data.orderID }),
+                        body: JSON.stringify({
+                          orderID: data.orderID,
+                          tier: CHALLENGE_TIER,
+                          email: checkoutForm.email,
+                        }),
                       });
                       const capture = await response.json();
                       if (!response.ok) throw new Error(capture.error || 'Failed to capture payment');

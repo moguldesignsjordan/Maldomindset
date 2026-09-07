@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
+import { Menu, X, Sun, Moon, ChevronDown, UserCircle, LayoutDashboard } from 'lucide-react';
 import './App.css';
 import mdaLogo from './assets/mdalogo.png';
 
@@ -11,12 +11,16 @@ import Challenge from './pages/Challenge';
 import Assessment from './pages/Assessment';
 import Boost from './pages/Boost';
 import Checkout from './pages/Checkout';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Admin from './pages/Admin';
 import ChallengeCheckout from './pages/ChallengeCheckout';
 
 // Import Translations
 import { TRANSLATIONS } from './constants/translations';
+import { AuthProvider, useAuth } from './context/AuthContext';
 
-function App() {
+function AppShell() {
   // View Routing State
   const [currentView, setCurrentView] = useState('home');
 
@@ -91,6 +95,12 @@ function App() {
     setProgramsOpen(false);
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
+
+  const { user, isAdmin } = useAuth();
+
+  // Signed-out visitors get the login page; signed-in students go to their
+  // dashboard. Either way the header button is the single account entry point.
+  const accountView = user ? 'dashboard' : 'login';
 
   const t = TRANSLATIONS[language];
 
@@ -167,6 +177,25 @@ function App() {
             {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
           </button>
 
+          {isAdmin && (
+            <button
+              onClick={() => navigateToView('admin')}
+              className={`nav-icon-btn desktop-only ${currentView === 'admin' ? 'active' : ''}`}
+              title={t.adminTab}
+              aria-label={t.adminTab}
+            >
+              <LayoutDashboard size={16} />
+            </button>
+          )}
+
+          <button
+            onClick={() => navigateToView(accountView)}
+            className={`nav-account-btn desktop-only ${['login', 'dashboard'].includes(currentView) ? 'active' : ''}`}
+          >
+            <UserCircle size={16} />
+            {user ? t.accountTab : t.loginTab}
+          </button>
+
           <button
             onClick={() => navigateToView('challenge')}
             className={`cta-nav-btn desktop-only ${currentView === 'challenge-checkout' ? 'active' : ''}`}
@@ -201,6 +230,16 @@ function App() {
           <span className="mobile-nav-section">{t.navSectionPrograms}</span>
           <button onClick={() => navigateToView('challenge')} className={`mobile-nav-link ${currentView === 'challenge' ? 'active' : ''}`}>{t.challengeTab}</button>
           <button onClick={() => navigateToView('academy')} className={`mobile-nav-link ${currentView === 'academy' ? 'active' : ''}`}>{t.academyTab}</button>
+
+          <span className="mobile-nav-section">{t.accountTab}</span>
+          <button onClick={() => navigateToView(accountView)} className={`mobile-nav-link ${['login', 'dashboard'].includes(currentView) ? 'active' : ''}`}>
+            {user ? t.accountTab : t.loginTab}
+          </button>
+          {isAdmin && (
+            <button onClick={() => navigateToView('admin')} className={`mobile-nav-link ${currentView === 'admin' ? 'active' : ''}`}>
+              {t.adminTab}
+            </button>
+          )}
 
           <button onClick={() => navigateToView('challenge')} className="mobile-nav-cta">
             {language === 'es' ? 'Inscr\u00edbete' : 'Enroll Now'}
@@ -255,6 +294,17 @@ function App() {
         )}
         {currentView === 'assessment' && <Assessment navigateToView={navigateToView} language={language} />}
         {currentView === 'boost' && <Boost navigateToView={navigateToView} language={language} />}
+        {currentView === 'login' && <Login navigateToView={navigateToView} language={language} />}
+        {currentView === 'dashboard' && (
+          user
+            ? <Dashboard navigateToView={navigateToView} language={language} />
+            : <Login navigateToView={navigateToView} language={language} />
+        )}
+        {currentView === 'admin' && (
+          user
+            ? <Admin navigateToView={navigateToView} language={language} />
+            : <Login navigateToView={navigateToView} language={language} />
+        )}
         {currentView === 'checkout' && (
           <Checkout
             navigateToView={navigateToView}
@@ -322,4 +372,11 @@ function App() {
   );
 }
 
-export default App;
+// AuthProvider wraps the shell so every view can read the session
+export default function App() {
+  return (
+    <AuthProvider>
+      <AppShell />
+    </AuthProvider>
+  );
+}

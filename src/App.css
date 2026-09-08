@@ -4134,6 +4134,17 @@ a.nav-dropdown-item {
   text-wrap: balance;
 }
 
+.enroll-format {
+  margin: 0 0 12px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+}
+
+[data-theme="light"] .enroll-format { color: #0b6d99; }
+
 .enroll-tagline {
   margin: 0 0 22px;
   color: var(--enroll-body);

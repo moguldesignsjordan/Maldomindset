@@ -101,6 +101,10 @@ export default function Academy({ navigateToView, language = 'en', setSelectedTi
                 )}
 
                 <h3 className="enroll-name">{program.name}</h3>
+                <p className="enroll-format">
+                  {program.format}
+                  {program.duration && <span> · {program.duration}</span>}
+                </p>
                 <p className="enroll-tagline">{program.tagline}</p>
 
                 <p className="enroll-price">

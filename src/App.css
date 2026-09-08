@@ -3823,6 +3823,12 @@ main.page-transition {
   color: var(--text-secondary);
 }
 
+.admin-module-alt {
+  margin: 3px 0 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
 .admin-module-list li a {
   display: inline-block;
   margin-top: 5px;
@@ -3845,7 +3851,7 @@ main.page-transition {
 
 .admin-module-form {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr auto;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
   padding-top: 20px;
   border-top: 1px solid var(--border-color);
@@ -3866,6 +3872,11 @@ main.page-transition {
   align-items: center;
   gap: 6px;
   white-space: nowrap;
+}
+
+.admin-module-form .primary-btn {
+  grid-column: 1 / -1;
+  justify-self: start;
 }
 
 @media (max-width: 860px) {

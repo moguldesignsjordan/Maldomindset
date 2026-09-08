@@ -1,12 +1,25 @@
 import { useEffect, useState } from 'react';
 import { CheckCircle, Circle, Flame, Lock, LogOut, Calendar } from 'lucide-react';
-import { doc, onSnapshot, setDoc, updateDoc } from 'firebase/firestore';
+import { doc, onSnapshot, setDoc } from 'firebase/firestore';
 
 import { db } from '../lib/firebase';
 import { useAuth } from '../context/AuthContext';
 import { TRANSLATIONS } from '../constants/translations';
 
 const CHALLENGE_DAYS = 90;
+
+// Module content lives in Firestore, so it carries its own per-language fields
+// rather than going through TRANSLATIONS. Falls back across languages, then to
+// the legacy single-language field, so nothing renders blank.
+function localized(module, field, language) {
+  return (
+    module[`${field}_${language}`] ||
+    module[`${field}_es`] ||
+    module[`${field}_en`] ||
+    module[field] ||
+    ''
+  );
+}
 
 // Local YYYY-MM-DD, so a check-in belongs to the student's own day
 function dayKey(date = new Date()) {
@@ -52,25 +65,27 @@ export default function Dashboard({ navigateToView, language = 'en' }) {
     });
   }, [user]);
 
-  const saveProgress = async (patch) => {
-    const ref = doc(db, 'progress', user.uid);
-    try {
-      await updateDoc(ref, patch);
-    } catch {
-      // First write for this student: the document does not exist yet
-      await setDoc(ref, { modules: {}, checkins: {}, ...patch }, { merge: true });
-    }
-  };
+  // A merged nested write creates the document on the student's first tick and
+  // merges single keys thereafter. Dotted field paths are deliberately avoided:
+  // they only expand in updateDoc, and would be stored as a literal field name
+  // by the setDoc fallback, silently losing the write.
+  const saveProgress = (field, key, value) =>
+    setDoc(doc(db, 'progress', user.uid), { [field]: { [key]: value } }, { merge: true });
 
   const toggleModule = (moduleId) =>
-    saveProgress({ [`modules.${moduleId}`]: !progress.modules[moduleId] });
+    saveProgress('modules', moduleId, !progress.modules[moduleId]);
 
-  const toggleDay = (key) => saveProgress({ [`checkins.${key}`]: !progress.checkins[key] });
+  const toggleDay = (key) => saveProgress('checkins', key, !progress.checkins[key]);
 
   const handleLogout = async () => {
     await logout();
     navigateToView('home');
   };
+
+  // The enrollment stores a single-language label from the payment function, so
+  // prefer the translated program name for the student's current language.
+  const programName =
+    t.programs.find((program) => program.id === tier)?.name || enrollment?.programName || tier;
 
   const modules = content?.modules || [];
   const doneCount = modules.filter((m) => progress.modules[m.id]).length;
@@ -115,7 +130,7 @@ export default function Dashboard({ navigateToView, language = 'en' }) {
           <div className="dashboard-stats">
             <div className="dash-stat glass-card">
               <span className="dash-stat-label">{t.dashProgram}</span>
-              <span className="dash-stat-value">{enrollment.programName || tier}</span>
+              <span className="dash-stat-value">{programName}</span>
             </div>
             <div className="dash-stat glass-card">
               <span className="dash-stat-label">{t.dashProgress}</span>
@@ -154,9 +169,11 @@ export default function Dashboard({ navigateToView, language = 'en' }) {
                         >
                           {done ? <CheckCircle size={18} /> : <Circle size={18} />}
                           <span className="module-text">
-                            <span className="module-title">{module.title}</span>
-                            {module.description && (
-                              <span className="module-desc">{module.description}</span>
+                            <span className="module-title">{localized(module, 'title', language)}</span>
+                            {localized(module, 'description', language) && (
+                              <span className="module-desc">
+                                {localized(module, 'description', language)}
+                              </span>
                             )}
                           </span>
                         </button>

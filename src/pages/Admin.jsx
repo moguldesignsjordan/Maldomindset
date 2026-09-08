@@ -32,7 +32,13 @@ export default function Admin({ navigateToView, language = 'en' }) {
   const [orders, setOrders] = useState([]);
   const [contentTier, setContentTier] = useState('mindset');
   const [modules, setModules] = useState([]);
-  const [draft, setDraft] = useState({ title: '', description: '', link: '' });
+  const [draft, setDraft] = useState({
+    title_es: '',
+    title_en: '',
+    description_es: '',
+    description_en: '',
+    link: '',
+  });
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
@@ -92,14 +98,27 @@ export default function Admin({ navigateToView, language = 'en' }) {
 
   const addModule = async (e) => {
     e.preventDefault();
-    if (!draft.title.trim()) return;
+    if (!draft.title_es.trim() && !draft.title_en.trim()) return;
     const next = [
       ...modules,
-      { id: `m${Date.now()}`, ...draft, title: draft.title.trim() },
+      {
+        id: `m${Date.now()}`,
+        title_es: draft.title_es.trim(),
+        title_en: draft.title_en.trim(),
+        description_es: draft.description_es.trim(),
+        description_en: draft.description_en.trim(),
+        link: draft.link.trim(),
+      },
     ];
     await saveModules(next);
-    setDraft({ title: '', description: '', link: '' });
+    setDraft({ title_es: '', title_en: '', description_es: '', description_en: '', link: '' });
   };
+
+  // Modules may predate the bilingual fields, so fall back the same way the
+  // student dashboard does.
+  const moduleTitle = (module) => module.title_es || module.title_en || module.title || '';
+  const moduleDesc = (module) =>
+    module.description_es || module.description_en || module.description || '';
 
   const removeModule = (id) => saveModules(modules.filter((m) => m.id !== id));
 
@@ -204,8 +223,11 @@ export default function Admin({ navigateToView, language = 'en' }) {
             {modules.map((module) => (
               <li key={module.id}>
                 <div>
-                  <strong>{module.title}</strong>
-                  {module.description && <p>{module.description}</p>}
+                  <strong>{moduleTitle(module)}</strong>
+                  {module.title_en && module.title_es && (
+                    <p className="admin-module-alt">EN: {module.title_en}</p>
+                  )}
+                  {moduleDesc(module) && <p>{moduleDesc(module)}</p>}
                   {module.link && <a href={module.link} target="_blank" rel="noopener noreferrer">{module.link}</a>}
                 </div>
                 <button onClick={() => removeModule(module.id)} aria-label={t.adminRemove}>
@@ -217,15 +239,25 @@ export default function Admin({ navigateToView, language = 'en' }) {
 
           <form onSubmit={addModule} className="admin-module-form">
             <input
-              value={draft.title}
-              onChange={(e) => setDraft({ ...draft, title: e.target.value })}
-              placeholder={t.adminModuleTitle}
+              value={draft.title_es}
+              onChange={(e) => setDraft({ ...draft, title_es: e.target.value })}
+              placeholder={`${t.adminModuleTitle} (ES)`}
               required
             />
             <input
-              value={draft.description}
-              onChange={(e) => setDraft({ ...draft, description: e.target.value })}
-              placeholder={t.adminModuleDesc}
+              value={draft.title_en}
+              onChange={(e) => setDraft({ ...draft, title_en: e.target.value })}
+              placeholder={`${t.adminModuleTitle} (EN)`}
+            />
+            <input
+              value={draft.description_es}
+              onChange={(e) => setDraft({ ...draft, description_es: e.target.value })}
+              placeholder={`${t.adminModuleDesc} (ES)`}
+            />
+            <input
+              value={draft.description_en}
+              onChange={(e) => setDraft({ ...draft, description_en: e.target.value })}
+              placeholder={`${t.adminModuleDesc} (EN)`}
             />
             <input
               value={draft.link}

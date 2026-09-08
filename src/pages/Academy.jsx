@@ -68,20 +68,6 @@ export default function Academy({ navigateToView, language = 'en', setSelectedTi
         </div>
       </section>
 
-      {/* Three beats of what enrolling involves */}
-      <section className="section academy-steps">
-        <h2 className="academy-section-title">{t.academyStepsTitle}</h2>
-        <ol className="steps-row">
-          {t.academySteps.map((step, i) => (
-            <li key={step.title}>
-              <span className="step-number">{i + 1}</span>
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
       {/* The choice */}
       <section id="programs" className="section academy-choose">
         <h2 className="academy-section-title">{t.academyChooseTitle}</h2>

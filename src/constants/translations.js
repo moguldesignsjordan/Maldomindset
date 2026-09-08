@@ -8,7 +8,7 @@ export const TRANSLATIONS = {
     challengeTab: "90-Day Challenge",
     navProgramsMenu: "Programs",
     navChallengeBlurb: "Our flagship 90-day mindset accelerator.",
-    navAcademyBlurb: "Every program we run, in one place.",
+    navAcademyBlurb: "Every way into the Academy, in one place.",
     navMenuLabel: "Menu",
     navSectionExplore: "Explore",
     navSectionPrograms: "Programs",
@@ -210,7 +210,7 @@ export const TRANSLATIONS = {
     trackNewLabel: "New",
     trackFormatLabel: "Format",
     trackDurationLabel: "Duration",
-    trackEnroll: "Enroll in this program",
+    trackEnroll: "Join the Academy",
     programsCapability: "Capability",
     programsWhoFor: "Who it is for",
     programsIncluded: "Included",
@@ -245,25 +245,17 @@ export const TRANSLATIONS = {
         ]
       }
     ],
-    academyHeroTitle: "Three programs. One standard.",
-    academyHeroLead: "See how the Academy works, then choose the program that fits where you are: from your first 90 days of discipline to private one-on-one mentorship.",
-    academyStepsTitle: "How enrolling works",
-    academySteps: [
-      { title: "Choose your program", body: "Three programs, each with its own curriculum. Start where you are, not where you wish you were." },
-      { title: "Secure your spot", body: "One payment, no subscription. Your dashboard opens the moment it clears." },
-      { title: "Start the work", body: "Weekly live mentorship, the modules for your program, and a daily check-in that keeps you honest." }
-    ],
-    academyChooseTitle: "The programs",
+    academyHeroTitle: "One Academy. Three ways in.",
+    academyHeroLead: "See how the Academy works, then pick your way in \u2014 from your first 90 days of discipline to a private line straight to Baldo.",
+    academyChooseTitle: "Choose your way in",
     trackHighlightsLabel: "What you get",
     trackFullCurriculum: "See full curriculum",
     trackHideCurriculum: "Hide curriculum",
     programsSubtitle: "Our Programs",
-    programsTitle: "The Programs",
-    programsDesc: "Three programs, each with its own curriculum and its own commitment. Start where you are, go as far as you are willing to work.",
     programsMostPopular: "MOST POPULAR",
     programsIncludesLabel: "What's included",
     programsCta: "Enroll Now",
-    programsFootnote: "Every program includes lifetime access to the materials and our private community.",
+    programsFootnote: "Every member keeps lifetime access to the materials and to our private community.",
     programs: [
       {
         id: "mindset",
@@ -278,7 +270,7 @@ export const TRANSLATIONS = {
         price: "$250",
         priceNote: "one-time \u00b7 was $1,000",
         duration: "90 days",
-        format: "Group program",
+        format: "Group",
         features: [
           "90 days of structured mindset protocols",
           "Weekly LIVE group mentorship with Baldo Mindset",
@@ -297,7 +289,7 @@ export const TRANSLATIONS = {
           "Turn the audience into real income"
         ],
         name: "Personal Brand & Business Accelerator",
-        tagline: "A personal brand and business program, built on the discipline work of the Challenge.",
+        tagline: "Turn the discipline into a brand people follow and a business that pays you.",
         price: "$450",
         priceNote: "one-time",
         format: "Group + workshops",
@@ -314,13 +306,13 @@ export const TRANSLATIONS = {
       {
         id: "inner-circle",
         highlights: [
-          "Everything in both programs",
+          "Everything in the two before it",
           "Private 1-on-1 call every week",
           "Direct WhatsApp line to Baldo",
           "A 90-day plan written for your life"
         ],
         name: "Elite 1-on-1 Mentorship (Inner Circle)",
-        tagline: "Maximum accountability. A custom blueprint built with you, for you.",
+        tagline: "Maximum accountability. A blueprint built with you, for you, week after week.",
         price: "$950",
         priceNote: "one-time \u00b7 limited seats",
         format: "1-on-1 private",
@@ -471,7 +463,7 @@ export const TRANSLATIONS = {
     challengeTab: "Reto de 90 D\u00edas",
     navProgramsMenu: "Programas",
     navChallengeBlurb: "Nuestro acelerador insignia de mentalidad de 90 d\u00edas.",
-    navAcademyBlurb: "Todos nuestros programas en un solo lugar.",
+    navAcademyBlurb: "Todas las formas de entrar a la Academia, en un solo lugar.",
     navMenuLabel: "Men\u00fa",
     navSectionExplore: "Explora",
     navSectionPrograms: "Programas",
@@ -672,7 +664,7 @@ export const TRANSLATIONS = {
     trackNewLabel: "Nuevo",
     trackFormatLabel: "Formato",
     trackDurationLabel: "Duraci\u00f3n",
-    trackEnroll: "Inscribirme en este programa",
+    trackEnroll: "\u00danete a la Academia",
     programsCapability: "Prestaci\u00f3n",
     programsWhoFor: "Para qui\u00e9n es",
     programsIncluded: "Incluido",
@@ -707,25 +699,17 @@ export const TRANSLATIONS = {
         ]
       }
     ],
-    academyHeroTitle: "Tres programas. Un solo est\u00e1ndar.",
-    academyHeroLead: "Mira c\u00f3mo funciona la Academia y elige el programa que corresponde a d\u00f3nde est\u00e1s: desde tus primeros 90 d\u00edas de disciplina hasta la mentor\u00eda privada uno a uno.",
-    academyStepsTitle: "C\u00f3mo es inscribirte",
-    academySteps: [
-      { title: "Elige tu programa", body: "Tres programas, cada uno con su propio plan de estudio. Empieza donde est\u00e1s, no donde te gustar\u00eda estar." },
-      { title: "Asegura tu cupo", body: "Un solo pago, sin suscripci\u00f3n. Tu panel se abre apenas se confirma." },
-      { title: "Empieza a trabajar", body: "Mentor\u00eda en vivo cada semana, los m\u00f3dulos de tu programa y un registro diario que te mantiene honesto." }
-    ],
-    academyChooseTitle: "Los programas",
+    academyHeroTitle: "Una Academia. Tres formas de entrar.",
+    academyHeroLead: "Mira c\u00f3mo funciona la Academia y elige tu forma de entrar: desde tus primeros 90 d\u00edas de disciplina hasta una l\u00ednea directa con Baldo.",
+    academyChooseTitle: "Elige tu forma de entrar",
     trackHighlightsLabel: "Qu\u00e9 recibes",
     trackFullCurriculum: "Ver plan de estudio completo",
     trackHideCurriculum: "Ocultar plan de estudio",
     programsSubtitle: "Nuestros Programas",
-    programsTitle: "Los Programas",
-    programsDesc: "Tres programas, cada uno con su propio plan de estudio y su propio compromiso. Empieza donde est\u00e1s y llega tan lejos como est\u00e9s dispuesto a trabajar.",
     programsMostPopular: "M\u00c1S POPULAR",
     programsIncludesLabel: "Qu\u00e9 incluye",
     programsCta: "Inscribirme",
-    programsFootnote: "Todos los programas incluyen acceso de por vida a los materiales y a nuestra comunidad privada.",
+    programsFootnote: "Cada miembro conserva acceso de por vida a los materiales y a nuestra comunidad privada.",
     programs: [
       {
         id: "mindset",
@@ -740,7 +724,7 @@ export const TRANSLATIONS = {
         price: "14,500 DOP",
         priceNote: "pago \u00fanico \u00b7 antes 58,000 DOP",
         duration: "90 d\u00edas",
-        format: "Programa grupal",
+        format: "Grupal",
         features: [
           "90 d\u00edas de protocolos mentales estructurados",
           "Mentor\u00eda grupal semanal EN VIVO con Baldo Mindset",
@@ -759,7 +743,7 @@ export const TRANSLATIONS = {
           "Convierte la audiencia en ingresos reales"
         ],
         name: "Acelerador de Marca Personal y Negocios",
-        tagline: "Un programa de marca personal y negocio, construido sobre el trabajo de disciplina del Reto.",
+        tagline: "Convierte la disciplina en una marca que la gente sigue y un negocio que te paga.",
         price: "26,100 DOP",
         priceNote: "pago \u00fanico",
         format: "Grupal + talleres",
@@ -776,13 +760,13 @@ export const TRANSLATIONS = {
       {
         id: "inner-circle",
         highlights: [
-          "Todo lo de los dos programas",
+          "Todo lo de las dos anteriores",
           "Llamada privada 1-a-1 cada semana",
           "L\u00ednea directa por WhatsApp con Baldo",
           "Un plan de 90 d\u00edas escrito para tu vida"
         ],
         name: "Mentor\u00eda \u00c9lite 1-a-1 (Inner Circle)",
-        tagline: "M\u00e1xima rendici\u00f3n de cuentas. Un plan personalizado hecho contigo y para ti.",
+        tagline: "M\u00e1xima rendici\u00f3n de cuentas. Un plan hecho contigo y para ti, semana tras semana.",
         price: "55,100 DOP",
         priceNote: "pago \u00fanico \u00b7 cupos limitados",
         format: "Privado 1-a-1",

@@ -246,7 +246,7 @@ export const TRANSLATIONS = {
       }
     ],
     academyHeroTitle: "One Academy. Three ways in.",
-    academyHeroLead: "See how the Academy works, then pick your way in \u2014 from your first 90 days of discipline to a private line straight to Baldo.",
+    academyHeroLead: "See how the Academy works, then pick your way in: from your first 90 days of discipline to a private line straight to Baldo.",
     academyChooseTitle: "Choose your way in",
     trackHighlightsLabel: "What you get",
     trackFullCurriculum: "See full curriculum",

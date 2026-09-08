@@ -3,12 +3,12 @@ import { Check, ArrowRight, Sparkles, ChevronDown } from 'lucide-react';
 import { TRANSLATIONS } from '../constants/translations';
 
 /*
- * DIRECTION CONTRACT — Academy surface (seed d4c49579, form "The Enrollment")
+ * DIRECTION CONTRACT: Academy surface (seed d4c49579, form "The Enrollment")
  *
  * THESIS: This page sells a decision, not a specification. The film carries the
  *   promise, three cards carry the choice, and the full curriculum waits behind
  *   a disclosure for the people who want to read it. Refuses the spec sheet.
- * OWN-WORLD: Inherited, unchanged — #0d0d0d ground, #161616 panels, hairline
+ * OWN-WORLD: Inherited, unchanged. #0d0d0d ground, #161616 panels, hairline
  *   rules, one cyan accent, the Expose display face.
  * STORY: A visitor watches, understands what enrolling involves in three
  *   beats, compares three tracks at a glance, and enrols from the card.

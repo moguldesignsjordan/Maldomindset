@@ -2780,7 +2780,7 @@ main.page-transition {
 }
 
 /* ==========================================================================
-   ASSESSMENT PAGE — QUESTIONS & RESULTS
+   ASSESSMENT PAGE: QUESTIONS & RESULTS
    ========================================================================== */
 .assessment-page-section {
   position: relative;
@@ -3201,7 +3201,7 @@ main.page-transition {
 }
 
 /* --------------------------------------------------------------------------
-   Program summary block — used by the 90-Day Challenge checkout to show the
+   Program summary block, used by the 90-Day Challenge checkout to show the
    single product being bought.
    -------------------------------------------------------------------------- */
 .program-name {

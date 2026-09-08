@@ -245,6 +245,18 @@ export const TRANSLATIONS = {
         ]
       }
     ],
+    academyHeroTitle: "Your 90 days start here",
+    academyHeroLead: "Watch how the Academy works, then pick the track that matches where you are today.",
+    academyStepsTitle: "How enrolling works",
+    academySteps: [
+      { title: "Pick your track", body: "Three levels. Start where you are, not where you wish you were." },
+      { title: "Secure your spot", body: "One payment, no subscription. Your dashboard opens the moment it clears." },
+      { title: "Start the 90 days", body: "Weekly live mentorship, your modules, and a daily check-in that keeps you honest." }
+    ],
+    academyChooseTitle: "Choose your track",
+    trackHighlightsLabel: "What you get",
+    trackFullCurriculum: "See full curriculum",
+    trackHideCurriculum: "Hide curriculum",
     programsSubtitle: "Our Programs",
     programsTitle: "Choose Your Path",
     programsDesc: "Three levels of transformation. Start where you are, go as far as you are willing to work.",
@@ -255,6 +267,12 @@ export const TRANSLATIONS = {
     programs: [
       {
         id: "mindset",
+        highlights: [
+          "Weekly live mentorship with Baldo",
+          "12 guided weeks, one module at a time",
+          "Private community of people doing the same work",
+          "Daily check-in tracker to keep the streak"
+        ],
         name: "90-Day Challenge Academy",
         tagline: "Rebuild your discipline, habits and psychology in 90 days.",
         price: "$250",
@@ -272,6 +290,12 @@ export const TRANSLATIONS = {
       },
       {
         id: "accelerator",
+        highlights: [
+          "Everything in the 90-Day Challenge",
+          "Build your personal brand from zero",
+          "A content system you can actually keep",
+          "Turn the audience into real income"
+        ],
         name: "Personal Brand & Business Accelerator",
         tagline: "Everything in the 90-Day Challenge plus a plan to turn your passion into income.",
         price: "$450",
@@ -289,6 +313,12 @@ export const TRANSLATIONS = {
       },
       {
         id: "inner-circle",
+        highlights: [
+          "Everything in both programs",
+          "Private 1-on-1 call every week",
+          "Direct WhatsApp line to Baldo",
+          "A 90-day plan written for your life"
+        ],
         name: "Elite 1-on-1 Mentorship (Inner Circle)",
         tagline: "Maximum accountability. A custom blueprint built with you, for you.",
         price: "$950",
@@ -677,6 +707,18 @@ export const TRANSLATIONS = {
         ]
       }
     ],
+    academyHeroTitle: "Tus 90 d\u00edas empiezan aqu\u00ed",
+    academyHeroLead: "Mira c\u00f3mo funciona la Academia y elige la ruta que corresponde a d\u00f3nde est\u00e1s hoy.",
+    academyStepsTitle: "C\u00f3mo es inscribirte",
+    academySteps: [
+      { title: "Elige tu ruta", body: "Tres niveles. Empieza donde est\u00e1s, no donde te gustar\u00eda estar." },
+      { title: "Asegura tu cupo", body: "Un solo pago, sin suscripci\u00f3n. Tu panel se abre apenas se confirma." },
+      { title: "Empieza los 90 d\u00edas", body: "Mentor\u00eda en vivo cada semana, tus m\u00f3dulos y un registro diario que te mantiene honesto." }
+    ],
+    academyChooseTitle: "Elige tu ruta",
+    trackHighlightsLabel: "Qu\u00e9 recibes",
+    trackFullCurriculum: "Ver plan de estudio completo",
+    trackHideCurriculum: "Ocultar plan de estudio",
     programsSubtitle: "Nuestros Programas",
     programsTitle: "Elige Tu Camino",
     programsDesc: "Tres niveles de transformaci\u00f3n. Empieza donde est\u00e1s y llega tan lejos como est\u00e9s dispuesto a trabajar.",
@@ -687,6 +729,12 @@ export const TRANSLATIONS = {
     programs: [
       {
         id: "mindset",
+        highlights: [
+          "Mentor\u00eda en vivo cada semana con Baldo",
+          "12 semanas guiadas, un m\u00f3dulo a la vez",
+          "Comunidad privada haciendo el mismo trabajo",
+          "Registro diario para no romper la racha"
+        ],
         name: "Academia Reto de 90 D\u00edas",
         tagline: "Reconstruye tu disciplina, tus h\u00e1bitos y tu psicolog\u00eda en 90 d\u00edas.",
         price: "14,500 DOP",
@@ -704,6 +752,12 @@ export const TRANSLATIONS = {
       },
       {
         id: "accelerator",
+        highlights: [
+          "Todo lo del Reto de 90 D\u00edas",
+          "Construye tu marca personal desde cero",
+          "Un sistema de contenido que s\u00ed puedes sostener",
+          "Convierte la audiencia en ingresos reales"
+        ],
         name: "Acelerador de Marca Personal y Negocios",
         tagline: "Todo el Reto de 90 D\u00edas m\u00e1s un plan para convertir tu pasi\u00f3n en ingresos.",
         price: "26,100 DOP",
@@ -721,6 +775,12 @@ export const TRANSLATIONS = {
       },
       {
         id: "inner-circle",
+        highlights: [
+          "Todo lo de los dos programas",
+          "Llamada privada 1-a-1 cada semana",
+          "L\u00ednea directa por WhatsApp con Baldo",
+          "Un plan de 90 d\u00edas escrito para tu vida"
+        ],
         name: "Mentor\u00eda \u00c9lite 1-a-1 (Inner Circle)",
         tagline: "M\u00e1xima rendici\u00f3n de cuentas. Un plan personalizado hecho contigo y para ti.",
         price: "55,100 DOP",

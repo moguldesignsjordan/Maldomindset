@@ -3932,124 +3932,189 @@ a.nav-dropdown-item {
 }
 
 /* ==========================================================================
-   ACADEMY: PROGRAM TRACKS
-   A prospectus rather than a pricing grid. Each program is a track: an
-   identity rail that stays with you while its curriculum is ruled out
-   alongside, and each track after the first opens by naming what it absorbs.
+   ACADEMY: ENROLLMENT
+   The film carries the promise, three cards carry the choice, and the full
+   curriculum waits one disclosure away.
    ========================================================================== */
-.academy-tracks-section {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  padding-bottom: 40px;
+.academy-hero,
+.academy-steps,
+.academy-choose {
+  --enroll-body: #b4b4b4;
+  --enroll-quiet: #9a9a9a;
 }
 
-.tracks-intro {
-  max-width: 60ch;
-  margin: 0 auto 56px;
+[data-theme="light"] .academy-hero,
+[data-theme="light"] .academy-steps,
+[data-theme="light"] .academy-choose {
+  --enroll-body: #4a4a4a;
+  --enroll-quiet: #5c5c5c;
+}
+
+/* --- Film --- */
+/* .section carries `margin: 0 auto`, which cancels the flex stretch and lets a
+   section shrink to its widest child. These sections lead with narrow text, so
+   they need an explicit width or the film collapses with them. */
+.academy-hero,
+.academy-steps,
+.academy-choose {
+  width: 100%;
+}
+
+.academy-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  padding-bottom: 24px;
+}
+
+.academy-hero-intro {
+  max-width: 44ch;
+  margin: 0 auto 32px;
   text-align: center;
 }
 
-.tracks-title {
+.academy-hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
   font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  line-height: 1.03;
+  letter-spacing: -0.03em;
   text-wrap: balance;
   margin: 0 0 14px;
 }
 
-.tracks-lead {
-  color: var(--track-body);
-  font-size: 1rem;
+.academy-hero-lead {
+  color: var(--enroll-body);
+  font-size: 1.02rem;
   line-height: 1.6;
   text-wrap: pretty;
   margin: 0;
 }
 
-/* Reading tones: the global secondary and muted greys fall below 4.5:1 on
-   these surfaces, so the section resolves its own from the same neutrals. */
-.academy-tracks-section,
-.academy-video-section {
-  --track-body: #b4b4b4;
-  --track-quiet: #9a9a9a;
+.academy-hero-film {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
 }
 
-[data-theme="light"] .academy-tracks-section,
-[data-theme="light"] .academy-video-section {
-  --track-body: #4a4a4a;
-  --track-quiet: #5c5c5c;
+.academy-hero-film iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
-.tracks {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  border-top: 1px solid var(--border-color);
+/* --- Section titles --- */
+.academy-section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-align: center;
+  text-wrap: balance;
+  margin: 0 0 40px;
 }
 
-/* --- One track --- */
-.track {
+/* --- Three beats --- */
+.academy-steps {
+  padding-top: 56px;
+  padding-bottom: 40px;
+}
+
+.steps-row {
+  list-style: none;
+  counter-reset: none;
+  padding: 0;
+  margin: 0;
   display: grid;
-  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
-  gap: 56px;
-  padding: 48px 0 52px;
-  border-bottom: 1px solid var(--border-color);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.steps-row li {
+  padding-top: 20px;
+  border-top: 2px solid var(--accent-primary);
   text-align: left;
 }
 
-/* The featured track is a held panel, not a tinted row */
-.track.featured {
-  position: relative;
-  padding-inline: 32px;
-  border-radius: 16px;
-  background: var(--bg-card);
-  box-shadow: 0 1px 0 var(--border-color), 0 24px 60px rgba(0, 0, 0, 0.28);
-}
-
-[data-theme="light"] .track.featured {
-  box-shadow: 0 1px 0 var(--border-color), 0 18px 44px rgba(0, 0, 0, 0.08);
-}
-
-/* --- Identity rail --- */
-.track-rail {
-  position: sticky;
-  top: 96px;
-  align-self: start;
-}
-
-.track-marker {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  margin-bottom: 18px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.track-index {
+.step-number {
+  display: block;
+  margin-bottom: 12px;
   font-family: var(--font-heading);
-  font-size: 2.6rem;
+  font-size: 0.8rem;
   font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.18em;
   color: var(--accent-primary);
   font-variant-numeric: tabular-nums;
 }
 
-.track-label {
-  font-size: 0.66rem;
+.steps-row h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-heading);
+  font-size: 1.12rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--track-quiet);
+  letter-spacing: -0.01em;
 }
 
-.track-flag {
+.steps-row p {
+  margin: 0;
+  color: var(--enroll-body);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+/* --- The choice --- */
+.academy-choose {
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.enroll-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+.enroll-card {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 26px 28px;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  background: var(--bg-card);
+  text-align: left;
+  transition: border-color var(--transition-normal), transform var(--transition-normal);
+}
+
+.enroll-card:hover {
+  border-color: var(--border-color-hover);
+  transform: translateY(-3px);
+}
+
+/* The recommended track is held forward rather than tinted */
+.enroll-card.featured {
+  border-color: var(--accent-primary);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .enroll-card.featured {
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.09);
+}
+
+.enroll-flag {
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   padding: 4px 10px;
   border-radius: 999px;
   background: var(--accent-primary);
@@ -4059,227 +4124,180 @@ a.nav-dropdown-item {
   letter-spacing: 0.1em;
 }
 
-.track-name {
+.enroll-name {
+  margin: 0 0 8px;
   font-family: var(--font-heading);
-  font-size: 1.45rem;
+  font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.01em;
   text-wrap: balance;
-  margin: 0 0 10px;
 }
 
-.track-tagline {
-  color: var(--track-body);
+.enroll-tagline {
+  margin: 0 0 22px;
+  color: var(--enroll-body);
   font-size: 0.9rem;
   line-height: 1.55;
   text-wrap: pretty;
-  margin: 0 0 22px;
 }
 
-.track-facts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 22px;
-  margin: 0 0 22px;
-}
-
-.track-facts dt {
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--track-quiet);
-  margin-bottom: 4px;
-}
-
-.track-facts dd {
-  margin: 0;
-  font-size: 0.86rem;
-  color: var(--text-primary);
-}
-
-.track-price {
+.enroll-price {
   display: flex;
   flex-direction: column;
   gap: 4px;
   margin: 0 0 20px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border-color);
   font-family: var(--font-heading);
-  font-size: 2.1rem;
+  font-size: 2.2rem;
   font-weight: 800;
   line-height: 1;
   color: var(--text-primary);
   font-variant-numeric: tabular-nums;
 }
 
-.track-price-note {
+.enroll-price-note {
   font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: 400;
-  color: var(--track-quiet);
+  color: var(--enroll-quiet);
 }
 
-.track-cta {
+.enroll-cta {
   width: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  margin-bottom: 24px;
 }
 
-.track-details-link {
-  display: block;
-  width: 100%;
-  margin-top: 12px;
-  padding: 0;
-  background: none;
-  border: none;
-  color: var(--track-quiet);
-  font-family: inherit;
-  font-size: 0.78rem;
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color var(--transition-fast);
-}
-
-.track-details-link:hover { color: var(--accent-primary); }
-
-/* --- Curriculum --- */
-.track-inherits {
-  margin: 0 0 26px;
-  padding: 12px 16px;
-  border-radius: 10px;
-  background: color-mix(in srgb, var(--accent-primary) 9%, transparent);
-  color: var(--text-primary);
-  font-size: 0.86rem;
-  line-height: 1.5;
-}
-
-.track-inherits strong { font-weight: 700; }
-
-.track-curriculum-label {
-  margin: 0 0 20px;
-  font-size: 0.66rem;
+.enroll-highlights-label {
+  margin: 0 0 12px;
+  font-size: 0.64rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--track-quiet);
+  color: var(--enroll-quiet);
 }
 
-.track-group + .track-group {
-  margin-top: 26px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border-color);
-}
-
-.track-group h5 {
-  margin: 0 0 14px;
-  font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: var(--accent-primary);
-}
-
-[data-theme="light"] .track-group h5 { color: #0b6d99; }
-
-.track-group ul {
+.enroll-highlights {
   list-style: none;
   padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px 28px;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
 }
 
-.track-group li {
+.enroll-highlights li {
   display: grid;
   grid-template-columns: 16px 1fr;
   gap: 11px;
   align-items: start;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   line-height: 1.5;
-  color: var(--track-body);
+  color: var(--text-primary);
 }
 
-.track-group li svg {
+.enroll-highlights svg {
   margin-top: 3px;
   color: var(--accent-primary);
 }
 
-.track-who {
-  margin: 30px 0 0;
-  padding-top: 20px;
-  border-top: 1px solid var(--border-color);
-  font-size: 0.82rem;
-  line-height: 1.5;
-  color: var(--track-quiet);
-  text-wrap: pretty;
+/* --- Curriculum disclosure --- */
+.enroll-disclosure {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--accent-primary);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
 }
 
-.tracks-footnote {
-  margin: 30px 0 0;
+[data-theme="light"] .enroll-disclosure { color: #0b6d99; }
+
+.enroll-disclosure svg { transition: transform var(--transition-fast); }
+
+.enroll-disclosure svg.open { transform: rotate(180deg); }
+
+.enroll-curriculum {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-color);
+}
+
+.enroll-curriculum section + section { margin-top: 18px; }
+
+.enroll-curriculum h4 {
+  margin: 0 0 10px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--enroll-quiet);
+}
+
+.enroll-curriculum ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.enroll-curriculum li {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 9px;
+  align-items: start;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--enroll-body);
+}
+
+.enroll-curriculum svg { margin-top: 3px; color: var(--enroll-quiet); }
+
+.enroll-details-link {
+  margin-top: 16px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--enroll-quiet);
+  font-family: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.enroll-details-link:hover { color: var(--accent-primary); }
+
+.enroll-footnote {
+  margin: 32px 0 0;
+  padding-bottom: 0;
   text-align: center;
   font-size: 0.8rem;
-  color: var(--track-quiet);
+  color: var(--enroll-quiet);
 }
 
-/* --- Video, subordinate to the tracks --- */
-.video-intro {
-  max-width: 900px;
-  margin: 0 auto 28px;
-  text-align: center;
-}
-
-.video-title {
-  font-family: var(--font-heading);
-  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  margin: 0 0 10px;
-}
-
-@media (max-width: 900px) {
-  .track {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 30px;
-    padding: 38px 0 42px;
-  }
-  .track.featured { padding-inline: 22px; }
-  .track-rail { position: static; }
-  .track-group ul { grid-template-columns: minmax(0, 1fr); }
-  .track-cta { max-width: 340px; }
-  .track-details-link { max-width: 340px; text-align: left; }
+@media (max-width: 980px) {
+  .steps-row { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .enroll-cards { grid-template-columns: minmax(0, 1fr); max-width: 520px; margin: 0 auto; }
+  .enroll-card:hover { transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .track-details-link { transition: none; }
-}
-
-/* What this track adds over the one before it, so the ladder is legible
-   without making the reader diff two lists themselves. */
-.track-group li.is-new {
-  color: var(--text-primary);
-}
-
-.track-new-tag {
-  display: inline-block;
-  margin-left: 8px;
-  padding: 1px 6px;
-  border: 1px solid var(--accent-primary);
-  border-radius: 4px;
-  color: var(--accent-primary);
-  font-size: 0.58rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  vertical-align: 1px;
-  white-space: nowrap;
-}
-
-[data-theme="light"] .track-new-tag {
-  border-color: #0b6d99;
-  color: #0b6d99;
+  .enroll-card, .enroll-disclosure svg { transition: none; }
+  .enroll-card:hover { transform: none; }
 }

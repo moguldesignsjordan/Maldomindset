@@ -133,7 +133,6 @@ function AppShell() {
       {/* Header / Navbar */}
       <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <a className="nav-home-brand" {...linkTo('home')}>
-          <span className="brand-mark" aria-hidden="true">B</span>
           <span className="brand-word">{t.brand}</span>
         </a>
 

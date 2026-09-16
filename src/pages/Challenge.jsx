@@ -38,6 +38,9 @@ export default function Challenge({ navigateToView, language = 'en' }) {
             <p className="academy-lead-text">
               {t.learnLead}
             </p>
+            <div className="academy-includes">
+              <h4>{t.learnBenefitsHeader}</h4>
+            </div>
             <ul className="academy-benefits-list">
               {t.benefits.map((benefit, index) => (
                 <li key={index}>
@@ -72,7 +75,6 @@ export default function Challenge({ navigateToView, language = 'en' }) {
                 <span className="pricing-label">{t.investmentLabel}</span>
                 <div className="pricing-digits">
                   <span className="current-price">{t.priceCurrent} <span className="currency">{t.priceCurrency}</span></span>
-                  <span className="original-price">{t.priceOriginal}</span>
                 </div>
                 <p className="pricing-guarantee">{t.pricingGuarantee}</p>
               </div>

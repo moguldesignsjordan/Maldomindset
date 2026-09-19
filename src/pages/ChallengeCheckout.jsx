@@ -18,6 +18,7 @@ const CHALLENGE_TIER = 'mindset';
 export default function ChallengeCheckout({ navigateToView, checkoutForm, setCheckoutForm, language = 'en' }) {
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [paypalError, setPaypalError] = useState(null);
+  const [couponCode, setCouponCode] = useState('');
 
   const t = TRANSLATIONS[language];
   const challenge = t.programs.find((p) => p.id === CHALLENGE_TIER);
@@ -99,6 +100,18 @@ export default function ChallengeCheckout({ navigateToView, checkoutForm, setChe
                 />
               </div>
 
+              <div className="input-group">
+                <label htmlFor="challenge-coupon">{language === 'es' ? 'Código de cupón' : 'Coupon code'}</label>
+                <input
+                  type="text"
+                  id="challenge-coupon"
+                  name="couponCode"
+                  value={couponCode}
+                  onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+                  placeholder={language === 'es' ? 'Opcional' : 'Optional'}
+                />
+              </div>
+
               <div className="paypal-instruction-box">
                 <p>
                   {language === 'es'
@@ -124,13 +137,13 @@ export default function ChallengeCheckout({ navigateToView, checkoutForm, setChe
                 <PayPalButtons
                   style={{ layout: 'vertical', color: 'gold', shape: 'rect', label: 'pay' }}
                   disabled={!checkoutForm.name || !checkoutForm.email}
-                  forceReRender={[checkoutForm.name, checkoutForm.email]}
+                  forceReRender={[checkoutForm.name, checkoutForm.email, couponCode]}
                   createOrder={async () => {
                     setPaypalError(null);
                     const response = await fetch('/api/paypal/create-order', {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({ tier: CHALLENGE_TIER }),
+                      body: JSON.stringify({ tier: CHALLENGE_TIER, couponCode }),
                     });
                     const order = await response.json();
                     if (!response.ok) throw new Error(order.error || 'Failed to create order');

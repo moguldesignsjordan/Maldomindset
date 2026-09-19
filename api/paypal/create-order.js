@@ -1,16 +1,18 @@
-import { getAccessToken, PAYPAL_API_BASE, TIER_PRICES, TIER_LABELS } from '../_paypal.js';
+import { getAccessToken, PAYPAL_API_BASE, TIER_PRICES, TIER_LABELS, applyCoupon } from '../_paypal.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { tier } = req.body || {};
-  const amount = TIER_PRICES[tier];
+  const { tier, couponCode } = req.body || {};
+  const baseAmount = TIER_PRICES[tier];
 
-  if (!amount) {
+  if (!baseAmount) {
     return res.status(400).json({ error: 'Invalid tier' });
   }
+
+  const amount = applyCoupon(baseAmount, couponCode);
 
   try {
     const accessToken = await getAccessToken();

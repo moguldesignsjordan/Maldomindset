@@ -13,6 +13,17 @@ export const TIER_LABELS = {
   'inner-circle': 'BaldoMindset Academy - Elite 1-on-1 Mentorship (Inner Circle)',
 };
 
+// Server-side source of truth for coupon discounts — never trust a discount sent from the client.
+export const COUPONS = {
+  TEST98: 0.98,
+};
+
+export function applyCoupon(amount, couponCode) {
+  const discount = COUPONS[couponCode];
+  if (!discount) return amount;
+  return (parseFloat(amount) * (1 - discount)).toFixed(2);
+}
+
 export async function getAccessToken() {
   const auth = Buffer.from(
     `${process.env.PAYPAL_CLIENT_ID}:${process.env.PAYPAL_CLIENT_SECRET}`

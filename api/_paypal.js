@@ -2,7 +2,7 @@ export const PAYPAL_API_BASE = process.env.PAYPAL_API_BASE || 'https://api-m.san
 
 // Server-side source of truth for tier pricing — never trust an amount sent from the client.
 export const TIER_PRICES = {
-  mindset: '250.00',
+  mindset: '99.00',
   accelerator: '450.00',
   'inner-circle': '950.00',
 };

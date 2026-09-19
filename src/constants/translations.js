@@ -193,10 +193,10 @@ export const TRANSLATIONS = {
       "My complete blueprint to accelerate your results"
     ],
     investmentLabel: "INVESTMENT",
-    priceCurrent: "$250",
+    priceCurrent: "$99",
     priceCurrency: "USD",
     priceOriginal: "$1,000 USD",
-    pricingGuarantee: "A $1,000 value, yours today for just $250. Limited spots available.",
+    pricingGuarantee: "A $1,000 value, yours today for just $99. Limited spots available.",
     applyCtaBtn: "Apply For The Challenge",
 
     // All Programs
@@ -267,7 +267,7 @@ export const TRANSLATIONS = {
         ],
         name: "90-Day Challenge Academy",
         tagline: "Rebuild your discipline, habits and psychology in 90 days.",
-        price: "$250",
+        price: "$99",
         priceNote: "one-time \u00b7 was $1,000",
         duration: "90 days",
         format: "Group",
@@ -416,7 +416,7 @@ export const TRANSLATIONS = {
     checkoutDesc: "Select your program options and secure enrollment to begin the 90-Day Challenge.",
     billingHeader: "Select Program Inclusions",
     billingTier1: "90-Day Academy Access",
-    billingTier1Price: "$250 USD",
+    billingTier1Price: "$99 USD",
     billingTier1Detail: "Includes weekly live mentorship, templates, and community access.",
     billingTier2: "Premium 1-on-1 Mentorship Bundle",
     billingTier2Price: "$450 USD",
@@ -647,10 +647,10 @@ export const TRANSLATIONS = {
       "Mi mapa de ruta completo para acelerar tus resultados"
     ],
     investmentLabel: "INVERSIÓN",
-    priceCurrent: "$250",
+    priceCurrent: "$99",
     priceCurrency: "USD",
     priceOriginal: "$1,000 USD",
-    pricingGuarantee: "Un valor de $1,000 USD, tuyo hoy por solo $250 USD. Cupos limitados.",
+    pricingGuarantee: "Un valor de $1,000 USD, tuyo hoy por solo $99 USD. Cupos limitados.",
     applyCtaBtn: "Aplicar al Reto",
 
     // Todos los Programas
@@ -721,7 +721,7 @@ export const TRANSLATIONS = {
         ],
         name: "Academia Reto de 90 D\u00edas",
         tagline: "Reconstruye tu disciplina, tus h\u00e1bitos y tu psicolog\u00eda en 90 d\u00edas.",
-        price: "$250",
+        price: "$99",
         priceNote: "pago \u00fanico \u00b7 antes $1,000",
         duration: "90 d\u00edas",
         format: "Grupal",
@@ -870,7 +870,7 @@ export const TRANSLATIONS = {
     checkoutDesc: "Selecciona las opciones de tu programa y asegura tu cupo para comenzar el Reto de 90 Días.",
     billingHeader: "Selecciona Incluidos del Programa",
     billingTier1: "Acceso a la Academia 90 Días",
-    billingTier1Price: "$250 USD",
+    billingTier1Price: "$99 USD",
     billingTier1Detail: "Incluye mentorías grupales semanales en vivo, plantillas y acceso a la comunidad.",
     billingTier2: "Paquete de Mentoría Privada 1-a-1",
     billingTier2Price: "$450 USD",

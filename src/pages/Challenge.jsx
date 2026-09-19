@@ -38,6 +38,7 @@ export default function Challenge({ navigateToView, language = 'en' }) {
             <p className="academy-lead-text">
               {t.learnLead}
             </p>
+            <h4 className="academy-learn-question">{t.learnQuestion}</h4>
             <ul className="academy-benefits-list">
               {t.benefits.map((benefit, index) => (
                 <li key={index}>

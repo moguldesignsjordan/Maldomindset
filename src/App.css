@@ -2478,6 +2478,12 @@ main.page-transition {
   color: var(--text-primary);
 }
 
+.academy-learn-question {
+  font-size: 18px;
+  margin: 20px 0 16px;
+  color: var(--text-primary);
+}
+
 .includes-list {
   list-style: none;
   display: flex;

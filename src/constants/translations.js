@@ -171,15 +171,17 @@ export const TRANSLATIONS = {
 
     // Academy Page
     academyTitle: "90-Day Challenge",
-    academyDesc: "An elite, structured accelerator designed to help you break plateaus, reprogram your psychology, and build physical and financial leverage.",
-    learnHeader: "Create The Life You Desire",
-    learnLead: "Are you ready to break your limits, transform your habits, and become the person you want to be? Over these 90 days, you will learn to:",
+    academyDesc: "Over 90 days you'll work on yourself to transform your mindset, habits, discipline and lifestyle.",
+    learnHeader: "WAKE UP AND HACK YOUR REALITY.",
+    learnLead: "Over 90 days you'll work on yourself to transform your mindset, habits, discipline and lifestyle.",
+    learnQuestion: "What will you receive?",
     benefits: [
-      { bold: "Eliminate your vices:", normal: "Break the patterns at the root." },
-      { bold: "Develop discipline:", normal: "Learn to be consistent, even without motivation." },
-      { bold: "Reprogram your mind:", normal: "Change the way you think and create a new reality." },
-      { bold: "Transform yourself completely:", normal: "Strengthen your mind, body, and habits." },
-      { bold: "Create the person you admire:", normal: "Become who you want to be." }
+      { bold: "Discover Nikola Tesla's 369 Method:", normal: "Learn the secrets behind the famous 369 Method and how to bring it into your personal transformation process." },
+      { bold: "Create the person you admire and respect:", normal: "Build a new identity." },
+      { bold: "Eliminate your vices:", normal: "Break the habits and patterns holding you back." },
+      { bold: "Reprogram your mind:", normal: "Change your beliefs and create the life you want." },
+      { bold: "Learn real discipline:", normal: "Develop self-mastery and solid habits." },
+      { bold: "Wake up — hack your reality:", normal: "Raise your awareness and take control of your life." }
     ],
     learnClosing: "90 DAYS TO CHANGE YOUR LIFE.",
     // Academy Video Section
@@ -625,15 +627,17 @@ export const TRANSLATIONS = {
 
     // Academy Page
     academyTitle: "El Reto de 90 Días",
-    academyDesc: "Un acelerador estructurado de élite diseñado para ayudarte a romper mesetas, reprogramar tu psicología y construir apalancamiento físico y financiero.",
-    learnHeader: "Crea la Vida que Deseas",
-    learnLead: "¿Estás listo para romper tus límites, transformar tus hábitos y convertirte en la persona que quieres ser? Durante estos 90 días, aprenderás a:",
+    academyDesc: "Durante 90 días vas a trabajar en ti para transformar tu mente, hábitos, disciplina y estilo de vida.",
+    learnHeader: "DESPIERTA Y HACKEA TU REALIDAD.",
+    learnLead: "Durante 90 días vas a trabajar en ti para transformar tu mente, hábitos, disciplina y estilo de vida.",
+    learnQuestion: "¿Qué vas a recibir?",
     benefits: [
-      { bold: "Eliminar tus vicios:", normal: "Rompe los patrones desde la raíz." },
-      { bold: "Desarrollar disciplina:", normal: "Aprende a ser constante, incluso sin motivación." },
-      { bold: "Reprogramar tu mente:", normal: "Cambia tu forma de pensar y crea una nueva realidad." },
-      { bold: "Transformarte integralmente:", normal: "Fortalece tu mente, cuerpo y hábitos." },
-      { bold: "Crear la persona que admiras:", normal: "Conviértete en quien quieres ser." }
+      { bold: "Descubre el Método 369 de Nikola Tesla:", normal: "Aprende los secretos detrás del famoso Método 369 y cómo incorporarlo a tu proceso de transformación personal." },
+      { bold: "Crea la persona que admiras y respetas:", normal: "Construye una nueva identidad." },
+      { bold: "Elimina tus vicios:", normal: "Rompe hábitos y patrones que te limitan." },
+      { bold: "Reprograma tu mente:", normal: "Cambia tus creencias y crea la vida que deseas." },
+      { bold: "Aprende disciplina real:", normal: "Desarrolla dominio propio y hábitos sólidos." },
+      { bold: "Despierta — hackea tu realidad:", normal: "Eleva tu conciencia y toma el control de tu vida." }
     ],
     learnClosing: "90 DÍAS PARA CAMBIAR TU VIDA.",
     // Academy Video Section

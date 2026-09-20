@@ -15,6 +15,12 @@ const PAYPAL_OPTIONS = {
 // This checkout only ever sells the 90-Day Challenge.
 const CHALLENGE_TIER = 'mindset';
 
+// Display-only mirror of the discounts api/_paypal.js applies server-side.
+// The server is still the source of truth for the actual charge.
+const COUPON_DISCOUNTS = {
+  TEST98: 0.98,
+};
+
 export default function ChallengeCheckout({ navigateToView, checkoutForm, setCheckoutForm, language = 'en' }) {
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [paypalError, setPaypalError] = useState(null);
@@ -22,6 +28,11 @@ export default function ChallengeCheckout({ navigateToView, checkoutForm, setChe
 
   const t = TRANSLATIONS[language];
   const challenge = t.programs.find((p) => p.id === CHALLENGE_TIER);
+
+  const discount = COUPON_DISCOUNTS[couponCode];
+  const displayPrice = discount
+    ? `$${(parseFloat(challenge.price.replace(/[^0-9.]/g, '')) * (1 - discount)).toFixed(2)}`
+    : challenge.price;
 
   const handleCheckoutChange = (e) => {
     const { name, value } = e.target;
@@ -128,7 +139,7 @@ export default function ChallengeCheckout({ navigateToView, checkoutForm, setChe
                 </div>
                 <div className="summary-row total-row">
                   <span>{language === 'es' ? 'Total a Pagar:' : 'Total Due:'}</span>
-                  <span className="summary-total-price">{challenge.price}</span>
+                  <span className="summary-total-price">{displayPrice}</span>
                 </div>
               </div>
 
